@@ -98,20 +98,7 @@
 \makeglossaries
 
 % -- Specify citation style (Harvard method: Author + Year abbreviation) %
-\bibliographystyle{plainnat}
-
-% -- PDF Options
-up{
-	bookmarksopen=false,
-	bookmarksnumbered=true,
-	bookmarksopenlevel=0,
-	pdftitle=\myTopic,
-	pdfsubject=\myTopic,
-	pdfauthor=\myAutor,
-	pdfborder=0,
-	pdfstartview=Fit,
-	pdfpagelayout=SinglePage
-}
+% \bibliographystyle{plainnat}
 
 % -- Header and footer
 \pagestyle{fancy}
@@ -173,7 +160,7 @@ up{
     {\Large Capabilities and Limitations}\\
     
     \vspace{4cm}
-    \includegraphics[width=0.3\textwidth]{dhwb_logo.png}
+    \includegraphics[width=0.3\textwidth]{ressources/illustrations/dhwb_logo.png}
     \vspace{2cm}
     
     {Francisco Rodriguez Müller, on \today}
@@ -209,8 +196,7 @@ up{
 	\pagestyle{fancy}
 	\fancyhead[L]{\nouppercase{\rightmark}}
 	\pagenumbering{arabic}
-	\include{Chapter/01_Introduction}
-		
+	\include{sections/1-Introduction}
 	%  -- Appendix
 	\renewcommand{\thetable}{\Alph{section}.\arabic{table}}              % Table numbering with section
 	\renewcommand{\thefigure}{\Alph{section}.\arabic{figure}}            % Figure numbering with section
@@ -229,7 +215,7 @@ up{
 		\Huge\bf Declaration of Authenticity\\
 		\vspace*{3cm}
 		\normalsize\rm
-		I hereby declare that I have independently written my \ifcase\myType seminar paper \or project report \or bachelor's thesis\else\fi ~with the topic\\
+			I hereby declare that I have independently written my \ifcase\myType seminar paper \or project report \or bachelor's thesis\else\fi ~with the topic\\
 		\vspace*{2cm}
 		\Large\textbf{A Review of the Literature on Generative Agents}: Capabilities and Limitations \\
 		\vspace*{2cm}
