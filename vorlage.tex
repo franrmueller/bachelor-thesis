@@ -1,120 +1,33 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                                                         %%
-%%                  LaTeX Template for the Students of                     %%
-%%    Duale Hochschule Baden-Württemberg Ravensburg                        %%
-%%                                                                         %%
-%%  The template is based on the design guidelines of the DHBW RV          %%
-%%                                                                         %%
-%%                                                                         %%
-%% Creator:         Markus Schutz (WI06)                                   %%
-%% Last modified:   November 26, 2013                                      %%
-%%                                                                         %%
-%%                                                                         %%
-%% Important note on using this template:                                  %%
-%%                                                                         %%
-%% For the template to be used and the PDF to be generated correctly and   %%
-%% completely, a manual call to makeindex is required. These can optionally%%
-%% be set up directly in the editor.                                       %%
-%% TeXnicCenter (Output -> Define output profiles... (Alt + F7)            %%
-%%               LaTeX => PDF -> Postprocessing)                           %%
-%%                                                                         %%
-%% (1) Keyword index (if used)                                             %%
-%% makeindex -g -s styles\stichwortverzeichnis.ist template                %%
-%% (2) Abbreviations index                                                 %%
-%% makeindex template.nlo -s nomencl.ist -o template.nls                   %%
-%% (3) Glossary (if used)                                                  %%
-%% makeindex -s template.ist -t template.glg -o template.gls template.glo  %%
-%%                                                                         %%
-%% When generating the PDF file (using the LaTeX => PDF output profile)    %%
-%% the abbreviations index, keyword index, and glossary are now generated  %%
-%% correctly. When using TeXnicCenter, there may be issues with automated  %%
-%% calls to makeindex. A manual call always works.                         %%
-%%                                                                         %%
-%% Important note:                                                         %%
-%%                                                                         %%
-%% Do not make changes to the files in the "pages" directory. For the work,%%
-%% all changes refer to this file and the files in the "chapter" directory.%%
-%% For creating the bibliography, it is recommended to use JabRef          %%
-%% (http://jabref.sourceforge.net). The file should be saved under the name%%
-%% literature.bib in the "literature" directory.                           %%
-%%                                                                         %%
-%% To make sensible use of this template, it is recommended to read the    %%
-%% documentation for the included packages. They can be found in the doc   %%
-%% directory of the MiKTeX installation.                                   %%
-%%                                                                         %%
-%% Included title pages:                                                   %%
-%%   - Seminar paper                                                       %%
-%%   - Project report                                                      %%
-%%   - Bachelor's thesis                                                   %%
-%%                                                                         %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\documentclass[a4paper,12pt]{article}                                         % Font size, layout, paper format, document type
-\usepackage[left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm,includehead]{geometry}      % Page margin settings
-%\usepackage{ngerman}                                                          % New German orthography
-\usepackage[english]{babel}                                                   % English hyphenation
-\usepackage[utf8]{inputenc}                                                   % Umlauts
-\usepackage[hyperfootnotes=false]{hyperref}                                   % PDF output [do not link footnotes]
-\usepackage[nottoc]{tocbibind}                                                % Table of contents extension (hide TOC itself)
-\usepackage{makeidx}                                                          % Index
-\usepackage[intoc]{nomencl}                                                   % Abbreviations index
-\usepackage{fancyhdr}  % Fancy Header
-%\usepackage[round]{natbib}
+\documentclass[a4paper,12pt]{article}                                         			% Font size, layout, paper format, document type
+\usepackage[left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm,includehead]{geometry}    % Page margin settings
+\usepackage[english]{babel}                                                   			% English hyphenation
+\usepackage[utf8]{inputenc}                                                   			
+\usepackage[hyperfootnotes=false]{hyperref}                                   			% PDF output [do not link footnotes]
+\usepackage[nottoc]{tocbibind}                                                			% Table of contents extension (hide TOC itself)
+\usepackage{makeidx}                                                          			% Index
+\usepackage[intoc]{nomencl}                                                   			% Abbreviations index
+\usepackage{fancyhdr}  																	% Fancy Header
 \usepackage{csquotes}
 \usepackage[style=apa, backend=biber]{biblatex}
 \DeclareLanguageMapping{english}{english-apa}
-%\bibliographystyle{plainnat}
 \addbibresource{literatur/References.bib}
-\usepackage{amsmath}                                                          % Reset table and figure numbering per section
-\usepackage[labelfont=bf,aboveskip=1mm]{caption}                              % Figure and table captions (bold)
-\usepackage{setspace}                                                         % Line spacing (load before footmisc!)
-\usepackage[bottom,multiple,hang,marginal]{footmisc}                          % Footnotes [align at bottom, separate by separator for multiple footnotes]
+\usepackage{amsmath}                                                          			% Reset table and figure numbering per section
+\usepackage[labelfont=bf,aboveskip=1mm]{caption}                              			% Figure and table captions (bold)
+\usepackage{setspace}                                                         			% Line spacing (load before footmisc!)
+\usepackage[bottom,multiple,hang,marginal]{footmisc}                          			% Footnotes [align at bottom, separate by separator for multiple footnotes]
 \usepackage{graphicx}  % Graphics
 \usepackage{pdfpages}
-\usepackage{tabularx}                                                         % Extended tables
-\usepackage{longtable}                                                        % Multi-page tables
-\usepackage{color}                                                            % Colors
-\usepackage{enumitem}                                                         % Command setlist (set line spacing for itemize environment to 1)
-\usepackage{listings}                                                         % Source code
-\usepackage{zref}                                                        % References (appendix references)
-\usepackage[toc,style=altlist,translate=false]{glossaries}                    % Glossary (after hyperref, inputenc, babel, and ngerman)
-\usepackage{glossaries-babel}                                                 % Glossary: translation in TOC
+\usepackage{tabularx}                                                         			% Extended tables
+\usepackage{longtable}                                                        			% Multi-page tables
+\usepackage{color}                                                            			% Colors
+\usepackage{enumitem}                                                         			% Command setlist (set line spacing for itemize environment to 1)
+\usepackage{listings}                                                         			% Source code
+\usepackage{zref}                                                        				% References (appendix references)
+\usepackage[toc,style=altlist,translate=false]{glossaries}                    			% Glossary (after hyperref, inputenc, babel)
+\usepackage{glossaries-babel}                                                 			% Glossary: translation in TOC
 \usepackage{svg}
 \usepackage{float}
 \usepackage{appendix}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                                                         %%
-%% \/   \/      Please make changes to the work below            \/   \/ %%
-%%                                                                         %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%% Definitions regarding the work %%%%%%%%%%%%%%%%%%%%%%%
-\def\myType{1}           % [0=Seminar paper|1=Project report|2=Bachelor's thesis]
-
-\def\myTopic{}
-\def\mySubTopic{}
-\def\myAutor{Francisco Rodriguez Müller}
-\def\matrikelnr{2775857}
-\newcommand{\kurs}{RV-WWIBE122}
-\def\myCompany{All for One Group SE}
-\def\myCompanyAddressStreet{Danziger Straße 7}
-\def\myCompanyAddressCity{88250 Weingarten}
-\def\myProf{Prof. Dr. Frank Lehmann}
-\def\myEndDate{30.09.2024}
-
-%%%%%%%%%%%%%%%%%%%% Following information for: Seminar paper %%%%%%%%%%%%%%%%%%%%
-\def\myVorlesung{Lecture Name}
-
-%%%%%%%%%%%%%%%%%%%% Following information for: Project report %%%%%%%%%%%%%%%%%%%%
-\def\myProjNumber{2}         % [1|2]
-\def\myPraxPhase{2}          % [1|2|3]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                                                         %%
-%% /\   /\         Do not make changes above this point            /\   /\ %%
-%%                                                                         %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%% Define custom colors %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \definecolor{boxgray}{gray}{0.9}         % Background color for quote boxes
@@ -186,10 +99,7 @@
 % Specify citation style (Harvard method: Author + Year abbreviation) %
 %\bibliographystyle{plainnat}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PDF Options %%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%
-\hypersetup{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PDF Optionsup{
 	bookmarksopen=false,
 	bookmarksnumbered=true,
 	bookmarksopenlevel=0,
@@ -201,13 +111,13 @@
 	pdfpagelayout=SinglePage
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%% Header and footer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header and footer
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[R]{\thepage}                         % Header right or outer
 \renewcommand{\headrulewidth}{0.5pt}            % Header right or outer
 
-%%%%%%%%%%%%%%%%%%%%%%%%% Layout and captions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Layout and captions
 \onehalfspacing                % Line spacing: 1.5 (default: 1.2)
 \setlist{noitemsep}            % Set line spacing for items to 1
 
@@ -223,7 +133,7 @@
 
 \renewcommand{\multfootsep}{, }                             % Separate multiple footnotes with ", "
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Listing style %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Listing style
 \lstset{
 	basicstyle=\ttfamily\scriptsize,
 	commentstyle=\color{commentgray}\textit,
@@ -244,14 +154,9 @@
 	breaklines=true,
 	aboveskip=16pt
 }
-        
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                                                         %%
-%% \/   \/      Please make changes to the work below            \/   \/ %%
-%%                                                                         %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
 
-% Include pages and chapters
+% Cover
 \begin{document}
 	\pagenumbering{Roman}
     \begin{titlepage}
