@@ -1,5 +1,6 @@
 % -- Import Packages
-\documentclass[a4paper,12pt]{article}                                         			% Font size, layout, paper format, document type
+\documentclass[12pt,a4paper]{article}
+\newcommand{\myType}{0} % 0=seminar paper, 1=project report, 2=bachelor's thesis
 \usepackage[left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm,includehead]{geometry}    % Page margin settings
 \usepackage[english]{babel}                                                   			% English hyphenation
 \usepackage[utf8]{inputenc}                                                   			
@@ -196,7 +197,7 @@
 	\pagestyle{fancy}
 	\fancyhead[L]{\nouppercase{\rightmark}}
 	\pagenumbering{arabic}
-	\include{sections/1-Introduction}
+	\include{body}
 	%  -- Appendix
 	\renewcommand{\thetable}{\Alph{section}.\arabic{table}}              % Table numbering with section
 	\renewcommand{\thefigure}{\Alph{section}.\arabic{figure}}            % Figure numbering with section
@@ -262,3 +263,4 @@
 	% \begin{appendix}
     %     \includepdf{pages/24_02_21_Formular Hilfsmittelangabe KI_Wirtschaft.pdf}
 	% \end{appendix}
+\end{document}
