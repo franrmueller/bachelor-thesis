@@ -6,9 +6,9 @@
 \usepackage[utf8]{inputenc}                                                   			
 \usepackage[hyperfootnotes=false]{hyperref}                                   			% PDF output [do not link footnotes]
 \usepackage[nottoc]{tocbibind}                                                			% Table of contents extension (hide TOC itself)
-\usepackage{makeidx}                                                          			% Index
 \usepackage[intoc]{nomencl}                                                   			% Abbreviations index
-\usepackage{fancyhdr}  																	% Fancy Header
+\usepackage{fancyhdr}
+\setlength{\headheight}{14.5pt}  																	% Fancy Header
 \usepackage{csquotes}
 \usepackage[style=apa, backend=biber]{biblatex}
 \DeclareLanguageMapping{english}{english-apa}
@@ -25,8 +25,6 @@
 \usepackage{enumitem}                                                         			% Command setlist (set line spacing for itemize environment to 1)
 \usepackage{listings}                                                         			% Source code
 \usepackage{zref}                                                        				% References (appendix references)
-\usepackage[toc,style=altlist,translate=false]{glossaries}                    			% Glossary (after hyperref, inputenc, babel)
-\usepackage{glossaries-babel}                                                 			% Glossary: translation in TOC
 \usepackage{svg}
 \usepackage{float}
 \usepackage{appendix}
@@ -93,11 +91,6 @@
 	\label{#2}
 }
 
-% -- Generate index, abbreviations list, and glossary
-\makeindex
-\makenomenclature
-\makeglossaries
-
 % -- Header and footer
 \pagestyle{fancy}
 \fancyhf{}
@@ -117,7 +110,6 @@
 \renewcommand{\thetable}{\arabic{section}.\arabic{table}}   % Table numbering with section
 \renewcommand{\thefigure}{\arabic{section}.\arabic{figure}} % Figure numbering with section
 \renewcommand{\thefootnote}{\arabic{footnote}}              % Remove section label from footnotes
-
 \renewcommand{\multfootsep}{, }                             % Separate multiple footnotes with ", "
 
 % -- Listing style
@@ -141,57 +133,58 @@
 	breaklines=true,
 	aboveskip=16pt
 }
-    
+
+% -- Variables
+\newcommand{\myName}{Francisco Rodriguez Müller}
+\newcommand{\myHighSchool}{Duale Hochschule Baden-Württemberg}
+\newcommand{\myCompany}{All for One Group SE}
+\newcommand{\myCompanyAddress}{Danzigerstraße 7, 88250 Weingarten}
+\newcommand{\mySupervisor}{Prof. Dr. Paul Kirchberg}
+\newcommand{\myTitle}{Operational Excellence in Finance}
+\newcommand{\mySubtitle}{Addressing Legacy System Inefficiencies in German Financial Institutions Through SAP BTP}
 
 % -- Document
 \begin{document}
-	
 	% -- Cover
-	\pagenumbering{Roman}
     \begin{titlepage}
-    \centering
-    \vspace*{2cm}
-    {\Huge \textbf{A Review of the Literature}}\\
-    \vspace{0.5cm}
-    {\Huge\textbf{on Generative Agents:}}\\
-    \vspace{1cm}
-    {\Large Capabilities and Limitations}\\
-    
-    \vspace{4cm}
-    \includegraphics[width=0.3\textwidth]{ressources/illustrations/dhwb_logo.png}
-    \vspace{2cm}
-    
-    {Francisco Rodriguez Müller, on \today}
-    \vspace{2cm}\\
-    {Matriculation Number: 2775857, Course: {RV-WWIBE122}}\\
-    {\small Supervisor: {Prof. Dr. Michael Bächle} \\ Modul: {Integrationsseminar}}\\
+		\noindent
+		\begin{tabularx}{\textwidth}{@{}l|X@{}}
+			\includegraphics[width=0.5 \textwidth]{ressources/illustrations/dhwb_logo.png} &
+			\begin{minipage}[t]{0.48\textwidth}
+				\raggedright
+				\Large \textbf{\myTitle} \\
+				\vspace{0.5cm}
+				\normalsize \mySubtitle
+			\end{minipage}
+		\end{tabularx}
+		
+		\vfill
+		\centering
+		Wirtschaftsinformatik – Business Engineering\\
+		Duale Hochschule Baden-Württemberg\\
+		Ravensburg
 
-    \vfill
-    {Wirtschaftsinformatik - Business Engineering}\\
-    {Duale Hochschule Baden-Württemberg}\\
-    {Ravensburg}
-    \end{titlepage}
-	\pagestyle{fancy}
-
+		\vfill
+		\raggedright
+			\myName on \today \\
+			Mat. Nr.: 2775857, Course: RV-WWIBE122 \\
+			Supervisor: \mySupervisor
+	\end{titlepage}
+	
 	% -- ToC --
 	\tableofcontents
 	\newpage
 
-	% -- Index
-	% \renewcommand{\indexname}{index}
-	% \printindex
-	% \newpage
-
 	% -- List of Abbreviations
-	% \renewcommand{\nomname}{List of Abbreviations}
-	% \setlength{\nomlabelwidth}{.25\hsize}
-	% \renewcommand{\nomlabel}[1]{#1 \dotfill}
-	% \setlength{\nomitemsep}{-\parsep}
-	% \printnomenclature
-	% \newpage
+	\makenomenclature
+	\renewcommand{\nomname}{List of Abbreviations}
+	\setlength{\nomlabelwidth}{.25\hsize}
+	\renewcommand{\nomlabel}[1]{#1 \dotfill}
+	\setlength{\nomitemsep}{-\parsep}
+	\printnomenclature
+	\newpage
 
 	% -- Sections
-	\pagestyle{fancy}
 	\fancyhead[L]{\nouppercase{\rightmark}}
 	\pagenumbering{arabic}
 	\include{body}
@@ -212,9 +205,9 @@
 		\Huge\bf Declaration of Authenticity\\
 		\vspace*{3cm}
 		\normalsize\rm
-			I hereby declare that I have independently written my \ifcase\myType seminar paper \or project report \or bachelor's thesis\else\fi ~with the topic\\
+			I hereby declare that I have independently written my bachelor's thesis with the topic\\
 		\vspace*{2cm}
-		\Large\textbf{A Review of the Literature on Generative Agents}: Capabilities and Limitations \\
+		\Large\textbf{\myTitle}: \mySubtitle \\
 		\vspace*{2cm}
 		\normalsize\rm
 		and that I have not used any sources or aids other than those indicated.\\
@@ -228,24 +221,24 @@
 	\end{center}
 	
 	% -- Non-Disclosure Declaration
-	% \begin{center}
-	% 	\vspace*{1cm}
-	% 	\Huge\bf Non-Disclosure Clause\\
-	% 	\vspace*{2cm}
-	% 	\normalsize\rm
-	% 	\begin{quotation}
-	% 		\parbox{0.8\textwidth}{The present \ifcase\myType seminar paper \or project report \or bachelor thesis\else\fi ~contains internal confidential information of the company \myCompany, \myCompanyAddressStreet, \myCompanyAddressCity. The dissemination of the content of the work in whole or in part is strictly prohibited. No copies or transcripts - including digital forms - may be made. Exceptions require the written approval of the company \myCompany, \myCompanyAddressStreet, \myCompanyAddressCity.}
-	% 	\end{quotation}
-	% 	\vspace*{1cm}
-	% 	\begin{quotation}
-	% 	  \parbox{0.8\textwidth}{
-	% 	  \begin{tabularx}{0.78\textwidth}{l@{\extracolsep\fill}l}
-	% 			\rule{4cm}{0.3mm}&\rule{4cm}{0.3mm}\\
-	%     	Place, Date&Signature
-	% 		\end{tabularx}}
-	% 	\end{quotation}
-	% \end{center}
-	% \newpage
+	\begin{center}
+		\vspace*{1cm}
+		\Huge\bf Non-Disclosure Clause\\
+		\vspace*{2cm}
+		\normalsize\rm
+		\begin{quotation}
+			\parbox{0.8\textwidth}{The present bachelor's thesis contains internal confidential information of the company \myCompany, \myCompanyAddress. The dissemination of the content of the work in whole or in part is strictly prohibited. No copies or transcripts - including digital forms - may be made. Exceptions require the written approval of the company \myCompany, \myCompanyAddress.}
+		\end{quotation}
+		\vspace*{1cm}
+		\begin{quotation}
+		  \parbox{0.8\textwidth}{
+		  \begin{tabularx}{0.78\textwidth}{l@{\extracolsep\fill}l}
+				\rule{4cm}{0.3mm}&\rule{4cm}{0.3mm}\\
+	    	Place, Date&Signature
+			\end{tabularx}}
+		\end{quotation}
+	\end{center}
+	\newpage
 
 	% -- List of Figures
 	% \listoffigures
