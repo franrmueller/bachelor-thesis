@@ -1,140 +1,9 @@
-% -- Import Packages
+% ------------------------------
+% Document Class and Variables
+% ------------------------------
 \documentclass[12pt,a4paper]{article}
-\newcommand{\myType}{0} % 0=seminar paper, 1=project report, 2=bachelor's thesis
-\usepackage[left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm,includehead]{geometry}    % Page margin settings
-\usepackage[english]{babel}                                                   			% English hyphenation
-\usepackage[utf8]{inputenc}                                                   			
-\usepackage[hyperfootnotes=false]{hyperref}                                   			% PDF output [do not link footnotes]
-\usepackage[nottoc]{tocbibind}                                                			% Table of contents extension (hide TOC itself)
-\usepackage[intoc]{nomencl}                                                   			% Abbreviations index
-\usepackage{fancyhdr}
-\setlength{\headheight}{14.5pt}  																	% Fancy Header
-\usepackage{csquotes}
-\usepackage[style=apa, backend=biber]{biblatex}
-\DeclareLanguageMapping{english}{english-apa}
-\addbibresource{ressources/references.bib} % Ensure this path and file exist and are not empty
-\usepackage{amsmath}                                                          			% Reset table and figure numbering per section
-\usepackage[labelfont=bf,aboveskip=1mm]{caption}                              			% Figure and table captions (bold)
-\usepackage{setspace}                                                         			% Line spacing (load before footmisc!)
-\usepackage[bottom,multiple,hang,marginal]{footmisc}                          			% Footnotes [align at bottom, separate by separator for multiple footnotes]
-\usepackage{graphicx}  % Graphics
-\usepackage{pdfpages}
-\usepackage{tabularx}                                                         			% Extended tables
-\usepackage{longtable}                                                        			% Multi-page tables
-\usepackage{color}                                                            			% Colors
-\usepackage{enumitem}                                                         			% Command setlist (set line spacing for itemize environment to 1)
-\usepackage{listings}                                                         			% Source code
-\usepackage{zref}                                                        				% References (appendix references)
-\usepackage{svg}
-\usepackage{float}
-\usepackage{appendix}
 
-% -- Define custom colors
-\definecolor{boxgray}{gray}{0.9}         % Background color for quote boxes
-\definecolor{commentgray}{gray}{0.5}     % Gray for comments in source code
-\definecolor{darkgreen}{rgb}{0,.5,0}     % Green for strings in source code
-
-% -- Define custom commands
-% Definition of \gqq{#1: text}: Text in quotation marks
-\newcommand{\gqq}[1]{\glqq #1\grqq}
-
-% -- Definition of \footref{#1: label}
-% -- Reference to already existing footnotes using
-\providecommand*{\footref}[1]{
-	\begingroup
-		\unrestored@protected@xdef\@thefnmark{\ref{#1}}
-	\endgroup
-\@footnotemark}
-
-% -- Definition of \mypageref{#1: label}
-% -- Combination of \ref{#1: label} and \pageref{#1: label}
-\newcommand{\mypageref}[1]{\ref{#1} on page \pageref{#1}}
-
-% -- Definition of \myboxquote{#1: text}
-% -- Gray-shaded quotation environment (for quotes)
-\newcommand{\myboxquote}[1]{
-	\begin{quotation}
-		\colorbox{boxgray}{\parbox{0.78\textwidth}{#1}}
-	\end{quotation}
-	\vspace*{1mm}
-}
-
-\makeatletter
-\zref@newprop*{appsec}{}
-\zref@addprop{main}{appsec}
-
-% -- Definition of \applabel{#1: label}{#2: text}
-% -- Used by \appsec{#1: text}{#2: label} to generate the label
-\def\applabel#1#2{%
-	\zref@setcurrent{appsec}{#2}%   
-	\zref@wrapper@immediate{\zref@label{#1}}%
-}
-
-% -- Definition of \appref{#1: label}
-% -- Use instead of \ref{#1: label} to refer to appendices
-\def\appref#1{%
-	\hyperref[#1]{\zref@extract{#1}{appsec}}%
-}
-\makeatother
-
-% -- Definition of \appsection{#1: text}{#2: label}
-% -- Replaces \section{#1: text} and \label{#2: label} for appendices
-\newcommand{\theappsection}[1]{Appendix \Alph{section}:~\protect #1}
-\newcommand{\appsection}[2]{
-	\addtocounter{section}{1}
-	\phantomsection
-	\addcontentsline{toc}{section}{\theappsection{#1}}
-	\markboth{\theappsection{#1}}{}
-
-	\section*{\theappsection{#1}}
-	\applabel{#2}{Appendix \Alph{section}}
-	\label{#2}
-}
-
-% -- Header and footer
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[R]{\thepage}                         % Header right or outer
-\renewcommand{\headrulewidth}{0.5pt}            % Header right or outer
-
-% -- Layout and captions
-\onehalfspacing                % Line spacing: 1.5 (default: 1.2)
-\setlist{noitemsep}            % Set line spacing for items to 1
-
-\addto\captionsngerman{        % Change table and figure captions
-  \renewcommand{\figurename}{Fig.}
-  \renewcommand{\tablename}{Tab.}
-}
-\numberwithin{table}{section}                               % Reset table numbering per section
-\numberwithin{figure}{section}                              % Reset figure numbering per section
-\renewcommand{\thetable}{\arabic{section}.\arabic{table}}   % Table numbering with section
-\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}} % Figure numbering with section
-\renewcommand{\thefootnote}{\arabic{footnote}}              % Remove section label from footnotes
-\renewcommand{\multfootsep}{, }                             % Separate multiple footnotes with ", "
-
-% -- Listing style
-\lstset{
-	basicstyle=\ttfamily\scriptsize,
-	commentstyle=\color{commentgray}\textit,
-	showstringspaces=false,
-	stringstyle=\color{darkgreen},
-	keywordstyle=\color{blue},
-	numbers=left,
-	numberstyle=\tiny,
-	stepnumber=1,
-	numbersep=15pt,
-	tabsize=2,
-	fontadjust=true,
-	frame=single,
-	backgroundcolor=\color{boxgray},
-	captionpos=b,
-	linewidth=\linewidth,
-	xleftmargin=0pto,
-	breaklines=true,
-	aboveskip=16pt
-}
-
-% -- Variables
+% Thesis metadata
 \newcommand{\myName}{Francisco Rodriguez Müller}
 \newcommand{\myHighSchool}{Duale Hochschule Baden-Württemberg}
 \newcommand{\myCompany}{All for One Group SE}
@@ -143,117 +12,200 @@
 \newcommand{\myTitle}{Operational Excellence in Finance}
 \newcommand{\mySubtitle}{Addressing Legacy System Inefficiencies in German Financial Institutions Through SAP BTP}
 
-% -- Document
+% ------------------------------
+% Packages
+% ------------------------------
+\usepackage[utf8]{inputenc}                             % UTF-8 encoding
+\usepackage[left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm,includehead]{geometry}
+\usepackage[english]{babel}                             % Language: English
+\usepackage{csquotes}                                   % Quotation handling
+\usepackage[style=apa, backend=biber]{biblatex}         % Bibliography
+\DeclareLanguageMapping{english}{english-apa}
+\addbibresource{ressources/references.bib}
+
+\usepackage{fancyhdr}                                   % Header/footer
+\usepackage{graphicx}                                   % Image inclusion
+\usepackage{pdfpages}                                   % PDF inclusion
+\usepackage{tabularx}                                   % Flexible tables
+\usepackage{longtable}                                  % Multi-page tables
+\usepackage{float}                                      % Better float control
+\usepackage{enumitem}                                   % Custom lists
+\usepackage{listings}                                   % Code listings
+\usepackage{xcolor}                                     % Colors
+\usepackage{amsmath}                                    % Math formatting
+\usepackage{caption}                                    % Caption formatting
+\usepackage{setspace}                                   % Line spacing
+\usepackage[nottoc]{tocbibind}                          % ToC: include bib
+\usepackage[intoc]{nomencl}                             % Abbreviation list
+\usepackage{appendix}                                   % Appendices
+\usepackage{zref}                                       % Custom referencing
+
+% ------------------------------
+% Fonts and Layout
+% ------------------------------
+\usepackage{mathptmx}                                   % Times New Roman style
+\onehalfspacing                                         % 1.5 line spacing
+\setlength{\headheight}{14.5pt}
+\setlist{noitemsep}                                     % Compact item lists
+
+% ------------------------------
+% Captions and Numbering
+% ------------------------------
+\captionsetup{labelfont=bf,aboveskip=1mm}
+\numberwithin{table}{section}
+\numberwithin{figure}{section}
+\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+% ------------------------------
+% Listings Setup
+% ------------------------------
+\definecolor{boxgray}{gray}{0.9}
+\definecolor{commentgray}{gray}{0.5}
+\definecolor{darkgreen}{rgb}{0,.5,0}
+
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  commentstyle=\color{commentgray}\textit,
+  showstringspaces=false,
+  stringstyle=\color{darkgreen},
+  keywordstyle=\color{blue},
+  numbers=left,
+  numberstyle=\tiny,
+  stepnumber=1,
+  numbersep=15pt,
+  tabsize=2,
+  fontadjust=true,
+  frame=single,
+  backgroundcolor=\color{boxgray},
+  captionpos=b,
+  linewidth=\linewidth,
+  breaklines=true,
+  aboveskip=16pt
+}
+
+% ------------------------------
+% Header and Footer
+% ------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\fancyhead[L]{\nouppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0.5pt}
+
+% ------------------------------
+% Custom Commands
+% ------------------------------
+\newcommand{\gqq}[1]{\glqq #1\grqq}
+\newcommand{\mypageref}[1]{\ref{#1} on page \pageref{#1}}
+
+% Abbreviation list
+\makenomenclature
+\renewcommand{\nomname}{List of Abbreviations}
+\setlength{\nomlabelwidth}{.25\hsize}
+\renewcommand{\nomlabel}[1]{#1 \dotfill}
+\setlength{\nomitemsep}{-\parsep}
+
+% ------------------------------
+% Document
+% ------------------------------
 \begin{document}
-	% -- Cover
-    \begin{titlepage}
-		\noindent
-		\begin{tabularx}{\textwidth}{@{}l|X@{}}
-			\includegraphics[width=0.5\textwidth]{ressources/illustrations/dhwb_logo.png} &
-			\begin{minipage}[t]{\linewidth}
-				\raggedright
-				\Huge \textbf{\myTitle} \\
-				\vspace{0.5cm}
-				\normalsize \mySubtitle
-			\end{minipage}
-		\end{tabularx}
-		
-		\vfill
-		
-		\centering
-		Wirtschaftsinformatik – Business Engineering\\
-		Duale Hochschule Baden-Württemberg\\
-		Ravensburg
 
-		\vfill
-		
-		\raggedright
-		{\small
-		\myName, on \today \\
-		Mat. Nr.: 2775857, Course: RV-WWIBE122 \\
-		Supervisor: \mySupervisor
-		}
-	\end{titlepage}
+% Title Page
+\begin{titlepage}
+	\noindent
+	\begin{tabularx}{\textwidth}{@{}l|X@{}}
+		\includegraphics[width=0.5\textwidth]{ressources/illustrations/dhwb_logo.png} &
+		\begin{minipage}[t]{\linewidth}
+			\raggedright
+			\Huge \textbf{\myTitle} \\
+			\vspace{0.5cm}
+			\normalsize \mySubtitle
+		\end{minipage}
+	\end{tabularx}
 	
-	% -- ToC --
-	\tableofcontents
-	\newpage
+	\vfill
+	\centering
+	Wirtschaftsinformatik – Business Engineering\\
+	\myHighSchool\\
+	Ravensburg
 
-	% -- List of Abbreviations
-	\makenomenclature
-	\renewcommand{\nomname}{List of Abbreviations}
-	\setlength{\nomlabelwidth}{.25\hsize}
-	\renewcommand{\nomlabel}[1]{#1 \dotfill}
-	\setlength{\nomitemsep}{-\parsep}
-	\printnomenclature
-	\newpage
+	\vfill
+	\raggedright
+	{\small
+	\myName, on \today \\
+	Mat. Nr.: 2775857, Course: RV-WWIBE122 \\
+	Supervisor: \mySupervisor
+	}
+\end{titlepage}
 
-	% -- Sections
-	\fancyhead[L]{\nouppercase{\rightmark}}
-	\pagenumbering{arabic}
-	\include{body}
-	%  -- Appendix
-	\renewcommand{\thetable}{\Alph{section}.\arabic{table}}              % Table numbering with section
-	\renewcommand{\thefigure}{\Alph{section}.\arabic{figure}}            % Figure numbering with section
-	\renewcommand{\thelstlisting}{\Alph{section}.\arabic{lstlisting}}    % Listing numbering with section
+% Table of Contents
+\tableofcontents
+\newpage
 
-	% -- Bibliography
-	\printbibliography[heading=bibintoc, title={References}]
-	\newpage
+% List of Abbreviations
+% \printnomenclature
+% \newpage
 
-	% -- Declaration of Authenticity
-	\thispagestyle{empty}
-	\addcontentsline{toc}{section}{Declaration of Authenticity}
-	\begin{center}
-		\vspace*{2cm}
-		\Huge\bf Declaration of Authenticity\\
-		\vspace*{3cm}
-		\normalsize\rm
-			I hereby declare that I have independently written my bachelor's thesis with the topic\\
-		\vspace*{2cm}
-		\Large\textbf{\myTitle}: \mySubtitle \\
-		\vspace*{2cm}
-		\normalsize\rm
-		and that I have not used any sources or aids other than those indicated.\\
-		\vfill
-		\begin{tabularx}{\textwidth}{l@{\extracolsep\fill}r}
-		\rule{7cm}{0.3mm}&\rule{7.55cm}{0.3mm}\\
-		\end{tabularx}
-		\begin{tabularx}{\textwidth}{*{2}{>{\arraybackslash}X}}
-		Place, Date&Signature\\
-		\end{tabularx}
-	\end{center}
-	
-	% -- Non-Disclosure Declaration
-	\begin{center}
-		\vspace*{1cm}
-		\Huge\bf Non-Disclosure Clause\\
-		\vspace*{2cm}
-		\normalsize\rm
-		\begin{quotation}
-			\parbox{0.8\textwidth}{The present bachelor's thesis contains internal confidential information of the company \myCompany, \myCompanyAddress. The dissemination of the content of the work in whole or in part is strictly prohibited. No copies or transcripts - including digital forms - may be made. Exceptions require the written approval of the company \myCompany, \myCompanyAddress.}
-		\end{quotation}
-		\vspace*{1cm}
-		\begin{quotation}
-		  \parbox{0.8\textwidth}{
-		  \begin{tabularx}{0.78\textwidth}{l@{\extracolsep\fill}l}
-				\rule{4cm}{0.3mm}&\rule{4cm}{0.3mm}\\
-	    	Place, Date&Signature
-			\end{tabularx}}
-		\end{quotation}
-	\end{center}
-	\newpage
+% List of Figures and Tables
+% \listoffigures
+% \newpage
+% \listoftables
+% \newpage
 
-	% -- List of Figures
-	% \listoffigures
-	% \newpage
+% Main Content
+\pagenumbering{arabic}
+\include{body} % <- your main thesis content
 
-	% -- List of Tables
-	% \listoftables
-	% \newpage
+% Appendix
+\renewcommand{\thetable}{\Alph{section}.\arabic{table}}
+\renewcommand{\thefigure}{\Alph{section}.\arabic{figure}}
+\renewcommand{\thelstlisting}{\Alph{section}.\arabic{lstlisting}}
 
-	% -- AI Usage Declaration
-	% \begin{appendix}
-    %     \includepdf{pages/24_02_21_Formular Hilfsmittelangabe KI_Wirtschaft.pdf}
-	% \end{appendix}
+% Bibliography
+\printbibliography[heading=bibintoc, title={References}]
+\newpage
+
+% Declaration of Authenticity
+\thispagestyle{empty}
+\addcontentsline{toc}{section}{Declaration of Authenticity}
+\begin{center}
+	\vspace*{2cm}
+	\Huge\bf Declaration of Authenticity\\
+	\vspace*{3cm}
+	\normalsize
+	I hereby declare that I have independently written my bachelor's thesis with the topic\\
+	\vspace{2cm}
+	\Large\textbf{\myTitle}: \mySubtitle\\
+	\vspace{2cm}
+	\normalsize
+	and that I have not used any sources or aids other than those indicated.\\
+	\vfill
+	\begin{tabularx}{\textwidth}{l@{\extracolsep\fill}r}
+	\rule{7cm}{0.3mm}&\rule{7.55cm}{0.3mm}\\
+	Place, Date&Signature
+	\end{tabularx}
+\end{center}
+\newpage
+
+% Non-Disclosure Clause
+\begin{center}
+	\vspace*{1cm}
+	\Huge\bf Non-Disclosure Clause\\
+	\vspace*{2cm}
+	\normalsize
+	\begin{quotation}
+		\parbox{0.8\textwidth}{The present bachelor's thesis contains internal confidential information of the company \myCompany, \myCompanyAddress. The dissemination of the content of the work in whole or in part is strictly prohibited. No copies or transcripts – including digital forms – may be made. Exceptions require the written approval of the company \myCompany.}
+	\end{quotation}
+	\vspace*{1cm}
+	\begin{quotation}
+		\parbox{0.8\textwidth}{
+		\begin{tabularx}{0.78\textwidth}{l@{\extracolsep\fill}l}
+			\rule{4cm}{0.3mm}&\rule{4cm}{0.3mm}\\
+			Place, Date&Signature
+		\end{tabularx}}
+	\end{quotation}
+\end{center}
+
 \end{document}
