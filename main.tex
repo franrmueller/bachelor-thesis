@@ -12,7 +12,7 @@
 \usepackage{csquotes}
 \usepackage[style=apa, backend=biber]{biblatex}
 \DeclareLanguageMapping{english}{english-apa}
-\addbibresource{literatur/References.bib}
+\addbibresource{ressources/references.bib} % Ensure this path and file exist and are not empty
 \usepackage{amsmath}                                                          			% Reset table and figure numbering per section
 \usepackage[labelfont=bf,aboveskip=1mm]{caption}                              			% Figure and table captions (bold)
 \usepackage{setspace}                                                         			% Line spacing (load before footmisc!)
@@ -97,9 +97,6 @@
 \makeindex
 \makenomenclature
 \makeglossaries
-
-% -- Specify citation style (Harvard method: Author + Year abbreviation) %
-% \bibliographystyle{plainnat}
 
 % -- Header and footer
 \pagestyle{fancy}
@@ -204,8 +201,7 @@
 	\renewcommand{\thelstlisting}{\Alph{section}.\arabic{lstlisting}}    % Listing numbering with section
 
 	% -- Bibliography
-	%\bibliography{literatur/References}
-	\printbibliography[heading=bibintoc, title={references}]
+	\printbibliography[heading=bibintoc, title={References}]
 	\newpage
 
 	% -- Declaration of Authenticity
