@@ -18,5 +18,5 @@
     }
   ],
   "latex-workshop.latex.autoBuild.run": "onSave",
-  "latex-workshop.latex.clean.enabled": true
+  "latex-workshop.latex.outDir": "out"
 }
