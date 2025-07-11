@@ -9,8 +9,8 @@
 \newcommand{\myCompany}{All for One Group SE}
 \newcommand{\myCompanyAddress}{Danzigerstraße 7, 88250 Weingarten}
 \newcommand{\mySupervisor}{Prof. Dr. Paul Kirchberg}
-\newcommand{\myTitle}{Operational Excellence in Finance}
-\newcommand{\mySubtitle}{Addressing Legacy System Inefficiencies in German Financial Institutions Through SAP BTP}
+\newcommand{\myTitle}{Operational Excellence in Swiss Banking}
+\newcommand{\mySubtitle}{Evaluating the Role of SAP BTP for Designing an Integration Strategy for Legacy Core Modernization }
 
 % ------------------------------
 % Packages
@@ -41,16 +41,11 @@
 \usepackage{zref}                                       % Custom referencing
 
 % ------------------------------
-% Fonts and Layout
+% Layout, Captions, and Numbering
 % ------------------------------
-\usepackage{mathptmx}                                   % Times New Roman style
 \onehalfspacing                                         % 1.5 line spacing
 \setlength{\headheight}{14.5pt}
 \setlist{noitemsep}                                     % Compact item lists
-
-% ------------------------------
-% Captions and Numbering
-% ------------------------------
 \captionsetup{labelfont=bf,aboveskip=1mm}
 \numberwithin{table}{section}
 \numberwithin{figure}{section}
@@ -86,6 +81,12 @@
 }
 
 % ------------------------------
+% Custom Commands
+% ------------------------------
+\newcommand{\gqq}[1]{\glqq #1\grqq}
+\newcommand{\mypageref}[1]{\ref{#1} on page \pageref{#1}}
+
+% ------------------------------
 % Header and Footer
 % ------------------------------
 \pagestyle{fancy}
@@ -93,19 +94,6 @@
 \fancyhead[R]{\thepage}
 \fancyhead[L]{\nouppercase{\rightmark}}
 \renewcommand{\headrulewidth}{0.5pt}
-
-% ------------------------------
-% Custom Commands
-% ------------------------------
-\newcommand{\gqq}[1]{\glqq #1\grqq}
-\newcommand{\mypageref}[1]{\ref{#1} on page \pageref{#1}}
-
-% Abbreviation list
-\makenomenclature
-\renewcommand{\nomname}{List of Abbreviations}
-\setlength{\nomlabelwidth}{.25\hsize}
-\renewcommand{\nomlabel}[1]{#1 \dotfill}
-\setlength{\nomitemsep}{-\parsep}
 
 % ------------------------------
 % Document
@@ -140,11 +128,29 @@
 	}
 \end{titlepage}
 
+% Abstract
+\begin{titlepage}
+	\section*{Abstract}
+		Here goes the abstract.\\
+		The abstract should be a concise summary of the thesis,\\
+		highlighting the main objectives, methods, results, and conclusions.\\
+		It should be written in a way that is accessible to a broad audience,\\
+		avoiding technical jargon where possible.\\
+		About the length, it should be around 150-250 words.
+\end{titlepage}
+
 % Table of Contents
-\tableofcontents
-\newpage
+\begin{titlepage}
+	\renewcommand{\contentsname}{Table of Contents}
+	\tableofcontents
+\end{titlepage}
 
 % List of Abbreviations
+% \makenomenclature
+% \renewcommand{\nomname}{List of Abbreviations}
+% \setlength{\nomlabelwidth}{.25\hsize}
+% \renewcommand{\nomlabel}[1]{#1 \dotfill}
+% \setlength{\nomitemsep}{-\parsep}
 % \printnomenclature
 % \newpage
 
@@ -156,56 +162,56 @@
 
 % Main Content
 \pagenumbering{arabic}
-\include{body} % <- your main thesis content
+\include{body}
+
+% Bibliography
+\printbibliography[heading=bibintoc, title={References}]
+\newpage
 
 % Appendix
 \renewcommand{\thetable}{\Alph{section}.\arabic{table}}
 \renewcommand{\thefigure}{\Alph{section}.\arabic{figure}}
 \renewcommand{\thelstlisting}{\Alph{section}.\arabic{lstlisting}}
 
-% Bibliography
-\printbibliography[heading=bibintoc, title={References}]
-\newpage
-
 % Declaration of Authenticity
 \thispagestyle{empty}
-\addcontentsline{toc}{section}{Declaration of Authenticity}
 \begin{center}
 	\vspace*{2cm}
-	\Huge\bf Declaration of Authenticity\\
+	\Huge\textbf{Declaration of Authenticity}\\
 	\vspace*{3cm}
 	\normalsize
 	I hereby declare that I have independently written my bachelor's thesis with the topic\\
 	\vspace{2cm}
-	\Large\textbf{\myTitle}: \mySubtitle\\
+	\Large\textbf{\myTitle}: \\
+	\mySubtitle\\
 	\vspace{2cm}
 	\normalsize
 	and that I have not used any sources or aids other than those indicated.\\
 	\vfill
 	\begin{tabularx}{\textwidth}{l@{\extracolsep\fill}r}
-	\rule{7cm}{0.3mm}&\rule{7.55cm}{0.3mm}\\
+	\rule{6cm}{0.1mm}&\rule{4cm}{0.1mm}\\
 	Place, Date&Signature
 	\end{tabularx}
 \end{center}
 \newpage
 
 % Non-Disclosure Clause
-\begin{center}
-	\vspace*{1cm}
-	\Huge\bf Non-Disclosure Clause\\
-	\vspace*{2cm}
-	\normalsize
-	\begin{quotation}
-		\parbox{0.8\textwidth}{The present bachelor's thesis contains internal confidential information of the company \myCompany, \myCompanyAddress. The dissemination of the content of the work in whole or in part is strictly prohibited. No copies or transcripts – including digital forms – may be made. Exceptions require the written approval of the company \myCompany.}
-	\end{quotation}
-	\vspace*{1cm}
-	\begin{quotation}
-		\parbox{0.8\textwidth}{
-		\begin{tabularx}{0.78\textwidth}{l@{\extracolsep\fill}l}
-			\rule{4cm}{0.3mm}&\rule{4cm}{0.3mm}\\
-			Place, Date&Signature
-		\end{tabularx}}
-	\end{quotation}
-\end{center}
+% \begin{center}
+% 	\vspace*{1cm}
+% 	\Huge\bf Non-Disclosure Clause\\
+% 	\vspace*{2cm}
+% 	\normalsize
+% 	\begin{quotation}
+% 		\parbox{0.8\textwidth}{The present bachelor's thesis contains internal confidential information of the company \myCompany, \myCompanyAddress. The dissemination of the content of the work in whole or in part is strictly prohibited. No copies or transcripts – including digital forms – may be made. Exceptions require the written approval of the company \myCompany.}
+% 	\end{quotation}
+% 	\vspace*{1cm}
+% 	\begin{quotation}
+% 		\parbox{0.8\textwidth}{
+% 		\begin{tabularx}{0.78\textwidth}{l@{\extracolsep\fill}l}
+% 			\rule{4cm}{0.3mm}&\rule{4cm}{0.3mm}\\
+% 			Place, Date&Signature
+% 		\end{tabularx}}
+% 	\end{quotation}
+% \end{center}
 
 \end{document}
