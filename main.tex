@@ -22,7 +22,6 @@
 \usepackage[style=apa, backend=biber]{biblatex}         % Bibliography
 \DeclareLanguageMapping{english}{english-apa}
 \addbibresource{ressources/references.bib}
-
 \usepackage{fancyhdr}                                   % Header/footer
 \usepackage{graphicx}                                   % Image inclusion
 \usepackage{pdfpages}                                   % PDF inclusion
@@ -131,12 +130,23 @@
 % Abstract
 \begin{titlepage}
 	\section*{Abstract}
-		Here goes the abstract.\\
-		The abstract should be a concise summary of the thesis,\\
-		highlighting the main objectives, methods, results, and conclusions.\\
-		It should be written in a way that is accessible to a broad audience,\\
-		avoiding technical jargon where possible.\\
-		About the length, it should be around 150-250 words.
+	The abstract should be a concise summary of the thesis, highlighting the main objectives, methods, results, and conclusions.\\
+	It should be written in a way that is accessible to a broad audience, avoiding technical jargon where possible.\\
+	About the length, it should be around 150-250 words. \\
+	\begin{itemize}
+		\item standard citation (in parenthesis) \parencite{russell_artificial_2010}
+		\item with page number \parencite[p.~15]{russell_artificial_2010}
+		\item with page range \parencite[p.~15]{russell_artificial_2010}
+		\item with cf. (indirect citation) \parencite[cf.][p.~112]{feuerriegel_generative_2024}
+		\item narrative citation \textcite{feuerriegel_generative_2024}
+		\item narrative citation with page number \textcite[p.~112]{feuerriegel_generative_2024}
+		\item narrative citation with cf. \textcite[cf.][p.~112]{feuerriegel_generative_2024}
+		\item multiple citations with page numbers 
+		\parencites
+  			[pp.~15--17]{russell_artificial_2010}
+  			[p.~112]{feuerriegel_generative_2024}
+		\item quote with citation ``Artificial intelligence is the new electricity'' \parencite[p.~7]{russell_artificial_2010}.
+	\end{itemize}
 \end{titlepage}
 
 % Table of Contents
