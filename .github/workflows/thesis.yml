@@ -3,6 +3,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
+  workflow_dispatch: {}
 
 jobs:
   build-pdf:
@@ -11,12 +12,21 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
-      - name: Install TeX dependencies
+
+      - name: Install TeX Live (lean set incl. inconsolata)
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-bibtex-extra latexmk biber python3-pygments
-      - name: Build PDF
-        run: latexmk -pdf -interaction=nonstopmode -synctex=1 -shell-escape -outdir=out main.tex
+          sudo apt-get install -y \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            texlive-bibtex-extra \
+            latexmk biber python3-pygments ghostscript make
+
+      - name: Build PDF via Makefile
+        run: make pdf
+
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
