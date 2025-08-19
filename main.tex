@@ -1,0 +1,58 @@
+\documentclass[12pt,a4paper]{article}
+
+\newcommand{\myName}{Francisco Rodriguez Müller}
+\newcommand{\myHighSchool}{Duale Hochschule Baden-Württemberg}
+\newcommand{\myLocation}{Ravensburg}
+\newcommand{\myCompany}{All for One Group SE}
+\newcommand{\myCompanyAddress}{Danzigerstraße 7, 88250 Weingarten}
+\newcommand{\mySupervisor}{Prof. Dr. Paul Kirchberg}
+\newcommand{\myTitle}{Designing a Multi-Agent Architecture for Workflow Automation}
+\newcommand{\mySubtitle}{A Framework for Operational Excellence}
+
+\usepackage{lmodern}
+\usepackage[english]{babel}                           
+\usepackage[left=3cm,right=3cm,top=2.54cm,bottom=2.54cm,includehead, includefoot]{geometry}
+\usepackage[style=authoryear, backend=biber, maxbibnames=2, maxcitenames=2]{biblatex}
+\usepackage{csquotes}                                 
+\usepackage{graphicx}
+\graphicspath{{external/models/models/views/}}                         
+\usepackage{tabularx}                                 
+\usepackage{float}                                      
+\usepackage{enumitem}                                   
+\usepackage{listings}                      
+\usepackage{xcolor}                                    
+\usepackage{amsmath}                                    
+\usepackage{caption}                                    
+\usepackage{fancyhdr}                                   
+\usepackage[nottoc]{tocbibind}                          
+\usepackage[intoc]{nomencl} \makenomenclature                            
+\usepackage[scaled]{inconsolata}
+\usepackage{etoolbox} \apptocmd{\bibsetup}{\sloppy}{}{}
+\usepackage[hidelinks]{hyperref}
+\usepackage{chngcntr}
+\usepackage{booktabs}
+
+\linespread{1.25}
+\setlength{\headheight}{14.5pt}
+\setlist{noitemsep}
+\captionsetup{labelfont=bf,aboveskip=1mm}
+\numberwithin{table}{section}
+\numberwithin{figure}{section}
+\lstset{ basicstyle=\ttfamily\scriptsize, stringstyle=\color{green!50!black}, keywordstyle=\color{blue}, numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=15pt, tabsize=2, frame=single, backgroundcolor=\color{gray!10}, captionpos=b, breaklines=true, linewidth=\linewidth, aboveskip=16pt }
+\newcommand{\gqq}[1]{\glqq #1\grqq}
+\newcommand{\mypageref}[1]{\ref{#1} on page \pageref{#1}}
+\pagestyle{fancy} \fancyhf{}
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[R]{\thepage} \fancyhead[L]{\nouppercase{\rightmark}}
+
+\addbibresource{ressources/references.bib}
+\DeclareFieldFormat[inbook]{booktitle}{#1}
+\DeclareFieldFormat[incollection]{booktitle}{#1}
+\DeclareFieldFormat[inproceedings]{booktitle}{#1}
+\renewbibmacro{in:}{}
+
+\begin{document}
+\include{ressources/pages/preliminaries}
+\include{ressources/pages/body}
+\include{ressources/pages/end-matter}                               
+\end{document}

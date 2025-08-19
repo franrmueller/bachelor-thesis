@@ -1,0 +1,84 @@
+% --- Title ---
+\begin{titlepage}
+	\noindent
+    \begin{tabularx}{\textwidth}{@{}l|X@{}}
+		\includegraphics[width=0.5\textwidth]{ressources/illustrations/dhwb_logo.png} &
+		\begin{minipage}[t]{\linewidth}
+			\raggedright
+			\Large \textbf{\myTitle} \\
+			\vspace{0.5cm}
+			\normalsize \mySubtitle
+		\end{minipage}
+	\end{tabularx}
+	
+    \vfill
+    \centering
+    \Large\textbf{Bachelor's Thesis} \\
+    \vspace{1cm}
+    \normalsize
+    Wirtschaftsinformatik – Business Engineering\\
+    \myHighSchool\\
+    \myLocation
+	
+    \vfill
+	%\raggedright
+	\small
+	\myName, on \today \\
+	Mat. Nr.: 2775857, Course: RV-WWIBE122 \\
+	Supervisor: \mySupervisor
+\end{titlepage}
+
+% --- Authenticity ---
+\clearpage
+\thispagestyle{empty}
+\begin{center}
+	%\vspace*{2cm}
+	\Huge\textbf{Declaration of Authenticity}\\
+    \vspace{4cm}
+	\normalsize
+	I hereby declare that I have independently written my bachelor's thesis with topic\\
+    
+    \vfill
+    \Large \textbf{\myTitle} \\
+    \large \mySubtitle \\
+	
+    \vfill
+    \normalsize
+	and that I have not used any sources or aids other than those indicated.\\
+\end{center}
+\vspace{4cm}
+\myLocation, \today \\
+\rule{6cm}{0.1pt} \hfill \rule{6cm}{0.1pt} \\
+\textit{(Place and Date)} \hfill \textit{(Signature)}
+\newpage
+
+\pagenumbering{roman}
+
+% --- Abstract ---
+\begin{centering}
+\section*{Abstract}
+\end{centering}
+\addcontentsline{toc}{section}{Abstract}
+The literature suggests three design-relevant insights: (1) OpEx increasingly hinges on adaptability, decision quality, and compliance—not only efficiency; (2) automation is moving from deterministic scripts (RPA) to adaptive, tool-using agents; and (3) MAS provide a natural organizing structure for such agents in complex enterprises but necessitate robust governance, monitoring, and integration. These insights inform the requirements (e.g., traceability, policy constraints, observability) and the architecture choices (agent roles, interaction patterns, orchestration) developed later in this thesis.
+\newpage
+
+% --- Table of Contents ---
+\tableofcontents
+\clearpage
+
+% --- Abbreviations ---
+\nomenclature{GenAI}{Generative Artificial Intelligence}
+\nomenclature{MAS}{Multi-Agent System}
+\nomenclature{RE}{Requirements Engineering}
+\nomenclature{MBSE}{Model-Based Software Engineering}
+\nomenclature{SysML}{Systems Modeling Language}
+\nomenclature{UML}{Unified Modeling Language}
+\nomenclature{ISD}{Information System Design}
+
+\renewcommand{\nomname}{List of Abbreviations}
+\setlength{\nomlabelwidth}{.25\hsize}
+\renewcommand{\nomlabel}[1]{#1 \dotfill}
+\setlength{\nomitemsep}{-\parsep}
+{\small \printnomenclature}
+\clearpage
+\pagenumbering{arabic}
