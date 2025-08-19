@@ -4,7 +4,7 @@
   "features": {
     "ghcr.io/devcontainers/features/git:1": {}
   },
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-bibtex-extra latexmk biber python3-pygments ghostscript",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-bibtex-extra latexmk biber python3-pygments ghostscript",
   "customizations": {
     "vscode": {
       "extensions": ["James-Yu.latex-workshop"],

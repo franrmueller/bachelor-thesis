@@ -1,0 +1,21 @@
+# LaTeX build output
+out/
+*.pdf        # if you ever build outside out/
+*.synctex.gz
+
+# LaTeX aux files (safety if they leak outside out/)
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.log
+*.lof
+*.lot
+*.toc
+*.fdb_latexmk
+*.fls
+*.run.xml
+
+# minted (if used)
+_minted-*/
+out/_minted-*/
