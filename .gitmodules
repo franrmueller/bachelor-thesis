@@ -1,0 +1,4 @@
+[submodule "ressources/models"]
+	path = ressources/models
+	url = https://github.com/franrmueller/mas-sysml-v2-models
+	branch = main
