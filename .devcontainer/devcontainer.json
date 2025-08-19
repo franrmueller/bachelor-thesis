@@ -1,25 +1,19 @@
 {
   "name": "thesis-latex",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "build": { "dockerfile": "Dockerfile" },
   "features": {
-    "ghcr.io/devcontainers/features/git:1": {}
+    "ghcr.io/devcontainers/features/git-lfs:1": {}
   },
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-bibtex-extra latexmk biber python3-pygments ghostscript",
   "customizations": {
     "vscode": {
       "extensions": ["James-Yu.latex-workshop"],
       "settings": {
+        "latex-workshop.latex.outDir": "out",
         "latex-workshop.latex.tools": [
           {
             "name": "latexmk",
             "command": "latexmk",
-            "args": [
-              "-pdf",
-              "-interaction=nonstopmode",
-              "-synctex=1",
-              "-shell-escape",
-              "%DOC%"
-            ]
+            "args": ["-pdf","-interaction=nonstopmode","-synctex=1","-shell-escape","%DOC%"]
           }
         ],
         "latex-workshop.latex.recipes": [
