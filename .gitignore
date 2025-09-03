@@ -1,5 +1,4 @@
 out/
-*.pdf
 *.synctex.gz
 *.aux
 *.bbl
