@@ -1,32 +1,33 @@
 \section{Introduction}
-Organizations across industries continue to face challenges in achieving operational excellence due to fragmented processes, manual interventions, and inconsistent data quality. Legacy workflows and siloed systems reinforce these inefficiencies, while traditional automation approaches often lack the adaptability required in dynamic business environments. Generative artificial intelligence (GenAI) offers a new opportunity to not only automate but also extend and redesign processes, improving decision-making and governance. However, many organizations lack structured strategies for embedding these capabilities into their operational workflows in a scalable and value-driven manner. This thesis addresses this gap by designing a multi-agent architecture that integrates GenAI into workflow automation, with the aim of enhancing agility, compliance, and decision quality in pursuit of operational excellence.
+Organizations across industries continue to face persistent challenges in achieving operational excellence. Fragmented processes, manual interventions, and inconsistent data quality undermine efficiency and decision-making. Legacy workflows and siloed systems exacerbate these inefficiencies, while traditional automation approaches often lack the adaptability needed in dynamic business environments. For companies, this translates into slower response times, higher compliance risks, and limited scalability—issues that directly threaten competitiveness.
 
-The latest iteration of artificial intelligence is generative agents, systems that integrate language models with external tools, enabling autonomous task execution with increasing complexity and flexibility. This thesis explores how and when to deploy such agents to drive meaningful improvements in process quality, agility, and governance. It investigates the following central research question:
+Generative artificial intelligence (GenAI) opens new possibilities to extend automation beyond deterministic scripts, enabling adaptive, tool-using agents that support governance, decision quality, and agility. However, despite this potential, organizations and the academic literature alike lack structured strategies and conceptual frameworks for embedding such agentic capabilities into operational workflows in a scalable, value-driven way. This gap motivates the present research.
+
+This thesis investigates how multi-agent systems (MAS) can serve as a reference architecture for integrating GenAI into enterprise workflow automation. The central research question is:
 
 \vspace{0.5\baselineskip}
 \emph{How can a multi-agent architecture be designed to integrate GenAI capabilities into workflow automation, in order to enhance agility, compliance, \& decision quality to achieve operational excellence?}
 \vspace{0.5\baselineskip}
-l
-The following sub-questions further specify the scope of investigation:
+
+To answer this question, the study addresses the following sub-questions:
 \begin{itemize}
     \item \emph{What are the strengths \& limitations of GenAI in the context of workflow automation using a multi-agent architecture?}
     \item \emph{Which design requirements \& agent roles are necessary to align a multi-agent architecture with the goals of operational excellence?}
     \item \emph{Under which conditions is deploying a generative multi-agent architecture justified over traditional automation approaches?}
 \end{itemize}
 
-The core contribution of this work is the conceptual design of a reference architecture for a multi-agent system (MAS) that leverages GenAI to support operational excellence in enterprise workflow automation. This includes:
+Methodologically, the thesis applies Design Science Research (DSR) to develop a conceptual reference architecture. The approach synthesizes requirements from academic literature and operational excellence principles, models agent roles and interactions, and derives applicability conditions for real-world deployment.
+
+The core contribution of this work is a conceptual design of a multi-agent system that leverages GenAI to support operational excellence in enterprise workflows. Specifically, it delivers:
 \begin{enumerate}
     \item A structured synthesis of system requirements derived from academic literature and operational excellence principles.
     \item A conceptual architecture detailing agent roles, interactions, and integration points
     \item A set of applicability conditions and design considerations to guide future deployment and evaluation of generative multi-agent architectures in practice.
 \end{enumerate}
 
-Both the formal evaluation of the architecture and the development of the system are out of scope due to time constraints, but are proposed as directions for future work.
+The scope is limited to conceptual design; formal evaluation and technical implementation are proposed as future work. The approach remains industry-agnostic but draws illustrative examples from the financial services sector, given its regulatory complexity and reliance on legacy systems.
 
-
-The approach is industry-agnostic and client-centric, drawing illustrative examples from the financial services sector; a domain characterized by complex processes, a high regulatory burden, and significant challenges for legacy systems.
-
-This document begins by introducing the research problem and then progressively guides the reader through its theoretical and practical foundations. Section 2 outlines the research methodology, including design science research (DSR) and supporting sub-methods. Section 3 presents a review of relevant literature. Section 4 focuses on the design of the proposed MAS architecture, and Section 5 explores applicability conditions and design implications. The thesis concludes with a reflection on the broader implications of the findings and offers suggestions for future research and application.
+The thesis is structured as follows: Section 2 outlines the research methodology, including DSR and supporting methods. Section 3 presents a literature review on operational excellence, automation paradigms, and multi-agent systems. Section 4 develops applicability conditions and use case illustrations. Section 5 introduces the conceptual architecture design, and Section 6 concludes with reflections and directions for future research.
 
 \section{Methodology} \label{2methodology}
 This research adopts the DSR methodology, which is particularly suitable for investigating the application of information systems (IS) in business contexts. In support of the different phases of the study, qualitative content analysis, requirements engineering (RE), and process modeling are additionally employed.
