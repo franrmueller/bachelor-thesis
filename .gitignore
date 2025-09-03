@@ -12,3 +12,7 @@ out/
 *.fdb_latexmk
 *.fls
 *.run.xml
+.gitmodules
+Makefile
+.devcontainer
+.vscode
