@@ -1,5 +1,5 @@
 \section{Introduction}\label{sec:intro}
-Organizations across industries continue to face persistent challenges in achieving operational excellence (OpEx). Fragmented processes, manual interventions, and inconsistent data quality undermine efficiency and decision-making. Legacy workflows and siloed systems exacerbate these inefficiencies, while traditional automation approaches often lack the adaptability needed in dynamic business environments. For companies, this translates into slower response times, higher compliance risks, and limited scalability—issues that directly threaten competitiveness.
+Organizations across industries continue to face persistent challenges in achieving operational excellence. Fragmented processes, manual interventions, and inconsistent data quality undermine efficiency and decision-making. Legacy workflows and siloed systems exacerbate these inefficiencies, while traditional automation approaches often lack the adaptability needed in dynamic business environments. For companies, this translates into slower response times, higher compliance risks, and limited scalability—issues that directly threaten competitiveness.
 
 Generative artificial intelligence (GenAI) opens new possibilities to extend automation beyond deterministic scripts, enabling adaptive, tool-using agents that support governance, decision quality, and agility. However, despite this potential, organizations and the academic literature alike lack structured strategies and conceptual frameworks for embedding such agentic capabilities into operational workflows in a scalable, value-driven way. This gap motivates the present research.
 
@@ -32,40 +32,38 @@ The thesis is structured as follows: Section 2 outlines the research methodology
 \section{Methodology}\label{sec:method}
 This thesis applies the design science research methodology to create a conceptual artifact: a multi-agent architecture for workflow automation. Practically, the approach unfolded in three steps: (1) reviewing the literature on operational excellence, workflow automation, and agentic AI; (2) deriving and structuring requirements from literature and case material into a requirements model; and (3) designing a conceptual system architecture using System Modeling Language (SysML).
 
-Supporting methods included Mayring-style qualitative content analysis (QCA) for the review, requirements engineering (RE) and systems analysis for the requirements model, and MBSE to structure the architecture and ensure requirement-to-design traceability.
-
-Within DSR, the work deliberately focuses on problem identification, objective definition, and conceptual design, while instantiation/demonstration and formal evaluation are out of scope given the bachelor-thesis format and resource constraints. This scoping maintains methodological rigor while keeping the contribution focused: a well-argued reference architecture ready for subsequent implementation and empirical evaluation.
+Supporting methods included Mayring-style qualitative content analysis (QCA) for the review, requirements engineering (RE) and systems analysis for the requirements model, and MBSE to structure the architecture and ensure requirement-to-design traceability. Within DSR, the work deliberately focuses on problem identification, objective definition, and conceptual design, while instantiation/demonstration and formal evaluation are out of scope given the bachelor-thesis format and resource constraints. This scoping maintains methodological rigor while keeping the contribution focused: a well-argued reference architecture ready for subsequent implementation and empirical evaluation.
 
 \subsection{Qualitative Content Analysis}\label{subsec:qca}
-To ensure a structured and reproducible literature review, this thesis employed qualitative content analysis according to \textcite{mayringQualitativeContentAnalysis2022}. QCA provides a transparent, rule-based procedure for synthesizing knowledge from textual sources while retaining the interpretative dimension. Its use in this thesis supports the DSR process \parencite{peffersDesignScienceMethodology2007} in the problem identification and motivation phase, where the goal is to understand the state of the problem domain and justify the value of a solution.
-
-\textbf{Analytical Units}   Following Mayring’s guidelines, the analytical framework was defined prior to coding:
+To ensure a structured literature review, this thesis employed qualitative content analysis according to \textcite{mayringQualitativeContentAnalysis2022}. QCA provides a transparent, rule-based procedure for synthesizing knowledge from textual sources while retaining the interpretative dimension. Its use in this thesis supports the DSR process \parencite{peffersDesignScienceMethodology2007} in the problem identification and motivation phase, where the goal is to understand the state of the problem domain and justify the value of a solution.\\\\
+\textbf{Analytical Units} \quad Following Mayring’s guidelines, the analytical framework was defined prior to coding:
 \begin{itemize}
-    \item \textit{Analysis unit}: the overall literature corpus addressing operational excellence (OpEx), workflow automation, and agentic AI.
-    \item \textit{Context unit}: individual publications (academic articles, industry reports, and case studies).
-    \item \textit{Coding unit}: specific textual statements or conceptual claims relevant to the intersection of OpEx, automation paradigms, and AI-based multi-agent systems.
+    \item \textit{Analysis unit}: the overall literature corpus addressing operational excellence, workflow automation, and agentic AI.
+    \item \textit{Context unit}: individual publications (books, academic articles, industry reports and fairs, and case studies).
+    \item \textit{Coding unit}: specific textual statements or conceptual claims relevant to the intersection of operational excellence, automation paradigms, and AI-based multi-agent systems.
+\end{itemize}\\\\
+\textbf{Category Development} \quad A \textit{mixed deductive–inductive approach} was used:
+\begin{itemize}
+    \item \textit{Deductive categories} were derived from established theory, including operational excellence dimensions (adaptability, compliance, decision quality) and prior automation frameworks (RPA, IPA).
+    \item \textit{Inductive categories} were generated from the material itself, capturing emerging issues such as “guardrails,” “observability,” and “traceability” in agentic AI systems.
 \end{itemize}
 
-\textbf{Category Development}   A \textit{mixed deductive–inductive approach} was used:
-\begin{itemize}
-    \item \textit{Deductive categories} were derived from established theory, including OpEx dimensions (adaptability, compliance, decision quality) and prior automation frameworks (RPA, IPA).
-    \item \textit{Inductive categories} were generated from tthe material itself, capturing emerging issues such as “guardrails,” “observability,” and “traceability” in agentic AI systems.
-\end{itemize}
-
-The coding rules followed Mayring’s principle of rule-governed categorization, ensuring consistency and avoiding arbitrary interpretation.
-    
-\textbf{Integration into the DSR Process}   The resulting categories served two methodological functions:
+The coding rules followed Mayring’s principle of rule-governed categorization, ensuring consistency and avoiding arbitrary interpretation.\\\\
+\textbf{Integration into the DSR Process} \quad The resulting categories served two methodological functions:
 \begin{enumerate}
     \item \textit{Problem Representation}: Categories structured how the research problem was represented, aligning with \textcite{hevnerDesignScienceInformation2004}, who emphasize that effective constructs are essential to problem framing.
     \item \textit{Derivation of Objectives}: Categories were transformed into metarequirements that guided the definition of solution objectives in Activity 2 of the DSR methodology \parencite{peffersDesignScienceMethodology2007}.
 \end{enumerate}
 
-Thus, the QCA ensured that the literature review \ref{sec:literature-review} went beyond descriptive reporting and produced a structured synthesis directly traceable to the design requirements of the conceptual artifact.
+Thus, the QCA ensured that the literature review in Section~\ref{sec:lit-rev} went beyond descriptive reporting and produced a structured synthesis directly traceable to the design requirements of the conceptual artifact.
 
-In practical terms, the QCA was applied by systematically coding the literature across the three thematic pillars of this thesis: operational excellence, automation paradigms, and multi-agent systems. Deductive categories were derived from existing theory, while inductive categories emerged during the coding process. For each publication, statements were assigned to categories according to predefined coding rules, enabling a structured synthesis of the material. The resulting categories serve as the foundation for the requirements engineering in \ref{subsec:re\&sa}Section 2.2 and structure the literature review in \ref{subsec:mbse} section 3.
+In practical terms, the QCA was applied by systematically coding the literature across the three thematic pillars of this thesis: operational excellence, automation paradigms, and multi-agent systems. Deductive categories were derived from existing theory, while inductive categories emerged during the coding process. For each publication, statements were assigned to categories according to predefined coding rules, enabling a structured synthesis of the material. The resulting categories serve as the foundation for the requirements engineering in Section~\ref{subsec:re\&sa} and structure the literature review in Section\ref{sec:lit-rev}.
+
 \subsection{Requirements Engineering \& System Analysis}\label{subsec:re\&sa}
+
 \subsection{Model-Based Systems Engineering}\label{subsec:mbse}
-\section{Literature Review}\label{sec:literature-review}
+
+\section{Literature Review}\label{sec:lit-rev}
 
 This section synthesizes academic and industry perspectives on three pillars underpinning this research: (i) the evolving definition of operational excellence, (ii) the shift in enterprise automation from rules-based RPA to goal-oriented generative agents, and (iii) the role of multi-agent systems in complex enterprise settings. The review follows a qualitative content analysis approach \parencite{mayringQualitativeContentAnalysis2022} and remains problem-oriented: each subsection surfaces implications for the requirements engineered in Section~2.2 and the architecture designed in Section~5.
 
