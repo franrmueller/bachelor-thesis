@@ -1,4 +1,3 @@
-out/
 *.synctex.gz
 *.aux
 *.bbl
@@ -11,3 +10,7 @@ out/
 *.fdb_latexmk
 *.fls
 *.run.xml
+*.out
+*.bbl-SAVE-ERROR
+*.bcf-SAVE-ERROR
+*.nlo

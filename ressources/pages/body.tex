@@ -1,9 +1,9 @@
 \section{Introduction}\label{sec:intro}
-Organizations across industries continue to face persistent challenges in achieving operational excellence. Fragmented processes, manual interventions, and inconsistent data quality undermine efficiency and decision-making. Legacy workflows and siloed systems exacerbate these inefficiencies, while traditional automation approaches often lack the adaptability needed in dynamic business environments. For companies, this translates into slower response times, higher compliance risks, and limited scalability—issues that directly threaten competitiveness.
+Organizations across industries continue to face persistent challenges in achieving operational excellence (OpEx). Fragmented processes, manual interventions, and inconsistent data quality undermine efficiency and decision-making. Legacy workflows and siloed systems exacerbate these inefficiencies, while traditional automation approaches often lack the adaptability needed in dynamic business environments. For companies, this translates into slower response times, higher compliance risks, and limited scalability—issues that directly threaten competitiveness.
 
 Generative artificial intelligence (GenAI) opens new possibilities to extend automation beyond deterministic scripts, enabling adaptive, tool-using agents that support governance, decision quality, and agility. However, despite this potential, organizations and the academic literature alike lack structured strategies and conceptual frameworks for embedding such agentic capabilities into operational workflows in a scalable, value-driven way. This gap motivates the present research.
 
-This thesis investigates how multi-agent systems (MAS) can serve as a reference architecture for integrating GenAI into enterprise workflow automation. The central research question is:
+This thesis investigates how multi-agent systems can serve as a reference architecture for integrating GenAI into enterprise workflow automation. The central research question is:
 
 \vspace{0.5\baselineskip}
 \emph{How can a multi-agent architecture be designed to integrate GenAI capabilities into workflow automation, in order to enhance agility, compliance, \& decision quality to achieve operational excellence?}
@@ -30,14 +30,39 @@ The scope is limited to conceptual design; formal evaluation and technical imple
 The thesis is structured as follows: Section 2 outlines the research methodology, including DSR and supporting methods. Section 3 presents a literature review on operational excellence, automation paradigms, and multi-agent systems. Section 4 develops applicability conditions and use case illustrations. Section 5 introduces the conceptual architecture design, and Section 6 concludes with reflections and directions for future research.
 
 \section{Methodology}\label{sec:method}
-This thesis applies the Design Science Research (DSR) methodology to create a conceptual artifact: a multi-agent architecture for workflow automation. Practically, the approach unfolded in three steps: (1) reviewing the literature on operational excellence, workflow automation, and agentic AI; (2) deriving and structuring requirements from literature and case material into a requirements model; and (3) designing a conceptual system architecture using SysML.
+This thesis applies the design science research methodology to create a conceptual artifact: a multi-agent architecture for workflow automation. Practically, the approach unfolded in three steps: (1) reviewing the literature on operational excellence, workflow automation, and agentic AI; (2) deriving and structuring requirements from literature and case material into a requirements model; and (3) designing a conceptual system architecture using System Modeling Language (SysML).
 
-Supporting methods included Mayring-style qualitative content analysis for the review, requirements engineering and systems analysis for the requirements model, and MBSE to structure the architecture and ensure requirement-to-design traceability.
+Supporting methods included Mayring-style qualitative content analysis (QCA) for the review, requirements engineering (RE) and systems analysis for the requirements model, and MBSE to structure the architecture and ensure requirement-to-design traceability.
 
 Within DSR, the work deliberately focuses on problem identification, objective definition, and conceptual design, while instantiation/demonstration and formal evaluation are out of scope given the bachelor-thesis format and resource constraints. This scoping maintains methodological rigor while keeping the contribution focused: a well-argued reference architecture ready for subsequent implementation and empirical evaluation.
 
 \subsection{Qualitative Content Analysis}\label{subsec:qca}
+To ensure a structured and reproducible literature review, this thesis employed qualitative content analysis according to \textcite{mayringQualitativeContentAnalysis2022}. QCA provides a transparent, rule-based procedure for synthesizing knowledge from textual sources while retaining the interpretative dimension. Its use in this thesis supports the DSR process \parencite{peffersDesignScienceMethodology2007} in the problem identification and motivation phase, where the goal is to understand the state of the problem domain and justify the value of a solution.
 
+\textbf{Analytical Units}   Following Mayring’s guidelines, the analytical framework was defined prior to coding:
+\begin{itemize}
+    \item \textit{Analysis unit}: the overall literature corpus addressing operational excellence (OpEx), workflow automation, and agentic AI.
+    \item \textit{Context unit}: individual publications (academic articles, industry reports, and case studies).
+    \item \textit{Coding unit}: specific textual statements or conceptual claims relevant to the intersection of OpEx, automation paradigms, and AI-based multi-agent systems.
+\end{itemize}
+
+\textbf{Category Development}   A \textit{mixed deductive–inductive approach} was used:
+\begin{itemize}
+    \item \textit{Deductive categories} were derived from established theory, including OpEx dimensions (adaptability, compliance, decision quality) and prior automation frameworks (RPA, IPA).
+    \item \textit{Inductive categories} were generated from tthe material itself, capturing emerging issues such as “guardrails,” “observability,” and “traceability” in agentic AI systems.
+\end{itemize}
+
+The coding rules followed Mayring’s principle of rule-governed categorization, ensuring consistency and avoiding arbitrary interpretation.
+    
+\textbf{Integration into the DSR Process}   The resulting categories served two methodological functions:
+\begin{enumerate}
+    \item \textit{Problem Representation}: Categories structured how the research problem was represented, aligning with \textcite{hevnerDesignScienceInformation2004}, who emphasize that effective constructs are essential to problem framing.
+    \item \textit{Derivation of Objectives}: Categories were transformed into metarequirements that guided the definition of solution objectives in Activity 2 of the DSR methodology \parencite{peffersDesignScienceMethodology2007}.
+\end{enumerate}
+
+Thus, the QCA ensured that the literature review \ref{sec:literature-review} went beyond descriptive reporting and produced a structured synthesis directly traceable to the design requirements of the conceptual artifact.
+
+In practical terms, the QCA was applied by systematically coding the literature across the three thematic pillars of this thesis: operational excellence, automation paradigms, and multi-agent systems. Deductive categories were derived from existing theory, while inductive categories emerged during the coding process. For each publication, statements were assigned to categories according to predefined coding rules, enabling a structured synthesis of the material. The resulting categories serve as the foundation for the requirements engineering in \ref{subsec:re\&sa}Section 2.2 and structure the literature review in \ref{subsec:mbse} section 3.
 \subsection{Requirements Engineering \& System Analysis}\label{subsec:re\&sa}
 \subsection{Model-Based Systems Engineering}\label{subsec:mbse}
 \section{Literature Review}\label{sec:literature-review}
@@ -53,9 +78,9 @@ Robotic Process Automation (RPA) has proven effective for stable, rule-based bac
 
 GenAI agents mark a paradigm shift: powered by large language models and tool orchestration, agents can decompose goals into sub-tasks, call external tools/APIs, reflect on intermediate outputs, and adapt strategies during execution \parencite{Park2023,Rodriguez_Agents_2025}. Conceptually, this elevates automation from \emph{process mimicry} (predefined steps) to \emph{goal-oriented problem solving} (contextual reasoning under uncertainty). The literature highlights open challenges central to enterprise adoption—reliability under distribution shift, controllability, explainability, data protection, and governance of autonomous actions \parencite{Bommasani2022}. For system design, this motivates requirements for guardrails (policy constraints, approvals), observability (telemetry, traces), and life-cycle management (versioning, evaluation) that exceed what is typical for RPA.
 \subsection{Multi-Agent Systems in Enterprise Contexts}
-MAS comprise autonomous, interacting agents that perceive, decide, and act within a shared environment \parencite{Wooldridge2009}. MAS have long been proposed for enterprise-scale coordination problems—supply chains, scheduling, and distributed control—leveraging decomposition, local decision-making, and coordination protocols \parencite{Parunak1999,JenningsBussmann2003}. Established patterns include the blackboard architecture for shared problem solving \parencite{Nii1986} and market/negotiation mechanisms such as the Contract Net Protocol for dynamic task allocation \parencite{Smith1980}. Methodologies like Gaia provide organizational abstractions (roles, interactions, norms) useful for analysis and design \parencite{Zambonelli2003}.
+multi-agent system comprise autonomous, interacting agents that perceive, decide, and act within a shared environment \parencite{Wooldridge2009}. Multi-agent systems have long been proposed for enterprise-scale coordination problems—supply chains, scheduling, and distributed control—leveraging decomposition, local decision-making, and coordination protocols \parencite{Parunak1999,JenningsBussmann2003}. Established patterns include the blackboard architecture for shared problem solving \parencite{Nii1986} and market/negotiation mechanisms such as the Contract Net Protocol for dynamic task allocation \parencite{Smith1980}. Methodologies like Gaia provide organizational abstractions (roles, interactions, norms) useful for analysis and design \parencite{Zambonelli2003}.
 
-For heterogeneous enterprise landscapes (ERP, data warehouses, SaaS, legacy), MAS offer modularity and fault isolation: specialized agents encapsulate capabilities (e.g., document understanding, policy checking, posting to ERP), coordinate via protocols, and scale horizontally. However, integration and governance remain hard problems: ensuring interoperability with legacy systems, maintaining compliance and audit trails, and making agent decisions transparent enough for risk and regulatory stakeholders \parencite{Luck2005}. The recent infusion of GenAI amplifies MAS potential—agents can reason with unstructured artifacts, learn task patterns, and collaborate—but simultaneously raises the bar for safety, observability, and evaluation.
+For heterogeneous enterprise landscapes (ERP, data warehouses, SaaS, legacy), multi-agent systems offer modularity and fault isolation: specialized agents encapsulate capabilities (e.g., document understanding, policy checking, posting to ERP), coordinate via protocols, and scale horizontally. However, integration and governance remain hard problems: ensuring interoperability with legacy systems, maintaining compliance and audit trails, and making agent decisions transparent enough for risk and regulatory stakeholders \parencite{Luck2005}. The recent infusion of GenAI amplifies multi-agent systems potential—agents can reason with unstructured artifacts, learn task patterns, and collaborate—but simultaneously raises the bar for safety, observability, and evaluation.
 \section{Applicability Conditions for Agentic Automation} 
 \subsection{Workflow Sustainability Criteria}
 \subsection{Use Case Illustration: Finance Domain}
