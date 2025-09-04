@@ -35,58 +35,42 @@ This thesis applies the design science research methodology to create a conceptu
 Supporting methods included Mayring-style qualitative content analysis (QCA) for the review, requirements engineering (RE) and systems analysis for the requirements model, and MBSE to structure the architecture and ensure requirement-to-design traceability. Within DSR, the work deliberately focuses on problem identification, objective definition, and conceptual design, while instantiation/demonstration and formal evaluation are out of scope given the bachelor-thesis format and resource constraints. This scoping maintains methodological rigor while keeping the contribution focused: a well-argued reference architecture ready for subsequent implementation and empirical evaluation.
 
 \subsection{Qualitative Content Analysis}\label{subsec:qca}
-To ensure a structured literature review, this thesis employed qualitative content analysis according to \textcite{mayringQualitativeContentAnalysis2022}. QCA provides a transparent, rule-based procedure for synthesizing knowledge from textual sources while retaining the interpretative dimension. Its use in this thesis supports the DSR process \parencite{peffersDesignScienceMethodology2007} in the problem identification and motivation phase, where the goal is to understand the state of the problem domain and justify the value of a solution.\\\\
-\textbf{Analytical Units} \quad Following Mayring’s guidelines, the analytical framework was defined prior to coding:
+To ensure a structured literature review, this thesis employed qualitative content analysis following \textcite{mayringQualitativeContentAnalysis2022}. 
+QCA offers a transparent, rule-based procedure for synthesizing knowledge from textual sources while retaining interpretative depth. 
+In this work it supports the DSR process \parencite{peffersDesignScienceMethodology2007} within the \emph{problem identification and motivation} phase, 
+where the aim is to understand the state of the problem domain and justify the value of a solution.
+
+\paragraph*{Analytical Units}
+Following Mayring, the analytical framework was defined prior to coding:
 \begin{itemize}
     \item \textit{Analysis unit}: the overall literature corpus addressing operational excellence, workflow automation, and agentic AI.
-    \item \textit{Context unit}: individual publications (books, academic articles, industry reports and fairs, and case studies).
-    \item \textit{Coding unit}: specific textual statements or conceptual claims relevant to the intersection of operational excellence, automation paradigms, and AI-based multi-agent systems.
-\end{itemize}\\\\
-\textbf{Category Development} \quad A \textit{mixed deductive–inductive approach} was used:
-\begin{itemize}
-    \item \textit{Deductive categories} were derived from established theory, including operational excellence dimensions (adaptability, compliance, decision quality) and prior automation frameworks (RPA, IPA).
-    \item \textit{Inductive categories} were generated from the material itself, capturing emerging issues such as “guardrails,” “observability,” and “traceability” in agentic AI systems.
+    \item \textit{Context unit}: individual publications (books, peer-reviewed articles, standards, industry reports, and case studies).
+    \item \textit{Coding unit}: discrete statements or conceptual claims relevant to the intersection of OpEx, automation paradigms, and AI-based multi-agent systems.
 \end{itemize}
 
-The coding rules followed Mayring’s principle of rule-governed categorization, ensuring consistency and avoiding arbitrary interpretation.\\\\
-\textbf{Integration into the DSR Process} \quad The resulting categories served two methodological functions:
+\paragraph*{Category Development}
+A \emph{mixed deductive--inductive} approach was used. Deductive categories were derived from established theory, including OpEx dimensions (adaptability, compliance, decision quality) and prior automation frameworks (RPA, IPA). 
+Inductive categories were generated from the material itself, capturing emerging issues such as ``guardrails,'' ``observability,'' and ``traceability'' in agentic AI systems. 
+Coding followed Mayring's rule-governed categorization to ensure consistency and avoid arbitrary interpretation.
+
+\paragraph*{Integration into the DSR Process}
+The resulting categories served two functions:
 \begin{enumerate}
-    \item \textit{Problem Representation}: Categories structured how the research problem was represented, aligning with \textcite{hevnerDesignScienceInformation2004}, who emphasize that effective constructs are essential to problem framing.
-    \item \textit{Derivation of Objectives}: Categories were transformed into metarequirements that guided the definition of solution objectives in Activity 2 of the DSR methodology \parencite{peffersDesignScienceMethodology2007}.
+    \item \textit{Problem representation}: categories structured how the research problem was represented, aligning with \textcite{hevnerDesignScienceInformation2004}, who emphasize that effective constructs are essential to problem framing.
+    \item \textit{Derivation of objectives}: categories were transformed into metarequirements that guided the definition of solution objectives in Activity~2 of the DSR methodology \parencite{peffersDesignScienceMethodology2007}.
 \end{enumerate}
 
-Thus, the QCA ensured that the literature review in Section~\ref{sec:lit-rev} went beyond descriptive reporting and produced a structured synthesis directly traceable to the design requirements of the conceptual artifact.
-
-In practical terms, the QCA was applied by systematically coding the literature across the three thematic pillars of this thesis: operational excellence, automation paradigms, and multi-agent systems. Deductive categories were derived from existing theory, while inductive categories emerged during the coding process. For each publication, statements were assigned to categories according to predefined coding rules, enabling a structured synthesis of the material. The resulting categories serve as the foundation for the requirements engineering in Section~\ref{subsec:re-sa} and structure the literature review in Section~\ref{sec:lit-rev}.\clearpage
+\paragraph*{Practical Application}
+The review was conducted by systematically coding the literature across the three pillars (OpEx, automation paradigms, MAS). 
+For example, claims such as ``RPA is brittle under interface changes'' were coded under the deductive category \emph{limitations of RPA}, 
+while repeated references to audit trails and logging practices were inductively grouped under \emph{traceability}. 
+For each publication, relevant statements were assigned to categories using predefined coding rules. 
+The resulting category set both structures Chapter~\ref{sec:lit-rev} and forms the basis for the requirements engineering in Section~\ref{subsec:re-sa}.
+\clearpage
 
 \subsection{Requirements Engineering \& System Analysis}\label{subsec:re-sa}
 
 \subsection{Model-Based Systems Engineering}\label{subsec:mbse}
 
 \section{Literature Review}\label{sec:lit-rev}
-
-This section synthesizes academic and industry perspectives on three pillars underpinning this research: (i) the evolving definition of operational excellence, (ii) the shift in enterprise automation from rules-based RPA to goal-oriented generative agents, and (iii) the role of multi-agent systems in complex enterprise settings. The review follows a qualitative content analysis approach \parencite{mayringQualitativeContentAnalysis2022} and remains problem-oriented: each subsection surfaces implications for the requirements engineered in Section~2.2 and the architecture designed in Section~5.
-
-\subsection{The Evolving Definition of Operational Excellence}
-Operational excellence (OpEx) emerged from manufacturing disciplines—Lean and Six Sigma—where the primary levers were waste elimination, variance reduction, and standard work \parencite{Womack1990,Harry1998}. Contemporary excellence models broaden this focus to services and knowledge work, emphasizing culture, strategy alignment, governance, and learning. Representative references include the Shingo Model and the EFQM Model, both of which integrate people, process, and result dimensions while stressing continuous improvement and adaptability \parencite{Shingo2014,EFQM2020}.
-
-In data-rich and highly regulated domains (e.g., finance), the OpEx constraint is increasingly cognitive rather than purely procedural: human attention, handoffs, and decision latency limit throughput and quality \parencite{Hammer2004,Davenport2018}. Yet most excellence frameworks still presuppose human-led improvement cycles, offering limited guidance on embedding autonomous, machine-driven capabilities for sustained optimization, monitoring, and compliance. This gap motivates evaluating whether agentic, tool-using AI can extend OpEx from periodic human interventions toward continuous, machine-assisted improvement and control. For this thesis, the implications are twofold: requirements should (1) include decision-quality, compliance, and auditability as first-class non-functional goals, and (2) anticipate organizational enablers (roles, governance) that allow AI systems to participate in improvement cycles.
-\subsection{Automation Paradigms: From RPA to GenAI Agents}
-Robotic Process Automation (RPA) has proven effective for stable, rule-based back-office tasks and has delivered measurable cost, speed, and quality benefits \parencite{Lacity2016}. However, RPA’s brittleness under interface or policy changes and its limited handling of unstructured inputs constrain scalability in dynamic environments \parencite{Syed2021}. ``Intelligent'' variants (often termed IPA) augment RPA with OCR, NLP, and ML components, broadening applicability but remaining predominantly workflow- and rule-driven.
-
-GenAI agents mark a paradigm shift: powered by large language models and tool orchestration, agents can decompose goals into sub-tasks, call external tools/APIs, reflect on intermediate outputs, and adapt strategies during execution \parencite{Park2023,Rodriguez_Agents_2025}. Conceptually, this elevates automation from \emph{process mimicry} (predefined steps) to \emph{goal-oriented problem solving} (contextual reasoning under uncertainty). The literature highlights open challenges central to enterprise adoption—reliability under distribution shift, controllability, explainability, data protection, and governance of autonomous actions \parencite{Bommasani2022}. For system design, this motivates requirements for guardrails (policy constraints, approvals), observability (telemetry, traces), and life-cycle management (versioning, evaluation) that exceed what is typical for RPA.
-\subsection{Multi-Agent Systems in Enterprise Contexts}
-multi-agent system comprise autonomous, interacting agents that perceive, decide, and act within a shared environment \parencite{Wooldridge2009}. Multi-agent systems have long been proposed for enterprise-scale coordination problems—supply chains, scheduling, and distributed control—leveraging decomposition, local decision-making, and coordination protocols \parencite{Parunak1999,JenningsBussmann2003}. Established patterns include the blackboard architecture for shared problem solving \parencite{Nii1986} and market/negotiation mechanisms such as the Contract Net Protocol for dynamic task allocation \parencite{Smith1980}. Methodologies like Gaia provide organizational abstractions (roles, interactions, norms) useful for analysis and design \parencite{Zambonelli2003}.
-
-For heterogeneous enterprise landscapes (ERP, data warehouses, SaaS, legacy), multi-agent systems offer modularity and fault isolation: specialized agents encapsulate capabilities (e.g., document understanding, policy checking, posting to ERP), coordinate via protocols, and scale horizontally. However, integration and governance remain hard problems: ensuring interoperability with legacy systems, maintaining compliance and audit trails, and making agent decisions transparent enough for risk and regulatory stakeholders \parencite{Luck2005}. The recent infusion of GenAI amplifies multi-agent systems potential—agents can reason with unstructured artifacts, learn task patterns, and collaborate—but simultaneously raises the bar for safety, observability, and evaluation.
-\section{Applicability Conditions for Agentic Automation} 
-\subsection{Workflow Sustainability Criteria}
-\subsection{Use Case Illustration: Finance Domain}
-\subsection{Use Case Validation of the Evaluation Framework}
-\newpage  
-\section{Conceptual Architecture Design}\label{sec:5architectDesign}
-\subsection{Agents Roles and Capabilities}
-\subsection{Agents Roles, Behaviors, \& System Embedding}
-\subsection{Multi-Agent Interaction \& Orchestration Model}\label{sec:conceptualarchitecture}
-\newpage 
-\section{Conclusion}
+This section synthesizes existing knowledge across three thematic pillars: operational excellence, automation paradigms, and multi-agent systems. The review draws on a structured qualitative content analysis (QCA) of academic literature, industry reports, and case studies to identify key concepts, challenges, and gaps relevant to the research problem. The findings inform the requirements engineering in Section~\ref{subsec:re-sa} and the conceptual architecture design in Section~\ref{subsec:mbse}.
