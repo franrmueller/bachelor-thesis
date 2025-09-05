@@ -1,22 +1,22 @@
-SHELL := /usr/bin/bash
-.ONESHELL:
-.SHELLFLAGS := -eu -o pipefail -c
+MAIN ?= bachelor-thesis
+TEX  := $(MAIN).tex
+OUT  ?= out
 
-MAIN := main.tex
-OUT  := out
+LATEXMK := latexmk -pdf -interaction=nonstopmode -synctex=1 -shell-escape -outdir=$(OUT)
 
-.PHONY: pdf watch clean
+.PHONY: pdf clean watch nomencl
 
 pdf:
-	# ensure out/ and all subdirs for includes exist
-	mkdir -p $(OUT)
-	if [ -d ressources ]; then find ressources -type d -exec mkdir -p $(OUT)/{} \; ; fi
-	latexmk -pdf -interaction=nonstopmode -synctex=1 -shell-escape -outdir=$(OUT) $(MAIN)
+	@mkdir -p $(OUT)
+	@if [ -d ressources ]; then find ressources -type d -exec mkdir -p $(OUT)/{} \; ; fi
+	@$(LATEXMK) $(TEX)
 
 watch:
-	mkdir -p $(OUT)
-	if [ -d ressources ]; then find ressources -type d -exec mkdir -p $(OUT)/{} \; ; fi
-	latexmk -pvc -pdf -interaction=nonstopmode -synctex=1 -shell-escape -outdir=$(OUT) $(MAIN)
+	@$(LATEXMK) -pvc $(TEX)
+
+nomencl:
+	@if [ -f $(OUT)/$(MAIN).nlo ]; then makeindex $(OUT)/$(MAIN).nlo -s nomencl.ist -o $(OUT)/$(MAIN).nls; fi
 
 clean:
-	latexmk -C -outdir=$(OUT)
+	@$(LATEXMK) -C
+	@rm -rf $(OUT)
