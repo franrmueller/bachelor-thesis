@@ -11,12 +11,13 @@ In this context, while GenAI provides agentic capabilities, multi-agent systems 
 
 To answer this question, the study addresses the following sub-questions:
 \begin{itemize}
-    \item \emph{What are the strengths \& limitations of GenAI in the context of workflow automation using a multi-agent architecture?}
     \item \emph{Which design requirements \& agent roles are necessary to align a multi-agent architecture with the goals of OpEx?}
+    \item \emph{How should a multi-agent system be architected to fulfill these requirements?}
     \item \emph{Under which conditions is deploying a generative multi-agent architecture justified over traditional automation approaches?}
 \end{itemize}
 
 Methodologically, the thesis applies Design Science Research (DSR) to develop a conceptual reference architecture. The approach synthesizes requirements from academic literature and OpEx principles, models agent roles and interactions, and derives applicability conditions for real-world deployment.
+Although the architecture is designed to remain industry-agnostic, a use case from the financial services sector is introduced to illustrate how the conceptual model can be instantiated in a regulated, legacy-intensive environment.
 
 The core contribution of this work is a conceptual design of a multi-agent system that leverages GenAI to support OpEx in enterprise workflows. Specifically, it delivers:
 \begin{enumerate}
@@ -25,7 +26,7 @@ The core contribution of this work is a conceptual design of a multi-agent syste
     \item A set of applicability conditions and design considerations to guide future deployment and evaluation of generative multi-agent architectures in practice.
 \end{enumerate}
 
-The scope is limited to conceptual design; formal evaluation and technical implementation are proposed as future work. The approach remains industry-agnostic but draws illustrative examples from the financial services sector, given its regulatory complexity and reliance on legacy systems.
+The scope is limited to conceptual design; formal evaluation and technical implementation are proposed as future work. Although the architecture is designed to remain industry-agnostic, a use case from the financial services sector is introduced to illustrate how the conceptual model can be instantiated in a regulated, legacy-intensive environment.
 
 The thesis is structured as follows: Section 2 outlines the research methodology, including DSR and supporting methods. Section 3 presents a literature review on OpEx, automation paradigms, and multi-agent systems. Section 4 develops applicability conditions and use case illustrations. Section 5 introduces the conceptual architecture design, and Section 6 concludes with reflections and directions for future research.
 
@@ -65,7 +66,8 @@ The resulting category set both structures Section~\ref{sec:lit-rev} and forms t
 
 \subsection{Requirements Engineering \& System Analysis}\label{subsec:re-sa}
 
-\subsection{Model-Based Systems Engineering}\label{subsec:mbse}
+\subsection{Information Systems Design}\label{subsec:isd}
+In line with Design Science Research, this thesis applies principles of information systems design (ISD) to structure the artifact. The architecture was modeled in SysML, making use of Model-Based Systems Engineering (MBSE) practices to ensure requirement-to-design traceability. While MBSE originates in systems engineering, its modeling discipline is transferable to information systems contexts and supports the systematic development of conceptual architectures.
 
 \section{Literature Review}\label{sec:lit-rev}
 
@@ -123,3 +125,7 @@ From the structured analysis of these sources, pre-AI workflow automation can be
 \end{itemize}
 
 In sum, the pre-AI workflow automation literature established a foundation of structured, rule-driven process management focused on efficiency, integration, and control. The categories above encapsulate both the core capabilities that made traditional workflow systems valuable and the pain points (like inflexibility in the face of change) that constrained their applicability. These insights provide a structured basis for the requirements derivation in Section~2.2 and guide the architectural considerations in later chapters. By grounding the design in these well-understood aspects of workflow automation, the thesis ensures that the proposed multi-agent architecture builds on proven practices while also targeting the gaps. Indeed, many of the limitations noted here – especially around exception handling and adaptiveness – motivate the incorporation of agentic AI elements in the next section (3.3), which explores how intelligent agents can augment and transform workflow automation to better achieve operational excellence.
+
+\section{Conclusion}
+Future work should extend this conceptual design into practical evaluation and implementation. In particular, empirical validation of the architecture in industry settings, tool-supported instantiation in SysML, and comparative studies against traditional workflow automation would provide valuable evidence of its applicability and impact. Further, integrating additional agentic AI capabilities such as autonomous negotiation or explainability could enhance both usability and compliance assurance.  
+
