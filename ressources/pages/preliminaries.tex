@@ -1,3 +1,4 @@
+\pagenumbering{roman}
 % --- Title ---
 \begin{titlepage}
 	\noindent
@@ -14,48 +15,58 @@
     \vspace{1cm}
     \normalsize
     Wirtschaftsinformatik---Business Engineering\\
-    \myHighSchool~\\
+    \myHighSchool{} \\
 	\myLocation\vfill
 	%\raggedright
 	\small
 	\myName, on \today \\
 	Mat. Nr.: 2775857, Course: RV-WWIBE122 \\
-	Supervisor:~\mySupervisor\end{titlepage}
+	Supervisor:~\mySupervisor{} \\
+\end{titlepage}
 
-% --- Authenticity ---
+% --- Declaration of Authenticity ---
+\clearpage
 \thispagestyle{empty}
+
 \begin{center}
-	%\vspace*{2cm}
-	\Huge\textbf{Declaration of Authenticity}\\
-    \vspace{4cm}
-	\normalsize
-	I hereby declare that I have independently written my bachelor's thesis with topic\\
-    
-    \vfill
-    \Large \textbf{\myTitle} \\
-    \large \mySubtitle~\\
-	
-    \vfill
-    \normalsize
-	and that I have not used any sources or aids other than those indicated.\\
+    {\LARGE \textbf{Declaration of Authenticity}} \\[2cm]
 \end{center}
-\vspace{4cm}
-\myLocation, \today \\
-\rule{6cm}{0.1pt} \hfill \rule{6cm}{0.1pt} \\
-\textit{(Place and Date)} \hfill \textit{(Signature)}
+
+I hereby declare that I have written the present bachelor’s thesis \textbf{independently} 
+and that I have not used any sources or aids other than those indicated.  
+All passages that were taken from published or unpublished works are 
+\textbf{clearly marked as such}. This thesis has not been submitted to any other 
+examination authority in the same or a similar form. \\[1.5cm]
+\vfill
+\noindent
+Thesis Title: \\
+\textbf{\myTitle} \\
+\mySubtitle{} \\[2cm]
+\vfill
+\noindent
+\begin{tabularx}{\textwidth}{X c}
+\myLocation, \today & \\
+\rule{6cm}{0.4pt} & \rule{6cm}{0.4pt} \\
+\textit{(Place and Date)} & \textit{(Signature)}
+\end{tabularx}
 \newpage
 
-\pagenumbering{roman}
+% --- Acknowledgments ---
+\thispagestyle{empty}
+\section*{Acknowledgments}
+\addcontentsline{toc}{section}{Acknowledgments}
+I would like to thank the \textit{\myCompany} for providing the opportunity and resources to write this thesis. 
+I also extend my gratitude to my academic supervisor, \textit{\mySupervisor{}} for his guidance throughout the process; my professional advisor, \textit{Emily Celen} for helping me with the scope and realistic expectations for this work; and my direct supervisor and firend \textit{Ralph Thomaßen} for his wise advice and support althoughout my academic journey.
+\newpage
 
 % --- Abstract ---
-% \begin{centering}
-% \section*{Abstract}
-% \end{centering}
-% \addcontentsline{toc}{section}{Abstract}
-% The literature suggests three design-relevant insights: (1) OpEx increasingly hinges on adaptability, decision quality, and compliance—not only efficiency; (2) automation is moving from deterministic scripts (RPA) to adaptive, tool-using agents; and (3) MAS provide a natural organizing structure for such agents in complex enterprises but necessitate robust governance, monitoring, and integration. These insights inform the requirements (e.g., traceability, policy constraints, observability) and the architecture choices (agent roles, interaction patterns, orchestration) developed later in this thesis.
-% \newpage
+\begin{centering}
+\section*{Abstract}
+\end{centering}
+\addcontentsline{toc}{section}{Abstract}
+[Placeholder, still a work in progress] The literature suggests three design-relevant insights: (1) OpEx increasingly hinges on adaptability, decision quality, and compliance—not only efficiency; (2) automation is moving from deterministic scripts (RPA) to adaptive, tool-using agents; and (3) MAS provide a natural organizing structure for such agents in complex enterprises but necessitate robust governance, monitoring, and integration. These insights inform the requirements (e.g., traceability, policy constraints, observability) and the architecture choices (agent roles, interaction patterns, orchestration) developed later in this thesis.
+\newpage
 
-% --- Table of Contents ---
 \tableofcontents \clearpage
 
 % --- Abbreviations ---
@@ -74,7 +85,7 @@
 \nomenclature{WfMs}{Workflow Management Systems}
 \nomenclature{LLM}{Large Language Model}
 
-\renewcommand{\nomname}{List of Abbreviations}
+\renewcommand{\nomname}{Abbreviations}
 \setlength{\nomlabelwidth}{.25\hsize}
 \renewcommand{\nomlabel}[1]{#1 \dotfill}
 \setlength{\nomitemsep}{-\parsep}

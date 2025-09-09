@@ -25,7 +25,8 @@
 \usepackage{fancyhdr}                                   
 \usepackage[nottoc]{tocbibind}                          
 \usepackage[intoc]{nomencl}
-\makenomenclature~\usepackage[scaled]{inconsolata}
+\makenomenclature{}
+\usepackage[scaled]{inconsolata}
 \usepackage{etoolbox} \apptocmd{\bibsetup}{\sloppy}{}{}
 \usepackage[hidelinks]{hyperref}
 \usepackage{chngcntr}
@@ -38,7 +39,6 @@
 \numberwithin{table}{section}
 \numberwithin{figure}{section}
 \lstset{ basicstyle=\ttfamily\scriptsize, stringstyle=\color{green!50!black}, keywordstyle=\color{blue}, numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=15pt, tabsize=2, frame=single, backgroundcolor=\color{gray!10}, captionpos=b, breaklines=true, linewidth=\linewidth, aboveskip=16pt }
-\newcommand{\gqq}[1]{\glqq~#1\grqq}
 \newcommand{\mypageref}[1]{\ref{#1} on page~\pageref{#1}}
 \pagestyle{fancy} \fancyhf{}
 \renewcommand{\headrulewidth}{1pt}
@@ -52,6 +52,6 @@
 
 \begin{document}
 \input{ressources/pages/preliminaries}
-\include{ressources/pages/body}
-\include{ressources/pages/end-matter}                               
+\input{ressources/pages/body}
+\input{ressources/pages/end-matter}                               
 \end{document}

@@ -1,0 +1,16 @@
+
+\begin{thenomenclature} 
+\nomgroup{A}
+  \item [{DSR}]\begingroup Design Science Research\nomeqref {0}\nompageref{1}
+  \item [{GenAI}]\begingroup Generative Artificial Intelligence\nomeqref {0}\nompageref{1}
+  \item [{IPA}]\begingroup Intelligent Process Automation\nomeqref {0}\nompageref{1}
+  \item [{LLM}]\begingroup Large Language Model\nomeqref {0}\nompageref{1}
+  \item [{MBSE}]\begingroup Model-Based Software Engineering\nomeqref {0}\nompageref{1}
+  \item [{OpEx}]\begingroup Operational Excellence\nomeqref {0}\nompageref{1}
+  \item [{QCA}]\begingroup Qualitative Content Analysis\nomeqref {0}\nompageref{1}
+  \item [{RE}]\begingroup Requirements Engineering\nomeqref {0}\nompageref{1}
+  \item [{RPA}]\begingroup Robotic Process Automation\nomeqref {0}\nompageref{1}
+  \item [{SysML}]\begingroup Systems Modeling Language\nomeqref {0}\nompageref{1}
+  \item [{WfMs}]\begingroup Workflow Management Systems\nomeqref {0}\nompageref{1}
+
+\end{thenomenclature}
