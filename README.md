@@ -1,26 +1,47 @@
-For a complete overview of the project visit the dedicated **[notion](https://franrmueller.notion.site/bachelor-thesis-214170088c3680d0b1abf2b6b7b1744a)** notebook (framework, AI-usage declaration).The latest pdf can be found in folder **out/** of this repo.
+# Bachelor’s Thesis: Multi-Agent Architecture Design  
+**Workflow Automation in Compliance with Operational Excellence**
 
-### 
+This repository contains the source files, artifacts, and documentation for my bachelor’s thesis at DHBW Ravensburg (2025).  
+The thesis investigates how multi-agent systems can serve as a conceptual reference architecture for integrating generative AI into enterprise workflow automation.
 
+---
 
-### Table of Contents
+## Repository Contents
+- **`/out/`** – Compiled thesis PDF (latest version)  
+- **LaTeX sources** – Main document and chapters  
+- **`Makefile`** – Automated build script for compiling LaTeX into PDF  
+- **Figures & diagrams** – SysML and other visualizations used in the thesis  
 
-### Tech Stack
+For a detailed project log, framework notes, and AI usage declaration, see the dedicated [Notion Notebook](#) (link).
 
-#### GitHub
+---
 
-**codespaces**: (container running vscode in it). Since compliance wouldn't allow me to install vscode on my computer.
-- vscode: docker container with vscode on it
-    - latex: standard academic writing language
-    - makefile: compile latex into pdf
+## Tech Stack
+- **GitHub Codespaces** – Remote VS Code container (required due to compliance restrictions)  
+- **LaTeX** – Academic writing and formatting  
+- **Makefile** – Automated PDF build process  
 
-#### Productivity Challenge Timer
-For time management. 
-- todoist
-- notion
-- zotero
-- sysml
-- chatgpt: Help me redact my text into English since it's not my first langauge
-I heavily relied on ChatGPT for this thesis. I do not think this affected in a negative way my academic or learning process, on the opposite, it helped me gather, sysnthesize, understand, and communicate the information better.
+---
 
-Table of Contents
+## Productivity & Supporting Tools
+- **Notion** – Knowledge management and project tracking  
+- **Todoist** – Task management  
+- **Zotero** – Reference and citation management  
+- **SysML** – System modeling for architecture design  
+- **Productivity Challenge Timer** – Time management tool  
+
+---
+
+## AI Assistance Declaration
+ChatGPT was used as a writing assistant to help with:  
+- Refining English phrasing (not my first language)  
+- Redacting, synthesizing, and structuring ideas  
+- Improving clarity of communication  
+
+All academic content, analysis, and conclusions are my own.  
+The AI usage is documented transparently in line with DHBW requirements (see Notion Notebook and AI-Usage Appendix).  
+
+---
+
+## License
+This repository is intended for academic purposes in the context of my bachelor’s thesis.  
