@@ -31,7 +31,7 @@ The scope is limited to conceptual design; formal evaluation and technical imple
 The thesis is structured as follows: Section 2 outlines the research methodology, including DSR and supporting methods. Section 3 presents a literature review on OpEx, automation paradigms, and multi-agent systems. Section 4 develops applicability conditions and use case illustrations. Section 5 introduces the conceptual architecture design, and Section 6 concludes with reflections and directions for future research.
 
 \section{Methodology}\label{sec:method}
-This thesis applies \emph{design science research methodology} to create a conceptual artifact---\emph{a multi-agent architecture for workflow automation}. Practically, the approach unfolded in three steps: (1) reviewing the literature on OpEx, workflow automation, and agentic AI;~(2) deriving and structuring requirements from literature and case material into a requirements model; and (3) designing a conceptual system architecture using System Modeling Language (SysML).
+This thesis applies design science research methodology to create a conceptual artifact---\emph{a multi-agent architecture for workflow automation}. Practically, the approach unfolded in three steps: (1) \emph{reviewing the literature} on OpEx, workflow automation, and agentic AI;~(2) \emph{deriving and structuring requirements} from literature and case material into a requirements model; and (3) \emph{designing a conceptual system architecture} using System Modeling Language (SysML).
 
 Supporting methods included Mayring-style qualitative content analysis (QCA) for the review, requirements engineering (RE) and systems analysis for the requirements model, and information systems design (ISD) to structure the architecture and ensure requirement-to-design traceability, supported by SysML modeling practices from Model-Based Systems Engineering (MBSE). Within DSR, the work focuses on problem identification, objective definition, and conceptual design, while instantiation/demonstration and formal evaluation are out of scope given the bachelor-thesis format and resource constraints. This scoping maintains methodological rigor while keeping the contribution focused: a well-argued reference architecture ready for subsequent implementation and empirical evaluation.
 
@@ -58,7 +58,7 @@ while repeated references to audit trails and logging practices were inductively
 For each publication, relevant statements were assigned to categories using predefined coding rules. 
 The resulting category set both structures Section~\ref{sec:lit-rev} and forms the basis for the requirements engineering in Section~\ref{subsec:re-sa}. Additional categories such as efficiency, customer-centricity, and user empowerment emerged inductively during coding; these are elaborated in Section~\ref{subsec:op-ex}.
 
-\subsection{Requirements Engineering \& System Analysis}\label{subsec:re-sa}
+\subsection{Requirements Engineering \& Systems Analysis}\label{subsec:re-sa}
 
 \subsection{Information Systems Design}\label{subsec:isd}
 In line with Design Science Research, this thesis applies principles of information systems design (ISD) to structure the artifact. The architecture was modeled in SysML, making use of Model-Based Systems Engineering (MBSE) practices to ensure requirement-to-design traceability. While MBSE originates in systems engineering, its modeling discipline is transferable to information systems contexts and supports the systematic development of conceptual architectures.
@@ -67,8 +67,6 @@ In line with Design Science Research, this thesis applies principles of informat
 
 \subsection{Operational Excellence}\label{subsec:op-ex}
 Operational excellence originated as a management philosophy in the manufacturing sector, particularly in the automotive industry, where it drew upon Lean, Six Sigma, and Total Quality Management to optimize quality and efficiency \parencite{juranQuality1999, womackLean2013}. In this classical context, OpEx focused on minimizing defects, eliminating waste, and embedding continuous improvement practices into organizational routines. While these roots remain important, they provide only a partial foundation for understanding OpEx in today's IT-driven enterprises, which operate in volatile environments shaped by rapid technological change, regulatory complexity, and global competition.
-
-Mayring's QCA approach allowed the definition of clear analytical units (e.g.~definitions and principles of OpEx from each source), apply deductive codes from established theory (e.g.~lean principles, quality management frameworks), and derive inductive codes emerging specifically in IT settings and automation contexts. The main categories extracted support and inform the design of requirements in this DSR project.
 
 In IT-driven firms, OpEx is defined less by physical production flows and more by the ability to execute business strategies effectively and efficiently while maintaining innovation and adaptability. A systematic review by \textcite{owoadeSystematic2024} emphasizes that leadership, process optimization, and technology integration are the principal drivers of operational excellence in IT.~Leaders align strategic goals with day-to-day operations, process optimization ensures efficiency and service reliability, and the integration of emerging technologies---such as cloud computing, automation, and artificial intelligence---enables scalability, agility, and data-driven decision-making. These elements together form the foundation for delivering operational performance in a digital economy.
 
@@ -91,7 +89,7 @@ Applying Mayring's QCA approach, the analysis of OpEx literature yields the foll
     \item \emph{Technology Integration and Scalability:} ensuring architectures can incorporate automation, AI, and cloud services to sustain innovation.
 \end{itemize}
 
-In sum, operational excellence in IT contexts extends beyond efficiency to encompass agility, compliance, and culture. The categories identified provide a structured representation of OpEx in digital settings and serve as a conceptual bridge from the literature review to the requirements engineering in Section~\ref{subsec:re-sa}. By grounding requirements in these categories, the thesis ensures that the subsequent multi-agent architecture design directly reflects proven enablers of operational excellence in IT firms.
+Operational excellence in IT contexts extends beyond efficiency to encompass agility, compliance, and culture. The categories identified provide a structured representation of OpEx in digital settings and serve as a conceptual bridge from the literature review to the requirements engineering in Section~\ref{subsec:re-sa}. By grounding requirements in these categories, the thesis ensures that the subsequent multi-agent architecture design directly reflects proven enablers of operational excellence in IT firms.
 
 \subsection{Workflow Automation}\label{subsec:workflow-auto}
 Building on the need to balance stability and agility in operational processes, \textit{workflow automation} emerged as a means to systematically coordinate and streamline business workflows. It refers to the use of software systems (workflow management systems, WfMS) to orchestrate tasks, information flows, and decisions along a predefined business process model. According to industry standards, workflow automation entails routing documents, information, or tasks between participants according to procedural rules, with the goal of reducing manual effort and variability in execution \parencite{basuResearch2002}. Early WfMS in the late 20th century were designed to make work more efficient, to integrate heterogeneous applications, and to support end-to-end processes even across organizational boundaries \parencite{stohrWorkflow2001}. By encoding business procedures into formal process models that are executed by a central \textit{workflow engine} \parencite{basuResearch2002}, organizations could enforce consistent process flows, improve speed and accuracy, and embed compliance checks into routine operations. In essence, pre-AI workflow automation provided a structured, deterministic way to implement business processes in software, directly addressing chronic issues like fragmented manual tasks and data silos in pursuit of operational excellence.
@@ -156,10 +154,8 @@ In summary, the literature portrays agentic AI as a powerful paradigm for workfl
 \subsection{[placeholder]Modeling the Architecture}\label{subse:mod-arch}
 \subsection{[placeholder]Modeling the Interactions}\label{subse:mod-interactions}
 
-\section{Establishing the Applicability Criteria}\label{sec:app-criteria}
-\subsection{placeholder}\label{subse:ph1}
-\subsection{placeholder}\label{subse:ph2}
-\subsection{placeholder}\label{subse:ph3}
+\section{Discussion: Applicability Criteria}\label{sec:app-criteria}
+    
 \section{Conclusion}
 Future work should extend this conceptual design into practical evaluation and implementation. In particular, empirical validation of the architecture in industry settings, tool-supported instantiation in SysML, and comparative studies against traditional workflow automation would provide valuable evidence of its applicability and impact. Further, integrating additional agentic AI capabilities such as autonomous negotiation or explainability could enhance both usability and compliance assurance.
 \clearpage
