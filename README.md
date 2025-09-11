@@ -22,7 +22,7 @@ All academic content, analysis, and conclusions are my own. The AI usage is docu
 - **[GitHub Codespaces](https://github.com/features/codespaces)** – Remote VS Code container (required due to compliance restrictions)  
 - **[LaTeX](https://www.latex-project.org/)** – Academic writing and formatting  
 - **[Makefile](https://www.gnu.org/software/make/)** – Automated PDF build process
-- **[SysML](https://www.omg.org/spec/SysML/)** – System modeling for architecture design   
+- **[SysML-v2](https://www.omg.org/spec/SysML/)** – System modeling for architecture design   
 
 ## Productivity & Supporting Tools
 - **[Notion](https://franrmueller.notion.site/bachelor-thesis-214170088c3680d0b1abf2b6b7b1744a)** – Knowledge management and project tracking 
