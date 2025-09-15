@@ -122,11 +122,7 @@ Finally, a recurrent theme is the need for strong \textsc{governance} mechanisms
 In summary, the literature portrays agentic AI as a powerful paradigm for workflow automation that, if well-designed, can dramatically enhance agility, adaptability, and decision quality in operations. By combining autonomous, tool-using agents into coordinated architectures, organizations can automate complex processes that previously required human judgment. At the same time, achieving sustainable excellence with such systems demands careful attention to transparency and control: architects must ensure agents remain observable and governable to uphold compliance and reliability standards. These insights set the stage for the next section of this thesis, which will integrate OpEx principles, workflow automation requirements, and agentic AI capabilities into a unified reference architecture. The themes of autonomy, coordination, and governance identified here directly inform the design choices and requirements elaborated in the subsequent chapters.
 
 \section{Modeling the Requirements}\label{sec:mod-req}
-The literature review (Section~3) identified recurring themes across operational
-excellence, workflow automation, and agentic AI. Synthesizing these insights yields
-requirement categories that represent both established design principles and
-emerging concerns. They form the conceptual baseline for the functional, quality,
-and constraint requirements that follow.
+The literature review identified recurring themes across operational excellence, workflow automation, and agentic AI. Synthesizing these insights yields requirement categories that represent both established design principles and emerging concerns. They form the conceptual baseline for the functional, quality, and constraint requirements that follow.
 
 \noindent\textsc{operational excellence}
 \begin{itemize}
@@ -162,7 +158,74 @@ They ensure that subsequent requirements modeling is firmly
 anchored in both theory and practice, while remaining traceable to the design
 objectives of OpEx.
 
-\subsection{[placeholder]Functional Requirements}\label{subse:func-req}
+\subsection{Functional Requirements}\label{subse:func-req}
+Functional requirements specify externally visible system behaviors, separated from quality attributes and constraints. They were elicited from the categorized insights of the literature review (Section~3), documented in “shall” form, and prepared for trace links in the SysML requirements model (Appendix). :contentReference[oaicite:0]{index=0} \\ \\
+
+\noindent \textsc{FR-01 process orchestration engine} \\
+\indent \emph{Statement—} The system shall execute workflow models by dispatching tasks to human or software actors according to defined control flow and business rules. \\
+\indent \emph{Rationale—} Centralized orchestration is the backbone of WfMS and ensures reliable, repeatable execution. :contentReference[oaicite:1]{index=1} \\
+
+\noindent \textsc{FR-02 task assignment \& role routing} \\
+\indent \emph{Statement—} The system shall route tasks based on roles, skills, and authorization, and support reassignment and escalation policies. \\
+\indent \emph{Rationale—} Role-based routing aligns execution with organizational responsibilities and governance. :contentReference[oaicite:2]{index=2}\\
+
+
+\noindent \textsc{fr-03 model ingestion} \\
+\indent \emph{Statement—} The system shall ingest workflow/process definitions from a machine-readable format and make them available for execution and versioning. \\
+\indent \emph{Rationale—} Explicit models enable orchestration, governance, and change control. \\[1ex]
+
+\noindent \textsc{fr-04 enterprise integration} \\
+\indent \emph{Statement—} The system shall provide connectors for interacting with external applications, data sources, and services, enabling read/write operations as steps within workflows. \\
+\indent \emph{Rationale—} End-to-end automation depends on interoperability with heterogeneous systems. \\[1ex]
+
+\noindent \textsc{fr-05 agent tool use} \\
+\indent \emph{Statement—} The system shall allow agent components to invoke approved external tools/APIs with controlled inputs/outputs and capture tool results for subsequent steps. \\
+\indent \emph{Rationale—} Tool-use turns agents from static predictors into capable actors within the workflow. \\[1ex]
+
+\noindent \textsc{fr-06 inter-agent coordination} \\
+\indent \emph{Statement—} The system shall support coordination patterns (e.g., hierarchical planning, peer collaboration) so multiple specialized agents can decompose, negotiate, and synchronize tasks. \\
+\indent \emph{Rationale—} Division of labor improves success on complex tasks; patterns must be first-class behaviors. \\[1ex]
+
+\noindent \textsc{fr-07 exception detection \& handling} \\
+\indent \emph{Statement—} The system shall detect deviations and errors at run time, provide compensating actions, and support human escalation and resumable recovery paths. \\
+\indent \emph{Rationale—} Brittleness to exceptions is a known limitation of traditional WfMS; explicit handling is required. \\[1ex]
+
+\noindent \textsc{fr-08 human-in-the-loop checkpoints} \\
+\indent \emph{Statement—} The system shall support configurable approval gates where designated users must review and approve agent or workflow decisions before continuation. \\
+\indent \emph{Rationale—} Aligns autonomy with organizational control for high-impact actions. \\[1ex]
+
+\noindent \textsc{fr-09 policy enforcement gateway} \\
+\indent \emph{Statement—} The system shall intercept proposed agent actions and outputs at runtime and enforce declarative policies (allow/deny/modify/route-to-human). \\
+\indent \emph{Rationale—} Governance-as-a-Service enforces rules externally to the agents to mitigate risk. \\[1ex]
+
+\noindent \textsc{fr-10 provenance \& audit logging} \\
+\indent \emph{Statement—} The system shall record an immutable audit trail of workflow events, agent prompts/decisions, tool calls, inputs/outputs, and approvals, with time stamps and IDs. \\
+\indent \emph{Rationale—} Traceability underpins explainability, debugging, and compliance. \\[1ex]
+
+\noindent \textsc{fr-11 observability dashboards} \\
+\indent \emph{Statement—} The system shall provide runtime views of workflow instances, agent status, queues, and alerts, and support replay of execution traces. \\
+\indent \emph{Rationale—} Operational oversight requires visibility into state and behavior, not just logs. \\[1ex]
+
+\noindent \textsc{fr-12 risk-based routing} \\
+\indent \emph{Statement—} The system shall evaluate risk signals (e.g., policy matches, anomaly flags) during execution and dynamically choose safer paths (e.g., additional checks, human review). \\
+\indent \emph{Rationale—} Couples governance with orchestration to reduce compliance risk. \\[1ex]
+
+\noindent \textsc{fr-13 configuration \& version control} \\
+\indent \emph{Statement—} The system shall maintain versions of process models, policies, agent roles, and connectors, and allow controlled rollout/rollback. \\
+\indent \emph{Rationale—} Safe evolution of automated processes requires versioned configurations. \\[1ex]
+
+\noindent \textsc{fr-14 work item lifecycle} \\
+\indent \emph{Statement—} The system shall expose a lifecycle API to create, claim, pause, resume, and complete work items, with state transitions governed by the process model. \\
+\indent \emph{Rationale—} Clear lifecycle semantics are foundational to orchestration and monitoring. \\[1ex]
+
+\noindent \textsc{fr-15 kpi \& sla monitoring} \\
+\indent \emph{Statement—} The system shall compute workflow KPIs (e.g., lead time, throughput) and evaluate them against SLA targets, emitting events when thresholds are breached. \\
+\indent \emph{Rationale—} Supports continuous improvement and operational control. \\[1ex]
+
+\noindent\emph{Verification approach.} Each functional requirement is verifiable by inspection (model presence), analysis (policy/model correctness), or test (execution against acceptance scenarios). The SysML model (Appendix) will provide trace links from FR-IDs to architecture elements (agents, gateways, connectors) and validation scenarios.
+
+\noindent\emph{Verification approach} Each functional requirement is verifiable by inspection (model presence), analysis (policy/model correctness), or test (execution against acceptance scenarios). The SysML model (Appendix) will provide trace links from FR-IDs to architecture elements (agents, gateways, connectors) and validation scenarios. :contentReference[oaicite:16]{index=16}
+
 \subsection{[placeholder]Quality Requirements}\label{subse:qua-req}
 \subsection{[placeholder]Constraints}\label{subse:const}
 
