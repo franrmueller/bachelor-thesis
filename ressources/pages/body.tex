@@ -56,15 +56,15 @@ For each publication, relevant statements were assigned to categories using pred
 The resulting category set both structures Section~\ref{sec:lit-rev} and forms the basis for RE in Section~\ref{subsec:re-sa}. Additional categories such as efficiency, customer-centricity, and user empowerment emerged inductively during coding; these are elaborated in Section~\ref{subsec:op-ex}.
 
 \subsection{Requirements Engineering \& Systems Analysis}\label{subsec:re-sa}
-Within the DSR methodology, clearly articulating the problem and objectives (i.e.~meta-requirements) is essential before artifact design \parencite{hevnerDesign2004,peffersDesign2007}. Following the \textcite{IEEEStandard1990} definition, a requirement is a \emph{condition or capability needed by a user to solve a problem or achieve an objective}. RE provides the systematic means to derive such objectives. In this thesis, RE was deliberately applied in the early phases to ensure that the conceptual architecture rests on precise, validated needs rather than general aspirations.
+Following the \textcite{IEEEStandard1990} definition, a requirement is a \emph{condition or capability needed by a user to solve a problem or achieve an objective}. RE provides the systematic means to derive such objectives. In this thesis, RE was applied in the early phases to ensure that the conceptual architecture rests on precise, validated needs rather than general aspirations.
 
-Consistent with \textcite{herrmannGrundlagen2022}, the RE process was conducted iteratively through elicitation, documentation, analysis, and management. Requirements were drawn from the QCA results of the literature review and case context, then specified and validated for completeness and consistency. Using the \textcite{glinzHandbook2020} taxonomy, they were classified into \emph{functional requirements} (system behaviors), \emph{quality requirements} (non-functional attributes such as performance or compliance), and \emph{constraints} (technological or regulatory limits). To situate these requirements, a complementary systems analysis defined the system boundary, identified stakeholders and external actors, and clarified interface obligations—helping prevent scope creep and omissions \parencite{herrmannGrundlagen2022}.
+The synthesis of requirements followed a structured but literature-driven process. Recurring design concerns were identified from the results of the qualitative content analysis (QCA), documented in \emph{elicitation lists}, and then consolidated into a unified set of requirement candidates. Consistent with \textcite{glinzHandbook2020}, each candidate was reformulated into an atomic, unambiguous, and verifiable “shall” statement and classified into \emph{functional requirements} (system behaviors), \emph{quality requirements} (non-functional attributes such as performance or compliance), or \emph{constraints} (technological or regulatory limits).
 
-The requirements were then represented in SysML requirement diagrams. Trace links connect each documented requirement to the respective architecture elements, enabling full requirement-to-design traceability. This model-based approach ensures that design decisions can always be traced back to validated needs and that verification can later check no requirement was overlooked.
+While this procedure draws on the phases described by \textcite{herrmannGrundlagen2022} (elicitation, documentation, analysis, management), it was adapted to the scope of this thesis: instead of stakeholder workshops, the primary elicitation source was the systematically coded literature. To situate the requirements, a complementary systems analysis defined the system boundary, identified stakeholders and external actors, and clarified interface obligations—helping prevent scope creep and omissions \parencite{herrmannGrundlagen2022}.
 
-To assess the *quality* of the requirement set, the concept of meta-requirements was introduced. According to \textcite{kaiyaMeta2018}, well-formed system requirements generally (1) reduce human effort, (2) increase human gain, (3) support sustainability, and (4) foster user participation. These served as high-level validation criteria. For example, requirements targeting the automation of routine steps align with reducing effort, while those improving decision accuracy reflect increased gain. Sustainability and participation considerations further ensured that requirements support long-term viability and inclusive use. This meta-level review safeguarded that requirements not only address immediate needs but also reflect broader design principles.
+Requirements were then represented in SysML requirement diagrams. Trace links connect each documented requirement to the respective architecture elements, enabling full requirement-to-design traceability (via \emph{«satisfy»} and \emph{«verify»}). This model-based approach ensures that design decisions can always be traced back to validated needs and that verification can later check no requirement was overlooked. The formulation rules of \textcite{glinzHandbook2020} govern the text quality of each requirement.
 
-In summary, the integration of RE and systems analysis provided a structured, traceable, and quality-assured requirement set. This foundation anchors the subsequent conceptual architecture in rigorously defined objectives, ensuring consistency with both DSR methodology and OpEx goals.
+To assess the quality of the requirement set, the meta-requirements of \textcite{kaiyaMeta2018} were applied as validation heuristics: reducing human effort, increasing gain, supporting sustainability, and fostering participation. This review ensured that requirements not only address immediate needs but also align with broader design principles. In summary, the integration of RE and systems analysis provided a structured, traceable, and quality-assured requirement set. This foundation anchors the subsequent conceptual architecture in rigorously defined objectives, ensuring consistency with both DSR methodology and operational excellence goals.
 
 \subsection{Information Systems Design}\label{subsec:isd}
 In line with DSR, this thesis applies principles of information systems design to structure the artifact. The architecture was modeled in SysML, making use of MBSE practices to ensure requirement-to-design traceability. While originating in MBSE originates in systems engineering, its modeling discipline is transferable to information systems contexts and supports the systematic development of conceptual architectures.
@@ -122,10 +122,17 @@ Finally, a recurrent theme is the need for strong \textsc{governance} mechanisms
 In summary, the literature portrays agentic AI as a powerful paradigm for workflow automation that, if well-designed, can dramatically enhance agility, adaptability, and decision quality in operations. By combining autonomous, tool-using agents into coordinated architectures, organizations can automate complex processes that previously required human judgment. At the same time, achieving sustainable excellence with such systems demands careful attention to transparency and control: architects must ensure agents remain observable and governable to uphold compliance and reliability standards. These insights set the stage for the next section of this thesis, which will integrate OpEx principles, workflow automation requirements, and agentic AI capabilities into a unified reference architecture. The themes of autonomy, coordination, and governance identified here directly inform the design choices and requirements elaborated in the subsequent chapters.
 
 \section{Modeling the Requirements}\label{sec:mod-req}
-The literature review identified recurring themes across operational excellence, workflow automation, and agentic AI. Synthesizing these insights yields requirement categories that represent both established design principles and emerging concerns. They form the conceptual baseline for the functional, quality, and constraint requirements that follow.
+The literature review identified recurring design concerns across operational excellence, workflow automation, and agentic AI. These were first documented in \emph{elicitation lists}, which represent the initial outcome of requirements documentation based on systematically coded sources. A subsequent \emph{clustering} step consolidated overlapping items into a unified set of requirement candidates.
 
-\noindent\textsc{operational excellence}
-\begin{itemize}
+Each candidate was then reformulated into an atomic, unambiguous, and verifiable “shall” statement, following the best-practice formulation rules of \textcite{glinzHandbook2020}. The final requirements were organized into \emph{functional requirements}, \emph{quality requirements}, and \emph{constraints}, in line with the Glinz taxonomy.
+
+Finally, the quality of the requirement set was reviewed against the validation heuristics of \textcite{kaiyaMeta2018}: reducing effort, increasing gain, supporting sustainability, and fostering participation. This ensured that the resulting requirements reflect both immediate design needs and broader principles of operational excellence.
+
+\section{Modeling the Requirements}\label{sec:mod-req}
+The literature review identified recurring themes across operational excellence, workflow automation, and agentic AI.~Synthesizing these insights yields \emph{elicitation lists} that represent both established design principles and emerging concerns. They form the conceptual baseline for the functional, quality, and constraint requirements that follow. \\
+
+\noindent\textsc{O --- operational excellence}
+\begin{enumerate}
   \item \textsc{adaptability and agility} --- processes must remain reconfigurable in response to volatile conditions, ensuring resilience in dynamic environments.
   \item \textsc{compliance and risk management} --- regulatory adherence and transparency must be embedded into workflows to minimize compliance risks.
   \item \textsc{decision quality} --- automation should enable data-driven, timely, and well-informed decisions rather than simply increasing speed.
@@ -133,101 +140,128 @@ The literature review identified recurring themes across operational excellence,
   \item \textsc{customer-centricity} --- operations must align with user needs and service-level commitments to sustain value delivery.
   \item \textsc{user empowerment and culture} --- systems should support collaboration, transparency, and employee engagement in improvement processes.
   \item \textsc{technology integration and scalability} --- architectures must accommodate automation, AI, and cloud services to enable sustainable innovation.
-\end{itemize}
+\end{enumerate}
 
-\noindent\textsc{workflow automation}
-\begin{itemize}
+\noindent\textsc{W --- workflow automation}
+\begin{enumerate}
   \item \textsc{process orchestration} --- workflow engines must enforce task sequences and business rules to guarantee reliable execution.
   \item \textsc{integration and interoperability} --- automation must seamlessly connect heterogeneous applications, data sources, and organizational boundaries.
   \item \textsc{modularity and reusability} --- workflows should be composed of modular tasks or subprocesses that can be reused and reconfigured with minimal effort.
   \item \textsc{exception handling and flexibility} --- systems must detect, manage, and escalate deviations rather than failing in unforeseen scenarios.
   \item \textsc{workflow governance} --- monitoring, audit trails, and role-based controls must ensure accountability and compliance throughout automated processes.
-\end{itemize}
+\end{enumerate}
 
-\noindent\textsc{agentic ai}
-\begin{itemize}
+\noindent\textsc{A --- agentic ai}
+\begin{enumerate}
   \item \textsc{autonomy in decision-making} --- agents should operate independently within clearly scoped authority to enhance agility while managing risks.
   \item \textsc{tool use and integration} --- agents must invoke external tools, APIs, or services reliably, requiring robust interfaces and safeguards.
   \item \textsc{coordination and specialization} --- multi-agent systems should divide labor through explicit roles and structured coordination mechanisms.
   \item \textsc{observability and transparency} --- all agent actions and decisions must be logged and explainable to support trust, debugging, and compliance.
   \item \textsc{governance and compliance} --- oversight mechanisms, including policy enforcement layers and human-in-the-loop checkpoints, are essential to align agent behavior with organizational and ethical standards.
-\end{itemize}
+\end{enumerate}
 
-Together, these categories represent the distilled outcome of the literature review.
-They ensure that subsequent requirements modeling is firmly
-anchored in both theory and practice, while remaining traceable to the design
-objectives of OpEx.
+Together, these elicitation lists represent the distilled outcome of the literature review. In RE terminology, they correspond to the \emph{documentation} of raw requirements prior to formal specification.~In the next step, a \emph{clustering} analysis was conducted to identify similarities and resolve redundancy across the three lists (e.g., governance appears in both workflow automation and agentic AI). This step corresponds to the \emph{analysis phase} in \textcite{herrmannGrundlagen2022} RE cycle, where elicited items are consolidated and normalized before specification.
 
+% Here is where the second general clustering takes place. Merging the three initial lists into one. A simple table can be done referring to the requirements by their ID.
+
+% once the requirements are clustered into one list, they have to be processed to comply with RE best practices.
+Following \textcite{glinzHandbook2020}, each requirement is formulated as a single, unambiguous “shall” statement that is necessary, atomic, verifiable, and consistent. Requirements are classified into functional, quality, and constraint types. In SysML v2, requirements are modeled as dedicated requirement elements with their textual content captured in the description field, and their relationships (e.g. «satisfy», «verify») expressed through model links. Rationale and verification considerations are documented narratively in the requirements analysis and traceability sections, while the requirements themselves remain concise textual statements embedded in the SysML v2 model.
+
+% Once done this, the requirements are classified by type: functional, quality, constraint in each subsection. 
 \subsection{Functional Requirements}\label{subse:func-req}
-Functional requirements specify externally visible system behaviors, separated from quality attributes and constraints. They were elicited from the categorized insights of the literature review (Section~3), documented in “shall” form, and prepared for trace links in the SysML requirements model (Appendix). :contentReference[oaicite:0]{index=0} \\ \\
+Functional requirements specify externally visible system behaviors, separated from quality attributes and constraints. They were elicited from the categorized insights of the literature review, documented in “shall” form, and prepared for trace links in the SysML requirements model. \\
 
 \noindent \textsc{FR-01 process orchestration engine} \\
-\indent \emph{Statement—} The system shall execute workflow models by dispatching tasks to human or software actors according to defined control flow and business rules. \\
-\indent \emph{Rationale—} Centralized orchestration is the backbone of WfMS and ensures reliable, repeatable execution. :contentReference[oaicite:1]{index=1} \\
+\indent \emph{Statement—} The system shall execute workflow models by dispatching tasks to human or software actors according to model control flow and business rules. \\
+\indent \emph{Rationale—} Centralized orchestration ensures reliable, repeatable execution. \\
 
 \noindent \textsc{FR-02 task assignment \& role routing} \\
-\indent \emph{Statement—} The system shall route tasks based on roles, skills, and authorization, and support reassignment and escalation policies. \\
-\indent \emph{Rationale—} Role-based routing aligns execution with organizational responsibilities and governance. :contentReference[oaicite:2]{index=2}\\
+\indent \emph{Statement—} The system shall route tasks based on roles, skills, and authorization. \\
+\indent \emph{Rationale—} Role- and skill-aware routing aligns work with organizational responsibilities. \\
 
+\noindent \textsc{FR-03 task reassignment and escalation} \\
+\indent \emph{Statement—} The system shall ensure task continuity by supporting reassignment to eligible actors and enforcing time-based escalation policies. \\
+\indent \emph{Rationale—} Continuity mechanisms prevent stalls and maintain service levels. \\
 
-\noindent \textsc{fr-03 model ingestion} \\
-\indent \emph{Statement—} The system shall ingest workflow/process definitions from a machine-readable format and make them available for execution and versioning. \\
-\indent \emph{Rationale—} Explicit models enable orchestration, governance, and change control. \\[1ex]
+\noindent \textsc{FR-04 model ingestion} \\
+\indent \emph{Statement—} The system shall ingest workflow or process definitions in a machine-readable format and make them available for execution and versioning. \\
+\indent \emph{Rationale—} Importable models enable governance, repeatability, and controlled change. \\
 
-\noindent \textsc{fr-04 enterprise integration} \\
-\indent \emph{Statement—} The system shall provide connectors for interacting with external applications, data sources, and services, enabling read/write operations as steps within workflows. \\
-\indent \emph{Rationale—} End-to-end automation depends on interoperability with heterogeneous systems. \\[1ex]
+\noindent \textsc{FR-05 enterprise integration} \\
+\indent \emph{Statement—} The system shall provide connectors to interact with external applications, data sources, and services as workflow steps. \\
+\indent \emph{Rationale—} Interoperability enables end-to-end automation across heterogeneous systems. \\
 
-\noindent \textsc{fr-05 agent tool use} \\
-\indent \emph{Statement—} The system shall allow agent components to invoke approved external tools/APIs with controlled inputs/outputs and capture tool results for subsequent steps. \\
-\indent \emph{Rationale—} Tool-use turns agents from static predictors into capable actors within the workflow. \\[1ex]
+\noindent \textsc{FR-06 agent tool use} \\
+\indent \emph{Statement—} The system shall allow agent components to invoke approved external tools or APIs with controlled inputs/outputs and capture results for downstream steps. \\
+\indent \emph{Rationale—} Tool use turns agents into capable actors while containing risk. \\
 
-\noindent \textsc{fr-06 inter-agent coordination} \\
-\indent \emph{Statement—} The system shall support coordination patterns (e.g., hierarchical planning, peer collaboration) so multiple specialized agents can decompose, negotiate, and synchronize tasks. \\
-\indent \emph{Rationale—} Division of labor improves success on complex tasks; patterns must be first-class behaviors. \\[1ex]
+\noindent \textsc{FR-07 inter-agent coordination} \\
+\indent \emph{Statement—} The system shall support coordination patterns (e.g., hierarchical, peer-to-peer, brokered) among multiple agents executing tasks. \\
+\indent \emph{Rationale—} Structured coordination prevents conflicts and enables distributed problem solving. \\
 
-\noindent \textsc{fr-07 exception detection \& handling} \\
-\indent \emph{Statement—} The system shall detect deviations and errors at run time, provide compensating actions, and support human escalation and resumable recovery paths. \\
-\indent \emph{Rationale—} Brittleness to exceptions is a known limitation of traditional WfMS; explicit handling is required. \\[1ex]
+\noindent \textsc{FR-08 exception handling} \\
+\indent \emph{Statement—} The system shall detect execution errors and deviations, support compensating actions and escalation, and enable resumable recovery. \\
+\indent \emph{Rationale—} Robust exception handling preserves correctness and availability. \\
 
-\noindent \textsc{fr-08 human-in-the-loop checkpoints} \\
-\indent \emph{Statement—} The system shall support configurable approval gates where designated users must review and approve agent or workflow decisions before continuation. \\
-\indent \emph{Rationale—} Aligns autonomy with organizational control for high-impact actions. \\[1ex]
+\noindent \textsc{FR-09 workflow governance} \\
+\indent \emph{Statement—} The system shall enforce access control, maintain audit trails, and ensure compliance with organizational policies during workflow execution. \\
+\indent \emph{Rationale—} Governance guarantees accountability and regulatory conformity. \\
 
-\noindent \textsc{fr-09 policy enforcement gateway} \\
-\indent \emph{Statement—} The system shall intercept proposed agent actions and outputs at runtime and enforce declarative policies (allow/deny/modify/route-to-human). \\
-\indent \emph{Rationale—} Governance-as-a-Service enforces rules externally to the agents to mitigate risk. \\[1ex]
+\noindent \textsc{FR-10 autonomy in decision-making} \\
+\indent \emph{Statement—} The system shall enable agents to make decisions within explicitly scoped authority without requiring constant human input. \\
+\indent \emph{Rationale—} Scoped autonomy improves responsiveness while containing risk. \\
 
-\noindent \textsc{fr-10 provenance \& audit logging} \\
-\indent \emph{Statement—} The system shall record an immutable audit trail of workflow events, agent prompts/decisions, tool calls, inputs/outputs, and approvals, with time stamps and IDs. \\
-\indent \emph{Rationale—} Traceability underpins explainability, debugging, and compliance. \\[1ex]
+\noindent \textsc{FR-11 observability \& transparency} \\
+\indent \emph{Statement—} The system shall log agent decisions, actions, and tool invocations in a human-readable and queryable format. \\
+\indent \emph{Rationale—} Transparent logs support trust, auditing, and debugging. \\
 
-\noindent \textsc{fr-11 observability dashboards} \\
-\indent \emph{Statement—} The system shall provide runtime views of workflow instances, agent status, queues, and alerts, and support replay of execution traces. \\
-\indent \emph{Rationale—} Operational oversight requires visibility into state and behavior, not just logs. \\[1ex]
+\noindent \textsc{FR-12 human-in-the-loop control \& runtime views} \\
+\indent \emph{Statement—} The system shall provide configurable human approval/override points and runtime execution views, including replay capability. \\
+\indent \emph{Rationale—} Human oversight and operational views enable intervention and diagnosis. \\
 
-\noindent \textsc{fr-12 risk-based routing} \\
-\indent \emph{Statement—} The system shall evaluate risk signals (e.g., policy matches, anomaly flags) during execution and dynamically choose safer paths (e.g., additional checks, human review). \\
-\indent \emph{Rationale—} Couples governance with orchestration to reduce compliance risk. \\[1ex]
+\noindent \textsc{FR-13 policy \& compliance enforcement} \\
+\indent \emph{Statement—} The system shall validate agent actions against declarative policies and block or redirect disallowed behaviors. \\
+\indent \emph{Rationale—} Policy enforcement prevents rule violations and unsafe behavior. \\
 
-\noindent \textsc{fr-13 configuration \& version control} \\
-\indent \emph{Statement—} The system shall maintain versions of process models, policies, agent roles, and connectors, and allow controlled rollout/rollback. \\
-\indent \emph{Rationale—} Safe evolution of automated processes requires versioned configurations. \\[1ex]
+\noindent \textsc{FR-14 risk-based routing} \\
+\indent \emph{Statement—} The system shall evaluate risk signals (e.g., anomalies, policy matches) and prefer safer modeled paths without overriding explicit policy decisions. \\
+\indent \emph{Rationale—} Risk-based routing provides adaptive safeguards while preserving compliance. \\
 
-\noindent \textsc{fr-14 work item lifecycle} \\
-\indent \emph{Statement—} The system shall expose a lifecycle API to create, claim, pause, resume, and complete work items, with state transitions governed by the process model. \\
-\indent \emph{Rationale—} Clear lifecycle semantics are foundational to orchestration and monitoring. \\[1ex]
+\noindent \textsc{FR-15 configuration, scalability \& explainability} \\
+\indent \emph{Statement—} The system shall maintain versions of process models, policies, agent roles, and connectors; support controlled rollout and rollback of configurations; distribute workflows and agents across execution environments; and provide justifications for agent decisions with references to inputs, rules, and tools used. \\
+\indent \emph{Rationale—} Versioning, scalability, and explainability together ensure safe evolution, resilience, and trust in system operation. \\
 
-\noindent \textsc{fr-15 kpi \& sla monitoring} \\
-\indent \emph{Statement—} The system shall compute workflow KPIs (e.g., lead time, throughput) and evaluate them against SLA targets, emitting events when thresholds are breached. \\
-\indent \emph{Rationale—} Supports continuous improvement and operational control. \\[1ex]
+\begin{table}[H]
+\centering
+\caption{Traceability of Functional Requirements to Literature Insights}
+\label{tab:req-traceability}
+\begin{tabular}{|l|p{5cm}|p{6cm}|}
+\hline
+\textbf{ReqID} & \textbf{Derived Category (from Lit. Review)} & \textbf{Source Basis} \\ \hline
+
+FR-01 & Workflow orchestration & Literature (BPM/WfMS: e.g., van der Aalst, Mendling) \\ \hline
+FR-02 & Role-based task routing & Literature (task assignment, organizational modeling) \\ \hline
+FR-03 & Task reassignment / escalation & Literature (task deadlines, exception handling) \\ \hline
+FR-04 & Model ingestion & Literature (BPMN import/export, workflow versioning) \\ \hline
+FR-05 & Enterprise integration & Literature (SOA, system interoperability) \\ \hline
+FR-06 & Agent tool use & Synthesized (gap: extending workflows with agentic AI tool use) \\ \hline
+FR-07 & Inter-agent coordination & Synthesized (multi-agent orchestration, beyond BPM scope) \\ \hline
+FR-08 & Exception handling & Literature (workflow exception patterns) \\ \hline
+FR-09 & Workflow governance & Literature (compliance, audit, accountability in BPM) \\ \hline
+FR-10 & Scoped autonomy & Synthesized (agentic AI autonomy, not in BPM) \\ \hline
+FR-11 & Observability / transparency & Synthesized (AI transparency; BPM logs only partial coverage) \\ \hline
+FR-12 & Human-in-the-loop & Mixed (approvals in BPM literature; runtime views/replay synthesized) \\ \hline
+FR-13 & Policy / compliance enforcement & Literature (workflow compliance checking) \\ \hline
+FR-14 & Risk-based routing & Synthesized (AI safety / adaptive routing, no direct BPM source) \\ \hline
+FR-15 & Lifecycle, scalability, explainability & Mixed (versioning/scalability in BPM; explainability synthesized) \\ \hline
+
+\end{tabular}
+\end{table}
 
 \noindent\emph{Verification approach.} Each functional requirement is verifiable by inspection (model presence), analysis (policy/model correctness), or test (execution against acceptance scenarios). The SysML model (Appendix) will provide trace links from FR-IDs to architecture elements (agents, gateways, connectors) and validation scenarios.
 
-\noindent\emph{Verification approach} Each functional requirement is verifiable by inspection (model presence), analysis (policy/model correctness), or test (execution against acceptance scenarios). The SysML model (Appendix) will provide trace links from FR-IDs to architecture elements (agents, gateways, connectors) and validation scenarios. :contentReference[oaicite:16]{index=16}
-
-\subsection{[placeholder]Quality Requirements}\label{subse:qua-req}
-\subsection{[placeholder]Constraints}\label{subse:const}
+\subsection{Quality Requirements}\label{subse:qua-req}
+\subsection{Constraints}\label{subse:const}
 
 \section{Modeling the Architecture}\label{sec:mod-mas}
 \begin{listing}[h]
