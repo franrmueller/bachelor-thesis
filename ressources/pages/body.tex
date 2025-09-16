@@ -1,17 +1,17 @@
-\section{Introduction}\label{sec:intro}
+\section{Introduction}\label{sec:intro} % finished
 Organizations across industries continue to face persistent challenges in achieving operational excellence (OpEx). Fragmented processes, manual interventions, and inconsistent data quality undermine efficiency and decision-making. Legacy workflows and siloed systems exacerbate these inefficiencies, while traditional automation approaches often lack the adaptability needed in dynamic business environments. For companies, this translates into slower response times, higher compliance risks, and limited scalability—issues that directly threaten competitiveness.
 
-Agentic AI, building on the advances of generative artificial intelligence (GenAI), opens new possibilities to extend automation beyond deterministic scripts. While GenAI provides the cognitive and generative capabilities, agentic AI leverages these to create adaptive, tool-using agents that can plan, act, and coordinate—thereby supporting governance, decision quality, and organizational agility. Despite this potential, both practice and academic literature lack structured strategies and conceptual frameworks for embedding such agentic capabilities into operational workflows in a scalable and value-driven way. This gap motivates the present research.
+Agentic AI, building on the advances of generative artificial intelligence (GenAI), opens new possibilities to extend automation beyond deterministic scripts. While GenAI provides the cognitive and generative capabilities, agentic AI leverages these to create adaptive, tool-using agents that can plan, act, and coordinate---thereby supporting governance, decision quality, and organizational agility. Despite this potential, both practice and academic literature lack structured strategies and conceptual frameworks for embedding such agentic capabilities into operational workflows in a scalable and value-driven way. This gap motivates the present research.
 
 In this context, multi-agent systems (MAS) can serve as a reference architecture for integrating GenAI-enabled agentic AI into enterprise workflow automation. The central research question is:
 
 \vspace{0.5\baselineskip}
-\emph{How can a multi-agent architecture be designed to integrate GenAI capabilities into workflow automation, in order to enhance agility, compliance, \& decision quality to achieve OpEx?}
+\emph{How can a MAS architecture be designed to integrate GenAI capabilities into workflow automation, in order to enhance agility, compliance, \& decision quality to achieve OpEx?}
 \vspace{0.5\baselineskip}
 
 To answer this question, the study addresses the following sub-questions:
 \begin{itemize}
-    \item \emph{Which design requirements \& agent roles are necessary to align a multi-agent architecture with the goals of OpEx?}
+    \item \emph{Which design requirements are necessary to align a multi-agent architecture with the goals of OpEx?}
     \item \emph{How should a MAS be architected to fulfill these requirements?}
     \item \emph{Under which conditions is deploying a generative multi-agent architecture justified over traditional automation approaches?}
 \end{itemize}
@@ -28,7 +28,7 @@ The core contribution of this work is a conceptual design of a MAS that leverage
 
 The scope is limited to conceptual design; formal evaluation and technical implementation are proposed as future work. Although the architecture is designed to remain industry-agnostic, a use case from the financial services sector is introduced to illustrate how the conceptual model can be instantiated in a regulated, legacy-intensive environment.
 
-The thesis is structured as follows: Section 2 outlines the research methodology, including DSR and supporting methods. Section 3 presents a literature review on OpEx, automation paradigms, and MAS. Section 4 develops applicability conditions and use case illustrations. Section 5 introduces the conceptual architecture design, and Section 6 concludes with reflections and directions for future research.
+After this introduction in Section~\ref{sec:intro}, the thesis is structured as follows: Section~\ref{sec:method} outlines the research methodology, including the use of Design Science Research (DSR) and supporting methods. Section~\ref{sec:lit-rev} presents a literature review on operational excellence, workflow automation, and agentic AI.~Section~\ref{sec:mod-req} details the synthesis and modeling of requirements. Section~\ref{sec:mod-mas} develops the conceptual multi-agent architecture. Section~\ref{sec:discussion} discusses the applicability of MAS in workflow automation use cases, and Section~\ref{sec:conclussion} concludes with reflections and directions for future research.
 
 \section{Methodology}\label{sec:method}
 This thesis applies DSR methodology to create a conceptual artifact---a multi-agent architecture for workflow automation. Practically, the approach unfolded in three steps: (1) \emph{reviewing the literature} on OpEx, workflow automation, and agentic AI;~(2) \emph{deriving and structuring requirements} from literature and case material into a requirements model; and (3) \emph{designing a conceptual system architecture} using Systems Modeling Language (SysML).
@@ -55,16 +55,16 @@ while repeated references to audit trails and logging practices were inductively
 For each publication, relevant statements were assigned to categories using predefined coding rules. 
 The resulting category set both structures Section~\ref{sec:lit-rev} and forms the basis for RE in Section~\ref{subsec:re-sa}. Additional categories such as efficiency, customer-centricity, and user empowerment emerged inductively during coding; these are elaborated in Section~\ref{subsec:op-ex}.
 
-\subsection{Requirements Engineering \& Systems Analysis}\label{subsec:re-sa}
+\subsection{Requirements Engineering \& Systems Analysis}\label{subsec:re-sa} % finished
 Following the \textcite{IEEEStandard1990} definition, a requirement is a \emph{condition or capability needed by a user to solve a problem or achieve an objective}. RE provides the systematic means to derive such objectives. In this thesis, RE was applied in the early phases to ensure that the conceptual architecture rests on precise, validated needs rather than general aspirations.
 
 The synthesis of requirements followed a structured but literature-driven process. Recurring design concerns were identified from the results of the qualitative content analysis (QCA), documented in \emph{elicitation lists}, and then consolidated into a unified set of requirement candidates. Consistent with \textcite{glinzHandbook2020}, each candidate was reformulated into an atomic, unambiguous, and verifiable “shall” statement and classified into \emph{functional requirements} (system behaviors), \emph{quality requirements} (non-functional attributes such as performance or compliance), or \emph{constraints} (technological or regulatory limits).
 
-While this procedure draws on the phases described by \textcite{herrmannGrundlagen2022} (elicitation, documentation, analysis, management), it was adapted to the scope of this thesis: instead of stakeholder workshops, the primary elicitation source was the systematically coded literature. To situate the requirements, a complementary systems analysis defined the system boundary, identified stakeholders and external actors, and clarified interface obligations—helping prevent scope creep and omissions \parencite{herrmannGrundlagen2022}.
+While this procedure draws on the phases described by \textcite{herrmannGrundlagen2022} (elicitation, documentation, analysis, management), it was adapted to the scope of this thesis: instead of stakeholder workshops, the primary elicitation source was the systematically coded literature. To situate the requirements, a complementary systems analysis defined the system boundary, identified stakeholders and external actors, and clarified interface obligations---helping prevent scope creep and omissions.
 
-Requirements were then represented in SysML requirement diagrams. Trace links connect each documented requirement to the respective architecture elements, enabling full requirement-to-design traceability (via \emph{«satisfy»} and \emph{«verify»}). This model-based approach ensures that design decisions can always be traced back to validated needs and that verification can later check no requirement was overlooked. The formulation rules of \textcite{glinzHandbook2020} govern the text quality of each requirement.
+Requirements were then represented in SysML requirement diagrams.~Trace links connect each documented requirement to the respective architecture elements, enabling full requirement-to-design traceability via \emph{«satisfy»} and \emph{«verify»} relationships. This model-based approach ensures that design decisions can always be traced back to validated needs and that no requirement was overlooked.
 
-To assess the quality of the requirement set, the meta-requirements of \textcite{kaiyaMeta2018} were applied as validation heuristics: reducing human effort, increasing gain, supporting sustainability, and fostering participation. This review ensured that requirements not only address immediate needs but also align with broader design principles. In summary, the integration of RE and systems analysis provided a structured, traceable, and quality-assured requirement set. This foundation anchors the subsequent conceptual architecture in rigorously defined objectives, ensuring consistency with both DSR methodology and operational excellence goals.
+In summary, the integration of RE and systems analysis provided a structured, traceable, and quality-assured requirement set. This foundation anchors the subsequent conceptual architecture in rigorously defined objectives, ensuring consistency with both DSR methodology and operational excellence goals.
 
 \subsection{Information Systems Design}\label{subsec:isd}
 In line with DSR, this thesis applies principles of information systems design to structure the artifact. The architecture was modeled in SysML, making use of MBSE practices to ensure requirement-to-design traceability. While originating in MBSE originates in systems engineering, its modeling discipline is transferable to information systems contexts and supports the systematic development of conceptual architectures.
@@ -122,14 +122,13 @@ Finally, a recurrent theme is the need for strong \textsc{governance} mechanisms
 In summary, the literature portrays agentic AI as a powerful paradigm for workflow automation that, if well-designed, can dramatically enhance agility, adaptability, and decision quality in operations. By combining autonomous, tool-using agents into coordinated architectures, organizations can automate complex processes that previously required human judgment. At the same time, achieving sustainable excellence with such systems demands careful attention to transparency and control: architects must ensure agents remain observable and governable to uphold compliance and reliability standards. These insights set the stage for the next section of this thesis, which will integrate OpEx principles, workflow automation requirements, and agentic AI capabilities into a unified reference architecture. The themes of autonomy, coordination, and governance identified here directly inform the design choices and requirements elaborated in the subsequent chapters.
 
 \section{Modeling the Requirements}\label{sec:mod-req}
-The literature review identified recurring design concerns across operational excellence, workflow automation, and agentic AI. These were first documented in \emph{elicitation lists}, which represent the initial outcome of requirements documentation based on systematically coded sources. A subsequent \emph{clustering} step consolidated overlapping items into a unified set of requirement candidates.
+The literature review identified recurring design concerns across operational excellence, workflow automation, and agentic AI.~Synthesizing these insights yields \emph{elicitation lists} which represent the initial outcome of requirements documentation based on systematically coded sources. A subsequent \emph{clustering} step consolidated overlapping items into a unified set of requirement candidates.
 
 Each candidate was then reformulated into an atomic, unambiguous, and verifiable “shall” statement, following the best-practice formulation rules of \textcite{glinzHandbook2020}. The final requirements were organized into \emph{functional requirements}, \emph{quality requirements}, and \emph{constraints}, in line with the Glinz taxonomy.
 
-Finally, the quality of the requirement set was reviewed against the validation heuristics of \textcite{kaiyaMeta2018}: reducing effort, increasing gain, supporting sustainability, and fostering participation. This ensured that the resulting requirements reflect both immediate design needs and broader principles of operational excellence.
+Requirements were then represented in SysML~v2 as dedicated requirement elements, with their textual statements captured in the description field. Trace links connect each requirement to its source in the elicitation lists and to the architecture elements that \emph{«satisfy»} it. This model-based representation ensures that design decisions remain traceable to validated needs and that requirement coverage can later be verified systematically. \\
 
-\section{Modeling the Requirements}\label{sec:mod-req}
-The literature review identified recurring themes across operational excellence, workflow automation, and agentic AI.~Synthesizing these insights yields \emph{elicitation lists} that represent both established design principles and emerging concerns. They form the conceptual baseline for the functional, quality, and constraint requirements that follow. \\
+\subsection{Requirements Clustering \& Consolidation}
 
 \noindent\textsc{O --- operational excellence}
 \begin{enumerate}
@@ -164,11 +163,11 @@ Together, these elicitation lists represent the distilled outcome of the literat
 
 % Here is where the second general clustering takes place. Merging the three initial lists into one. A simple table can be done referring to the requirements by their ID.
 
+\subsection{Requirement Reformulation \& Classification}\label{subsec:req-clas}
 % once the requirements are clustered into one list, they have to be processed to comply with RE best practices.
 Following \textcite{glinzHandbook2020}, each requirement is formulated as a single, unambiguous “shall” statement that is necessary, atomic, verifiable, and consistent. Requirements are classified into functional, quality, and constraint types. In SysML v2, requirements are modeled as dedicated requirement elements with their textual content captured in the description field, and their relationships (e.g. «satisfy», «verify») expressed through model links. Rationale and verification considerations are documented narratively in the requirements analysis and traceability sections, while the requirements themselves remain concise textual statements embedded in the SysML v2 model.
 
 % Once done this, the requirements are classified by type: functional, quality, constraint in each subsection. 
-\subsection{Functional Requirements}\label{subse:func-req}
 Functional requirements specify externally visible system behaviors, separated from quality attributes and constraints. They were elicited from the categorized insights of the literature review, documented in “shall” form, and prepared for trace links in the SysML requirements model. \\
 
 \noindent \textsc{FR-01 process orchestration engine} \\
@@ -231,49 +230,21 @@ Functional requirements specify externally visible system behaviors, separated f
 \indent \emph{Statement—} The system shall maintain versions of process models, policies, agent roles, and connectors; support controlled rollout and rollback of configurations; distribute workflows and agents across execution environments; and provide justifications for agent decisions with references to inputs, rules, and tools used. \\
 \indent \emph{Rationale—} Versioning, scalability, and explainability together ensure safe evolution, resilience, and trust in system operation. \\
 
-\begin{table}[H]
-\centering
-\caption{Traceability of Functional Requirements to Literature Insights}
-\label{tab:req-traceability}
-\begin{tabular}{|l|p{5cm}|p{6cm}|}
-\hline
-\textbf{ReqID} & \textbf{Derived Category (from Lit. Review)} & \textbf{Source Basis} \\ \hline
-
-FR-01 & Workflow orchestration & Literature (BPM/WfMS: e.g., van der Aalst, Mendling) \\ \hline
-FR-02 & Role-based task routing & Literature (task assignment, organizational modeling) \\ \hline
-FR-03 & Task reassignment / escalation & Literature (task deadlines, exception handling) \\ \hline
-FR-04 & Model ingestion & Literature (BPMN import/export, workflow versioning) \\ \hline
-FR-05 & Enterprise integration & Literature (SOA, system interoperability) \\ \hline
-FR-06 & Agent tool use & Synthesized (gap: extending workflows with agentic AI tool use) \\ \hline
-FR-07 & Inter-agent coordination & Synthesized (multi-agent orchestration, beyond BPM scope) \\ \hline
-FR-08 & Exception handling & Literature (workflow exception patterns) \\ \hline
-FR-09 & Workflow governance & Literature (compliance, audit, accountability in BPM) \\ \hline
-FR-10 & Scoped autonomy & Synthesized (agentic AI autonomy, not in BPM) \\ \hline
-FR-11 & Observability / transparency & Synthesized (AI transparency; BPM logs only partial coverage) \\ \hline
-FR-12 & Human-in-the-loop & Mixed (approvals in BPM literature; runtime views/replay synthesized) \\ \hline
-FR-13 & Policy / compliance enforcement & Literature (workflow compliance checking) \\ \hline
-FR-14 & Risk-based routing & Synthesized (AI safety / adaptive routing, no direct BPM source) \\ \hline
-FR-15 & Lifecycle, scalability, explainability & Mixed (versioning/scalability in BPM; explainability synthesized) \\ \hline
-
-\end{tabular}
-\end{table}
-
 \noindent\emph{Verification approach.} Each functional requirement is verifiable by inspection (model presence), analysis (policy/model correctness), or test (execution against acceptance scenarios). The SysML model (Appendix) will provide trace links from FR-IDs to architecture elements (agents, gateways, connectors) and validation scenarios.
 
-\subsection{Quality Requirements}\label{subse:qua-req}
-\subsection{Constraints}\label{subse:const}
+\subsection{Model-Based Requirements Representation}\label{subsec:req-model}
 
 \section{Modeling the Architecture}\label{sec:mod-mas}
 \begin{listing}[h]
     \caption{Excerpt of the Requirements model}
     \inputminted[firstline=1,lastline=25]{text}{ressources/models/requirements.sysml}
 \end{listing}
-\subsection{[placeholder]Modeling the Agents}\label{subse:mod-agents}
-\subsection{[placeholder]Modeling the Architecture}\label{subse:mod-arch}
-\subsection{[placeholder]Modeling the Interactions}\label{subse:mod-interactions}
+\subsection{[placeholder]Modeling the Agents}\label{subsec:mod-agents}
+\subsection{[placeholder]Modeling the Architecture}\label{subsec:mod-arch}
+\subsection{[placeholder]Modeling the Interactions}\label{subsec:mod-interactions}
 
-\section{Discussion: Applicability Criteria}\label{sec:app-criteria}
+\section{Discussion: Applicability Criteria}\label{sec:discussion}
     
-\section{Conclusion}
+\section{Conclusion}\label{sec:conclussion}
 Future work should extend this conceptual design into practical evaluation and implementation. In particular, empirical validation of the architecture in industry settings, tool-supported instantiation in SysML, and comparative studies against traditional workflow automation would provide valuable evidence of its applicability and impact. Further, integrating additional agentic AI capabilities such as autonomous negotiation or explainability could enhance both usability and compliance assurance.
 \clearpage
