@@ -153,21 +153,21 @@ To reduce redundancy and ensure conceptual clarity, the elicitation items from e
 
 \begin{table}[h!]
   \centering
-  \begin{tabular}{p{3cm} p{4.5cm} p{5.5cm}}
+  \begin{tabular}{p{3cm} p{5cm} p{5.5cm}}
     \toprule
-    \textsc{cluster ids} & \textsc{source domains} & \textsc{consolidated~req. area} \\
+    \textsc{cluster ids} & \textsc{source domains} & \textsc{consolidated~req.~area} \\
     \midrule
-    \textsc{o1} & OpEx & \textsc{adaptability and agility} \\
+    \textsc{o1} & \textsc{OpEx} & \textsc{adaptability and agility} \\
     \textsc{o2, w5, a5} & All~three & \textsc{governance \& compl.} \\
-    \textsc{o3, a1} & OpEx,~Agentic~AI & \textsc{decision autonomy} \\
+    \textsc{o3, a1} & OpEx,~Agentic~AI & \textsc{decision quality} \\
     \textsc{w1, w3} & Work.~Aut. & \textsc{orchest. \& modularity} \\
     \textsc{w4, a3} & Work.~Aut.,~Agentic~AI & \textsc{excep.~handling \& coord.} \\
     \textsc{a4, o2} & Agentic~AI, OpEx & \textsc{observability \& trac.} \\
     \textsc{w2, a2} & Work.~Aut.,~Agentic~AI & \textsc{tool integration} \\
     \textsc{o4} & OpEx & \textsc{continuous improvement} \\
     \textsc{o5} & OpEx & \textsc{customer-centricity} \\
-    \textsc{o6} & OpEx & \textsc{user empowerment} \\
-    \textsc{o7} & OpEx & \textsc{tech.~integration \& scale} \\
+    \textsc{o6} & \textsc{opex} & \textsc{user empowerment} \\
+    \textsc{o7} & \textsc{OpEx}& \textsc{tech.~integration \& scal.} \\
     \bottomrule
   \end{tabular}
   \caption{Mapping of Domain-Specific Clusters to Consolidated Requirement Areas}~\label{tab:req-clustering}
@@ -176,8 +176,47 @@ To reduce redundancy and ensure conceptual clarity, the elicitation items from e
 This structured consolidation establishes a coherent foundation for the subsequent refinement of architecture-level requirements.
 
 \subsection{Reformulation and Classification}\label{subsec:req-clas}
-% once the requirements are clustered into one list, they have to be processed to comply with RE best practices.
-Following \textcite{glinzHandbook2020}, each requirement is formulated as a single, unambiguous “shall” statement that is necessary, atomic, verifiable, and consistent. Requirements are classified into functional, quality, and constraint types. In SysML v2, requirements are modeled as dedicated requirement elements with their textual content captured in the description field, and their relationships (e.g. «satisfy», «verify») expressed through model links. Rationale and verification considerations are documented narratively in the requirements analysis and traceability sections, while the requirements themselves remain concise textual statements embedded in the SysML v2 model.
+The logical next step, consistent with RE methodology, is to dissect each consolidated requirement area individually and distill it into a set of atomic “shall” statements. This transformation emphasizes clarity, necessity, and verifiability, ensuring that each requirement stands alone as an actionable directive. At this stage, the focus remains on precision and alignment with design intent; formal classification into functional, quality, or constraint types follows only after this refinement process.
+
+Several requirement areas share overlapping architectural concerns. This reflects systemic interdependencies, particularly in adaptive, agent-based architectures and, more broadly, in complex systems. To avoid redundancy, each requirement is assigned to the cluster that most directly motivates it.
+
+To address the tradeoff between best-practices and readability, a deliberate compromise was made in the formulation of requirements. While the requirements adhere to the core principles of clarity, verifiability, and design relevance, strict atomic decomposition was applied selectively. In cases where overly granular formulation would hinder readability or inflate the requirement set without clear architectural benefit, semantically related concerns were consolidated into cohesive statements. Furthermore, the scope of formal requirements was restricted to those directly affecting system architecture—such as structure, behavior, and coordination—while non-architectural concerns (e.g., organizational or cultural aspects) were acknowledged in the literature but excluded from the formal specification.
+
+\vspace{1em}
+\noindent \textsc{adaptability and agility} \quad The literature refers to adaptability as the ability of processes or components to be reconfigured in response to changing conditions, while agility emphasizes the speed and readiness with which such changes can be enacted. In the context of OpEx, these traits enable resilience and strategic responsiveness but must be balanced against the risks of instability or inefficiency. Workflow automation reinforces this by advocating for \emph{modular} and configurable process architectures, in which workflows are decomposed into loosely coupled components that can be reassembled or modified without full redesign—often supported by \emph{service-oriented} or \emph{parameterized} designs. In parallel, agentic AI introduces a more dynamic dimension of adaptability through \emph{autonomous} agents that can plan, perceive changes in their environments, and replan accordingly. However, when high adaptability is granted without proper boundaries, agent behavior may become misaligned with organizational goals. Across all domains, adaptability must be designed at the architectural level through modularity, runtime configurability, and coordination mechanisms, while being constrained by governance layers that preserve system integrity. Based on these insights, the following requirements were derived:
+
+\begin{itemize}
+    \item The system shall support the reconfiguration of workflows at runtime without requiring redeployment.
+    
+    \item The system shall provide a configuration interface that allows authorized users to modify task sequences, business rules, and decision logic.
+    
+    \item The system shall decompose workflows into modular components that can be independently reused, substituted, or extended.
+    
+    \item The system shall enable autonomous agents to detect relevant changes in their environment and adapt their task plans accordingly.
+    
+    \item The system shall enforce architectural boundaries and governance constraints to ensure that adaptive behaviors remain aligned with organizational objectives.
+\end{itemize}
+
+\noindent \textsc{governance and compliance} \quad The literature consistently frames governance and compliance as essential architectural concerns, particularly in regulated or high-stakes environments. Compliance is not merely a legal overlay but a structural property: it must be embedded within processes and workflows as a first-class constraint. In operational contexts, governance mechanisms support strategic alignment and prevent compliance drift by ensuring that optimization or adaptation does not undermine formal obligations. Workflow literature emphasizes the evolution from rigid, hardcoded logic toward policy-driven architectures, where governance rules can be updated independently of core business logic. In agentic systems, governance plays a critical role in constraining autonomous behavior and maintaining auditability. This is often achieved through embedded policy frameworks, access control, and meta-agents that oversee, veto, or approve agent actions. Across domains, governance and compliance must be treated as active, adaptable components of the system architecture—supporting observability, policy enforcement, and the assurance that behavior remains aligned with organizational and legal constraints. Based on these insights, the following requirements were derived:
+
+\begin{itemize}
+  \item The system shall embed compliance rules directly into process logic to ensure that legal and policy constraints are enforced at runtime.  
+  \item The system shall separate governance rules from core business logic to allow policy updates without requiring workflow redesign.
+  \item The system shall provide access control mechanisms that restrict agent or user actions based on roles, permissions, and contextual conditions.    
+  \item The system shall ensure that all agent actions are observable and auditable for compliance verification and traceability purposes.  
+  \item The system shall support the integration of policy evaluation components that can validate or veto workflow executions or agent plans based on compliance logic.
+  \item The system shall prevent compliance drift by enforcing runtime checks that detect deviations from approved behavioral boundaries.
+\end{itemize}
+
+\noindent \textsc{decision quality} \quad means producing accurate, timely, explainable, and compliant decisions under variable conditions. Classical orchestration provides consistency and auditability; agentic AI contributes adaptive reasoning and breadth through tool-use and coordinated agents. The architectural crux is controlled adaptability: grant agents enough autonomy to handle novelty while enforcing policy, observability, and escalation so that high-impact or ambiguous calls remain accountable. Practically, the system must: ensure reliable inputs (data provenance), capture decision traces, quantify uncertainty, escalate by risk, and prove compliance post-hoc via logs.
+
+\begin{itemize}
+  \item The system shall support bounded decision autonomy, enabling agents to make local decisions without requiring central orchestration.
+  \item The system shall enforce role-based and contextual limits that constrain the scope of agent or process autonomy.
+  \item The system shall provide escalation mechanisms to transfer decision-making to higher authority levels when local autonomy is insufficient or unsafe.
+  \item The system shall enable negotiation and coordination protocols among agents to resolve conflicts arising from autonomous decision-making.
+  \item The system shall ensure that autonomous decisions remain observable and traceable to maintain accountability and strategic alignment.
+\end{itemize}
 
 % Once done this, the requirements are classified by type: functional, quality, constraint in each subsection. 
 Functional requirements specify externally visible system behaviors, separated from quality attributes and constraints. They were elicited from the categorized insights of the literature review, documented in “shall” form, and prepared for trace links in the SysML requirements model. \\
