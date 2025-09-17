@@ -1,0 +1,70 @@
+\subsection{Reformulation and Classification}\label{subsec:req-clas}
+% once the requirements are clustered into one list, they have to be processed to comply with RE best practices.
+Following \textcite{glinzHandbook2020}, each requirement is formulated as a single, unambiguous “shall” statement that is necessary, atomic, verifiable, and consistent. Requirements are classified into functional, quality, and constraint types. In SysML v2, requirements are modeled as dedicated requirement elements with their textual content captured in the description field, and their relationships (e.g. «satisfy», «verify») expressed through model links. Rationale and verification considerations are documented narratively in the requirements analysis and traceability sections, while the requirements themselves remain concise textual statements embedded in the SysML v2 model.
+
+% Once done this, the requirements are classified by type: functional, quality, constraint in each subsection. 
+Functional requirements specify externally visible system behaviors, separated from quality attributes and constraints. They were elicited from the categorized insights of the literature review, documented in “shall” form, and prepared for trace links in the SysML requirements model. \\
+
+\begin{footnotesize}
+  \noindent \textsc{FR-01 process orchestration engine} \\
+  \indent \emph{Statement—} The system shall execute workflow models by dispatching tasks to human or software actors according to model control flow and business rules. \\
+  \indent \emph{Rationale—} Centralized orchestration ensures reliable, repeatable execution. \\
+
+  \noindent \textsc{FR-02 task assignment and role routing} \\
+  \indent \emph{Statement—} The system shall route tasks based on roles, skills, and authorization. \\
+  \indent \emph{Rationale—} Role- and skill-aware routing aligns work with organizational responsibilities. \\
+
+  \noindent \textsc{FR-03 task reassignment and escalation} \\
+  \indent \emph{Statement—} The system shall ensure task continuity by supporting reassignment to eligible actors and enforcing time-based escalation policies. \\
+  \indent \emph{Rationale—} Continuity mechanisms prevent stalls and maintain service levels. \\
+
+  \noindent \textsc{FR-04 model ingestion} \\
+  \indent \emph{Statement—} The system shall ingest workflow or process definitions in a machine-readable format and make them available for execution and versioning. \\
+  \indent \emph{Rationale—} Importable models enable governance, repeatability, and controlled change. \\
+
+  \noindent \textsc{FR-05 enterprise integration} \\
+  \indent \emph{Statement—} The system shall provide connectors to interact with external applications, data sources, and services as workflow steps. \\
+  \indent \emph{Rationale—} Interoperability enables end-to-end automation across heterogeneous systems. \\
+
+  \noindent \textsc{FR-06 agent tool use} \\
+  \indent \emph{Statement—} The system shall allow agent components to invoke approved external tools or APIs with controlled inputs/outputs and capture results for downstream steps. \\
+  \indent \emph{Rationale—} Tool use turns agents into capable actors while containing risk. \\
+
+  \noindent \textsc{FR-07 inter-agent coordination} \\
+  \indent \emph{Statement—} The system shall support coordination patterns (e.g., hierarchical, peer-to-peer, brokered) among multiple agents executing tasks. \\
+  \indent \emph{Rationale—} Structured coordination prevents conflicts and enables distributed problem solving. \\
+
+  \noindent \textsc{FR-08 exception handling} \\
+  \indent \emph{Statement—} The system shall detect execution errors and deviations, support compensating actions and escalation, and enable resumable recovery. \\
+  \indent \emph{Rationale—} Robust exception handling preserves correctness and availability. \\
+
+  \noindent \textsc{FR-09 workflow governance} \\
+  \indent \emph{Statement—} The system shall enforce access control, maintain audit trails, and ensure compliance with organizational policies during workflow execution. \\
+  \indent \emph{Rationale—} Governance guarantees accountability and regulatory conformity. \\
+
+  \noindent \textsc{FR-10 autonomy in decision-making} \\
+  \indent \emph{Statement—} The system shall enable agents to make decisions within explicitly scoped authority without requiring constant human input. \\
+  \indent \emph{Rationale—} Scoped autonomy improves responsiveness while containing risk. \\
+
+  \noindent \textsc{FR-11 observability and transparency} \\
+  \indent \emph{Statement—} The system shall log agent decisions, actions, and tool invocations in a human-readable and queryable format. \\
+  \indent \emph{Rationale—} Transparent logs support trust, auditing, and debugging. \\
+
+  \noindent \textsc{FR-12 human-in-the-loop control and runtime views} \\
+  \indent \emph{Statement—} The system shall provide configurable human approval/override points and runtime execution views, including replay capability. \\
+  \indent \emph{Rationale—} Human oversight and operational views enable intervention and diagnosis. \\
+
+  \noindent \textsc{FR-13 policy and compliance enforcement} \\
+  \indent \emph{Statement—} The system shall validate agent actions against declarative policies and block or redirect disallowed behaviors. \\
+  \indent \emph{Rationale—} Policy enforcement prevents rule violations and unsafe behavior. \\
+
+  \noindent \textsc{FR-14 risk-based routing} \\
+  \indent \emph{Statement—} The system shall evaluate risk signals (e.g., anomalies, policy matches) and prefer safer modeled paths without overriding explicit policy decisions. \\
+  \indent \emph{Rationale—} Risk-based routing provides adaptive safeguards while preserving compliance. \\
+
+  \noindent \textsc{FR-15 configuration, scalability and explainability} \\
+  \indent \emph{Statement—} The system shall maintain versions of process models, policies, agent roles, and connectors; support controlled rollout and rollback of configurations; distribute workflows and agents across execution environments; and provide justifications for agent decisions with references to inputs, rules, and tools used. \\
+  \indent \emph{Rationale—} Versioning, scalability, and explainability together ensure safe evolution, resilience, and trust in system operation. \\
+
+  \noindent\emph{Verification approach.} Each functional requirement is verifiable by inspection (model presence), analysis (policy/model correctness), or test (execution against acceptance scenarios). The SysML model (Appendix) will provide trace links from FR-IDs to architecture elements (agents, gateways, connectors) and validation scenarios.
+\end{footnotesize}
