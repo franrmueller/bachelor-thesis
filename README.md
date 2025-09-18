@@ -1,4 +1,4 @@
-# Multi-Agent Architecture Design  
+# Agentic AI Architecture Design  
 **Workflow Automation in Compliance with Operational Excellence**
 
 This repository contains the source files, artifacts, and documentation for my bachelor’s thesis, which investigates how multi-agent systems can serve as a conceptual reference architecture for integrating generative AI into enterprise workflow automation. For a detailed project log, framework notes, and AI usage declaration, see the dedicated [notion](https://franrmueller.notion.site/bachelor-thesis-214170088c3680d0b1abf2b6b7b1744a).
