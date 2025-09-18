@@ -6,7 +6,7 @@
 \newcommand{\myCompany}{All for One Group SE}
 \newcommand{\myCompanyAddress}{Danzigerstraße 7, 88250 Weingarten}
 \newcommand{\mySupervisor}{Prof.~Dr.~Paul Kirchberg}
-\newcommand{\myTitle}{Multi-Agent Architecture Design}
+\newcommand{\myTitle}{Agentic AI Architecture Design}
 \newcommand{\mySubtitle}{Workflow Automation in Compliance with Operational Excellence}
 
 \usepackage{lmodern}
@@ -24,15 +24,16 @@
 \usepackage{caption}                                    
 \usepackage{fancyhdr}                                   
 \usepackage[nottoc]{tocbibind}                          
-\usepackage[intoc]{nomencl}
-\makenomenclature{}
+\usepackage[intoc]{nomencl} \makenomenclature{}
 \usepackage[scaled]{inconsolata}
 \usepackage{etoolbox} \apptocmd{\bibsetup}{\sloppy}{}{}
 \usepackage[hidelinks]{hyperref}
 \usepackage{chngcntr}
 \usepackage{booktabs}
 \usepackage{caption} \captionsetup[table]{skip=6pt, font=small, labelfont=bf}
+\usepackage[table]{xcolor}
 \usepackage{minted} \setminted{fontsize=\footnotesize,breasklines,lineos}
+
 \linespread{1.25}
 \setlength{\headheight}{14.5pt}
 \setlist{noitemsep}
@@ -54,5 +55,5 @@
 \begin{document}
 \input{ressources/pages/preliminaries}
 \input{ressources/pages/body}
-\input{ressources/pages/end-matter}                               
+\input{ressources/pages/end-matter}
 \end{document}

@@ -1,3 +1,30 @@
+\noindent \textsc{adaptability and agility} \quad The literature refers to adaptability as the ability of processes or components to be reconfigured in response to changing conditions, while agility emphasizes the speed and readiness with which such changes can be enacted. In the context of OpEx, these traits enable resilience and strategic responsiveness but must be balanced against the risks of instability or inefficiency. Workflow automation reinforces this by advocating for \emph{modular} and configurable process architectures, in which workflows are decomposed into loosely coupled components that can be reassembled or modified without full redesign—often supported by \emph{service-oriented} or \emph{parameterized} designs. In parallel, agentic AI introduces a more dynamic dimension of adaptability through \emph{autonomous} agents that can plan, perceive changes in their environments, and replan accordingly. However, when high adaptability is granted without proper boundaries, agent behavior may become misaligned with organizational goals. Across all domains, adaptability must be designed at the architectural level through modularity, runtime configurability, and coordination mechanisms, while being constrained by governance layers that preserve system integrity. Based on these insights, the following requirements were derived:
+
+\begin{itemize}
+  \item \textsc{FR-01 runtime reconfiguration}: The system shall support the reconfiguration of workflows at runtime without requiring redeployment.
+  \item \textsc{FR-02 governed configuration surface}: The system shall provide a configuration interface that allows authorized users to modify task sequences, business rules, and decision logic.
+  \item \textsc{C-01 composable process units}: The system shall decompose workflows into modular components that can be independently reused, substituted, or extended.
+  \item \textsc{FR-03 adaptive agent planning}: The system shall enable autonomous agents to detect relevant changes in their environment and adapt their task plans at runtime.
+  \item \textsc{C-02 bounded adaptability}: The system shall enforce architectural boundaries and governance constraints to ensure that adaptive behaviors remain aligned with organizational objectives.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \subsection{Reformulation and Classification}\label{subsec:req-clas}
 % once the requirements are clustered into one list, they have to be processed to comply with RE best practices.
 Following \textcite{glinzHandbook2020}, each requirement is formulated as a single, unambiguous “shall” statement that is necessary, atomic, verifiable, and consistent. Requirements are classified into functional, quality, and constraint types. In SysML v2, requirements are modeled as dedicated requirement elements with their textual content captured in the description field, and their relationships (e.g. «satisfy», «verify») expressed through model links. Rationale and verification considerations are documented narratively in the requirements analysis and traceability sections, while the requirements themselves remain concise textual statements embedded in the SysML v2 model.
