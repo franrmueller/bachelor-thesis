@@ -17,7 +17,6 @@ To answer this question, the study addresses the following sub-questions:
 \end{itemize}
 
 Methodologically, the thesis applies Design Science Research (DSR) to develop a conceptual reference architecture. The approach synthesizes requirements from academic literature and OpEx principles, models agent roles and interactions, and derives applicability conditions for real-world deployment.
-Although the architecture is designed to remain industry-agnostic, a use case from the financial services sector is introduced to illustrate how the conceptual model can be instantiated in a regulated, legacy-intensive environment.
 
 The core contribution of this work is a conceptual design of a MAS that leverages GenAI to support OpEx in enterprise workflows. Specifically, it delivers:
 \begin{itemize}
@@ -179,7 +178,7 @@ This structured consolidation establishes a coherent foundation for refining \\ 
 \subsection{Reformulation and Classification}\label{subsec:req-clas}
 The logical next step, consistent with RE methodology, is to dissect each consolidated requirement area individually and distill it into a set of atomic “shall” statements. This transformation emphasizes clarity, necessity, and verifiability, ensuring that each requirement stands alone as an actionable directive. At this stage, the focus remains on precision and alignment with design intent; formal classification into functional, quality, or constraint types follows only after this refinement process. Several requirement areas share overlapping architectural concerns. This reflects systemic interdependencies, particularly in adaptive, agent-based architectures and, more broadly, in complex systems. To avoid redundancy, each requirement is assigned to the cluster that most directly motivates it.
 
-To address the tradeoff between best-practices and readability, a deliberate compromise was made in the formulation of requirements. While the requirements adhere to the core principles of clarity, verifiability, and design relevance, strict atomic decomposition was applied selectively. In cases where overly granular formulation would hinder readability or inflate the requirement set without clear architectural benefit, semantically related concerns were consolidated into cohesive statements. Furthermore, the scope of formal requirements was restricted to those directly affecting system architecture—such as structure, behavior, and coordination—while non-architectural concerns (e.g., organizational or cultural aspects) were acknowledged in the literature but excluded from the formal specification. \\
+However, to address the tradeoff between best-practices and readability, a deliberate compromise was made in the formulation of requirements. While the requirements adhere to the core principles of clarity, verifiability, and design relevance, strict atomic decomposition was applied selectively. In cases where overly granular formulation would hinder readability or inflate the requirement set without clear architectural benefit, semantically related concerns were consolidated into cohesive statements. Furthermore, the scope of formal requirements was restricted to those directly affecting system architecture—such as structure, behavior, and coordination—while non-architectural concerns (e.g., organizational or cultural aspects) were acknowledged in the literature but excluded from the formal specification. \\
 
 \noindent \textsc{governance and compliance} --- The literature consistently frames governance and compliance as architectural, not merely legal, concerns. Compliance should be embedded as a first-class constraint, with governance mechanisms preventing compliance drift as systems optimize or adapt. Classical workflow automation contributes monitoring, audit trails, and escalation, and has evolved toward policy-driven designs that decouple governance rules from core logic. Agentic AI requires a decoupled policy layer capable of intercepting and vetoing high-risk actions, complemented by human-in-the-loop checkpoints and comprehensive auditability. Across domains, governance and compliance must operate as active, adaptable components—enforcing policy at runtime while preserving transparency and alignment with organizational and legal constraints \parencite{basuResearch2002, gauravGovernance2025}.
 
@@ -243,62 +242,123 @@ To address the tradeoff between best-practices and readability, a deliberate com
   \item \textsc{[c] invocation safeguards}
 \end{itemize} \\
 
-The requirements were then consolidated into a final list, grouped by class---\emph{functional requirements} and \emph{constraints}—to provide a single, unambiguous baseline for the subsequent SysML formalization. As the reader can see, \emph{quality requirements} are left out of scope at this stage because this thesis focuses on specifying \emph{what} the system must do and \emph{which} governance and operational constraints it is subject to. Moreover, quality attributes vary significantly by deployment context and would require domain-specific targets, which remain out of scope here. Some quality-related concerns (e.g., auditability, interoperability) are operationalized as \emph{constraints} rather than standalone quality requirements. \\
+The requirements were then consolidated into a final list, grouped by class---\emph{functional requirements} and \emph{constraints}—to provide a single, unambiguous baseline for the subsequent SysML formalization. Here an example of each requirement class: \\
 
-\noindent \textsc{functional requirements} \\
-\begin{footnotesize}
-\noindent \textsc{FR-01 process orchestration engine} --- The system shall execute workflow models by dispatching tasks to human or software actors according to model control flow and business rules. \\
-\noindent \textsc{FR-02 parameterized subprocesses} --- The system shall support parameterized subprocesses and rules so behavioral variants can be expressed without altering the underlying process structure. \\
-\noindent \textsc{FR-03 human–machine task orchestration} --- The system shall coordinate both human and automated tasks within the same orchestrated process model. \\
-\noindent \textsc{FR-04 exception detection and routing} --- The system shall detect deviations from the nominal process and route cases to defined exception subprocesses. \\
-\noindent \textsc{FR-05 escalation to human authority} --- The system shall escalate unresolved or unmodeled exceptions to designated human roles with clear ownership. \\
-\noindent \textsc{FR-06 inter-agent communication protocol} --- The system shall specify message formats and interaction rules for agent collaboration (e.g., direct messaging or shared memory; event-bus/blackboard where asynchronous exchange is required).\\
-\noindent \textsc{FR-07 tool failure handling in exceptions} --- The system shall validate tool/API outputs and trigger defined recovery or fallback steps when invocations fail.\\
-\noindent \textsc{FR-08 conflict resolution} --- The system shall provide mechanisms for agents to resolve task or decision conflicts (e.g., delegation to a planner, negotiation, or voting).\\
 \noindent \textsc{FR-09 policy engine} --- The system shall provide a decoupled policy evaluation component that can validate, veto, or redirect workflow executions and agent actions at runtime. \\
-\noindent \textsc{FR-10 risk-based approvals and escalation} --- The system shall require human approval and/or escalation for actions or decisions exceeding defined risk or impact thresholds. \\
-\noindent \textsc{FR-11 compliance mapping and drift checks} --- The system shall map actions and policies to applicable regulations or internal rules and perform runtime checks to detect and block compliance drift. \\
-\noindent \textsc{FR-12 evidence-based decision support} --- The system shall aggregate relevant data at decision points to support evidence-based choices and reduce errors. \\
-\noindent \textsc{FR-13 rule-enforced decision points} --- The system shall enforce business rules and role responsibilities at decision points to ensure consistent, auditable outcomes. \\
-\noindent \textsc{FR-14 decision trace and rationale} --- The system shall persist a human-readable decision trace for automated or assisted decisions, including inputs, tool/API calls and results, and concise rationale summaries. \\
-\noindent \textsc{FR-15 event logging pipeline} --- The system shall instrument the workflow engine and agents to emit structured, timestamped events for key actions (e.g., prompts, tool/API invocations and results, plan/decision commits, and state changes). \\
-\noindent \textsc{FR-16 dashboards and alerts} --- The system shall provide real-time dashboards and alerting for observability metrics (e.g., execution latency, error/anomaly rates, blocked actions). \\
-\noindent \textsc{FR-17 replay for post-hoc analysis} --- The system shall support reconstruction and replay of workflow and agent interactions from logged events to enable root-cause analysis and explanation of outcomes. \\
-\noindent \textsc{FR-18 integration connectors} --- The system shall provide connectors to integrate heterogeneous applications and data sources required by the workflows. \\
-\noindent \textsc{FR-19 agent tool adapters} --- The system shall expose a uniform adapter interface for agents and workflows to invoke external tools, APIs, databases, or RPA scripts. \\
-\noindent \textsc{FR-20 inter-organizational interoperability} --- The system shall support protocol and interface interoperability suitable for cross-organizational workflows. \\
-\noindent \textsc{FR-21 data transformation layer} --- The system shall provide mapping and transformation capabilities to reconcile data across integrated systems. \\
-\end{footnotesize}
 
-\noindent \textsc{constraints} \\
-\begin{footnotesize}
-\noindent \textsc{C-01 segregation of duties} --- The system shall enforce role-based access control and segregation of duties for configuration changes and sensitive actions. \\
-\noindent \textsc{C-02 audit logging and retention} --- The system shall produce tamper-evident audit trails of agent actions, policy decisions, and configuration changes, retained according to the applicable compliance policy. \\
 \noindent \textsc{C-03 bounded decision autonomy} --- The system shall constrain agent decision-making to clearly scoped authority levels aligned with organizational objectives. \\
-\noindent \textsc{C-04 modular process units} --- The system shall structure workflows as modular subprocesses or services that can be reused and reconfigured without redesign. \\
-\noindent \textsc{C-05 interface-based composition} --- The system shall expose clear process and service interfaces compatible with established interoperability standards to enable composition across heterogeneous systems and organizations. \\
-\noindent \textsc{C-06 explicit coordination model} --- The system shall define and enforce a coordination structure (e.g., hierarchical planner–specialists or decentralized collaboration) for multi-agent work. \\
-\noindent \textsc{C-07 agent status self-reporting} --- The system shall require agents to periodically self-report status and progress (e.g., current task, step outcome, next planned action) to improve runtime transparency. \\
-\noindent \textsc{C-08 interface contracts and schemas} --- The system shall define input/output contracts and validate request/response schemas at adapter boundaries. \\
-\noindent \textsc{C-09 invocation safeguards} --- The system shall enforce adapter-level safeguards (e.g., timeouts, retries, and idempotency keys) to limit side effects of failed or repeated tool calls.
-\end{footnotesize}
 
-While the flat list above optimizes precision, it is not yet visually informative nor operationally easy to manage. In the next section, the requirements are recast as SysML \texttt{«requirement»} elements and diagrams to improve visibility, traceability, and change control—linking them explicitly to their sources and preparing \texttt{satisfy}/\texttt{verify} relations for the architectural and evaluation work that follows.
+The complete list of requirements can be found in Appendix~\ref{app:req-list}. As the reader can see, \emph{quality requirements} were left out of scope at this stage because this thesis focuses on specifying \emph{what} the system must do and \emph{which} governance and operational constraints it is subject to. Moreover, quality attributes vary significantly by deployment context and would require domain-specific targets, which remain out of scope here. Some quality-related concerns (e.g., auditability, interoperability) were operationalized as \emph{constraints} rather than standalone quality requirements. \\
+
+While the list optimizes precision, it is not yet visually informative nor operationally easy to manage. In the next section, the requirements are recast as SysML \texttt{«requirement»} elements and diagrams to improve visibility, traceability, and change control—linking them explicitly to their sources and preparing \texttt{satisfy}/\texttt{verify} relations for the architectural and evaluation work that follows.
 
 \subsection{Model-Based Representation}\label{subsec:req-model}
 
 
 \section{Architecture Modeling}\label{sec:mod-mas}
-\begin{listing}[h]
-    \caption{Excerpt of the Requirements model}
-    \inputminted[firstline=1,lastline=25]{text}{ressources/models/requirements.sysml}
-\end{listing}
-\subsection{[placeholder]Modeling the Agents}\label{subsec:mod-agents}
-\subsection{[placeholder]Modeling the Architecture}\label{subsec:mod-arch}
-\subsection{[placeholder]Modeling the Interactions}\label{subsec:mod-interactions}
+This section presents a general, industry-agnostic reference architecture for a generative multi-agent workflow system. The design balances agent autonomy with governance, observability, and integration. The architecture is intentionally simple: a central orchestrator coordinates a small set of specialized agents and vetted tools; complex patterns (e.g., multi-tier supervisor trees or free-for-all peer meshes) are avoided to preserve transparency and debuggability~\parencite{langchain_multi_agents, cognition_dont_build}.
+
+\subsection{Architectural Overview}\label{sec:arch-overview}
+
+\textsc{top-level structure} --- The system comprises five logical layers (Fig.~\ref{fig:arch-overview}):
+\begin{enumerate}
+  \item \textsc{interaction layer} (user/client, human-in-the-loop checkpoints) --- entry point and approval gates (\textsc{FR-10}).
+  \item \textsc{orchestration layer} (orchestrator agent) --- decomposes tasks, sequences steps, performs policy checks (\textsc{FR-01, FR-09, FR-10}).
+  \item \textsc{agent layer} (specialists) --- narrow-scope agents such as Researcher, Analyst, Reviewer/Verifier, Writer (\textsc{FR-06, FR-08, FR-12..14}).
+  \item \textsc{tool/integration layer} --- adapters to enterprise systems via standard connectors (\textsc{FR-18..21; C-05, C-08, C-09}).
+  \item \textsc{operations \& governance layer} --- logging, tracing, dashboards, replay, policy store (\textsc{FR-15..17; C-01, C-02, C-03, C-07}).
+\end{enumerate}
+
+\noindent \textit{Design decision D1 (simplicity)} ---  A \emph{central supervisor with agents-as-tools} pattern was adopted: the orchestrator invokes specialists as function/tool calls and merges results, rather than letting agents freely call one another~\parencite{langchain_multi_agents}. This yields predictable control flow and clearer accountability~\parencite{cognition_dont_build} (satisfies \textsc{C-06}, supports \textsc{FR-04, FR-08, FR-14, FR-17}).
+
+\noindent \textit{Design decision D2 (context discipline)} We treat prompt/context as a constrained resource. The Orchestrator curates per-step, minimal context; older details are summarized or offloaded to external memory; retrieval is used for relevance~\parencite{breunig_context_fail,breunig_fix_context} (supports \textsc{FR-12, FR-14, FR-15; C-07}).
+
+\noindent \textit{Standards alignment (interoperability)} To keep the architecture industry-agnostic while avoiding bespoke glue code, we bind the Tool/Integration layer to \emph{open} interfaces. The \textit{Model Context Protocol (MCP)} standardizes agent--.tool/data access via schema-driven servers/clients, replacing one-off adapters with a uniform contract for files, databases, SaaS, ands on-prem apps~\parencite{anthropic_mcp}. For inter-agent collaboration across teams or vendors, \textit{Agent-to-Agent (A2A)} provides secure discovery, messaging, and task choreography over familiar web transports (HTTP/SSE/JSON-RPC), enabling multi-agent workflows beyond a single runtime~\parencite{google_a2a}. This separation (MCP for agent$\leftrightarrow$tool, A2A for agent$\leftrightarrow$agent) preserves portability while containing complexity (\textsc{FR-18..21, FR-20; C-05}).
+
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\parbox{0.92\linewidth}{
+  \small \textbf{Figure placeholder (to be modeled in SysML v2)}.
+  Show: User $\rightarrow$ Orchestrator $\rightarrow$ \{Researcher, Analyst, Reviewer, Writer\} $\rightarrow$ Tool Adapters (\textbf{MCP} servers, APIs, RAG); optional \textbf{A2A} links to external agents.
+  \caption{High-level architecture (layers and main interactions).}
+  \label{fig:arch-overview}
+\end{figure}
+
+\subsection{Agent Roles \& Orchestration}\label{sec:roles-orchestration}
+
+\textsc{roles and responsibilities}
+\begin{itemize}
+  \item \textsc{orchestrator} --- plans, delegates, validates, and gates risky actions; owns workflow state and shared scratchpad (FR-01, FR-04, FR-09..11, FR-15).
+  \item \textsc{researcher} --- retrieves evidence using RAG/tools; writes salient findings to shared state (FR-12, FR-18..21).
+  \item \textsc{analyst} --- transforms evidence (calculations, checks, comparisons); flags uncertainty and triggers escalation if needed (FR-07, FR-12, FR-10).
+  \item \textsc{reviewer/verifier} --- critiques outputs against rules/policies; requests fixes; records rationale (FR-13, FR-14, FR-11).
+  \item \textsc{writer} --- synthesizes final artifacts to required format; applies review feedback; preserves decision trace (FR-14).
+\end{itemize}
+
+\noindent \textit{Prompting and tool use} Agents follow a \emph{reason+act} loop (ReAct): interleaving lightweight reasoning with tool calls and state updates, which improves faithfulness and reduces ungrounded steps in complex tasks~\parencite{yaoReAct2023}. Tool exposure is \emph{scoped per role} (``tool loadouts'') to minimize cognitive overhead and context bloat (\textsc{FR-19; C-09})~\parencite{breunig_context_fail,breunig_fix_context}.
+
+\noindent \textit{Coordination model} --- Orchestrator-mediated hand-offs with explicit task payloads and expected outputs (\emph{handoff contracts}) ensure shared understanding and avoid agent conflict (FR-06, FR-08). Only key outcomes are published to a global scratchpad; low-level traces remain local unless needed (\textsc{FR-15; C-07})~\parencite{cognition_dont_build,langchain_multi_agents}.
+
+\noindent \textit{When to parallelize} --- Breadth-first tasks (e.g., multiple independent lookups) may run in parallel; generation tasks (long-form writing/code) remain serial or are merged under Orchestrator/Reviewer control to prevent incoherence \cite{langchain_multi_agents,cognition_dont_build} (\textsc{FR-08, FR-04}).
+
+\textsc{exception handling} --- Deviation detection $\rightarrow$ route to \emph{Exception Subprocess} (fallback tools, re-prompt, human escalation) $\rightarrow$ resume or terminate (\textsc{FR-04, FR-05, FR-07}).
+
+\subsection{Governance, Observability, and Integration}\label{sec:gov-obs-integ}
+\textsc{governance (policy-first)} --- A decoupled \emph{policy engine} validates proposed actions before execution (allow/deny/escalate), with rules that reference risk thresholds, data sensitivity, or regulatory constraints (\textsc{FR-09..11; C-01..03}). High-impact actions pause at \emph{approval gates} (human-in-the-loop) with resumeable state~\parencite{langgraph_hil} (\textsc{FR-10}).
+
+\textsc{observability} --- Agents and Orchestrator emit structured events: prompts, tool calls/results, decisions, state changes (\textsc{FR-15}). Operators get dashboards and alerts for anomalies; full \emph{replay} supports post-hoc explanation and audits (\textsc{FR-16, FR-17})~\parencite{langchain_multi_agents}. Decision rationales (concise) are persisted for accountability (\textsc{FR-14}). This trace (prompts, tool I/O, decisions) is the basis for audits and regression evaluation, and can be replayed deterministically (\textsc{FR-16, FR-17})~\parencite{langchain_multi_agents}.
+
+\textsc{Integration (industry-agnostic)}
+\begin{itemize}
+  \item \textsc{tool adapters} with contracts/schemas, timeouts/retries/idempotency (\textsc{FR-19, FR-21; C-08, C-09}).
+  \item \textsc{open connectors (MCP)} Standardize agent access to tools/data via MCP servers/clients (capabilities, JSON schemas, auth), avoiding bespoke adapters and easing on-prem + cloud integration~\parencite{anthropic_mcp} (\textsc{FR-18..21; C-05, C-08, C-09}).
+  \item \textsc{agent interoperability (A2A)} Use A2A for secure agent discovery, messaging, long-running tasks, and cross-org coordination over web standards~\parencite{google_a2a} (\textsc{FR-20}). External partners’ agents become callable \emph{as if} tools—without breaking the orchestrator pattern.
+\end{itemize}
+
+\textsc{context management} --- Right-sized prompts; retrieve-then-read; periodic summarization; external scratchpad for verbose/intermediate artifacts~\parencite{breunig_context_fail,breunig_fix_context} (supports \textsc{FR-12, FR-14, FR-15; C-07}).\noindent \textit{Failure modes to avoid.} Very long prompts and indiscriminate context sharing degrade reliability (``context is not free''); prefer retrieval, summarization, and offloaded scratchpads to keep step-specific context tight~\parencite{breunig_context_fail,breunig_fix_context}.
+
+\noindent \textit{Failure modes to avoid} --- Very long prompts and indiscriminate context sharing degrade reliability (``context is not free''); prefer retrieval, summarization, and offloaded scratchpads to keep step-specific context tight~\parencite{breunig_context_fail,breunig_fix_context}.
+
+\paragraph{Finance example (illustrative only).}
+A sanction-screened payment approval flow: Researcher fetches KYC hits, Analyst computes risk, Reviewer applies policy, Orchestrator pauses for human approval over threshold; all steps logged with rationale (maps to FR-04, FR-07, FR-09..17; C-01..03).
+
+\subsection{Design Rationale vs. Alternatives}\label{sec:tradeoffs}
+\begin{table}[h!]
+  \centering
+  \small
+  \begin{tabular}{p{3.2cm} p{6.3cm} p{5.3cm}}
+    \toprule
+    \textsc{Pattern} & \textsc{Why/When} & \textsc{Trade-offs} \\
+    \midrule
+    central orchestrator + agents-as-tools~\cite{langchain_multi_agents} & default for clarity, traceability, testability. & Single coordination point; easiest to govern/observe. \\
+    Decentralized mesh & Only for highly exploratory, research-heavy tasks. & Coordination complexity, harder to debug \cite{cognition_dont_build}. \\
+    Hierarchical supervisors & For very large, multi-team workflows. & Adds layers and latency; out of scope for simplicity. \\
+    \bottomrule
+  \end{tabular}
+  \caption{Chosen pattern vs.~alternatives and scope boundaries.}
+\end{table}
+
+\noindent These choices operationalize the requirements from §\ref{sec:requirements} while keeping the system inspectable and governable. Open standards (MCP, A2A) preserve industry-agnostic portability~\parencite{anthropic_mcp,google_a2a}.
+
+\begin{table}[h!]
+  \centering
+  \small
+  \begin{tabular}{p{3.4cm} p{5.4cm} p{5.8cm}}
+    \toprule
+    \textsc{Interface} & \textsc{Primary responsibility} & \textsc{Why here} \\
+    \midrule
+    MCP~\cite{anthropic_mcp} & Agent $\leftrightarrow$ Tool/Data contracts (capabilities, schemas, auth) & Uniform adapters across SaaS/on-prem; reduces glue code; enforces I/O validation (\textsc{FR-18..21; C-08, C-09}). \\
+    A2A~\cite{google_a2a} & Agent $\leftrightarrow$ Agent messaging, discovery, long tasks & Vendor-neutral multi-agent collab across teams/orgs; complements MCP (\textsc{FR-20}). \\
+    \bottomrule
+  \end{tabular}
+  \caption{Open protocols used by the integration layer and their scope boundaries.}
+\end{table}
+
+Open standards (MCP, A2A) preserve portability across legacy and cloud environments while keeping orchestration centralized and governable~\parencite{anthropic_mcp,google_a2a}.
 
 \section{Discussion: Applicability Criteria}\label{sec:discussion}
-    
+
 \section{Conclusion}\label{sec:conclussion}
-Future work should extend this conceptual design into practical evaluation and implementation. In particular, empirical validation of the architecture in industry settings, tool-supported instantiation in SysML, and comparative studies against traditional workflow automation would provide valuable evidence of its applicability and impact. Further, integrating additional agentic AI capabilities such as autonomous negotiation or explainability could enhance both usability and compliance assurance.
+%Future work should extend this conceptual design into practical evaluation and implementation. In particular, empirical validation of the architecture in industry settings, tool-supported instantiation in SysML, and comparative studies against traditional workflow automation would provide valuable evidence of its applicability and impact. Further, integrating additional agentic AI capabilities such as autonomous negotiation or explainability could enhance both usability and compliance assurance.
 \clearpage

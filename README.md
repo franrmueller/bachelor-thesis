@@ -7,7 +7,7 @@ This repository contains the source files, artifacts, and documentation for my b
 - [**Thesis PDF**](out/bachelor-thesis.pdf) - Latest version
 - **LaTeX sources** – Main document and chapters  
 - **`Makefile`** – Automated build script for compiling LaTeX into PDF  
-- **Models** – SysML and other visualizations used in the thesis
+- **`SysML v2` Models** – SysML and other visualizations used in the thesis
 
 ## AI-Usage Declaration
 ChatGPT was used as a writing assistant to support:  
