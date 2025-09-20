@@ -1,20 +1,27 @@
-
-\printbibliography[heading=bibintoc,title={References}]
+% Bibliography
+\clearpage
+\phantomsection\
+\addcontentsline{toc}{section}{References}
+\markboth{References}{References}
+\section*{References}
+\printbibliography[heading=none]
 
 % --- Appendix ---
 \clearpage
 \appendix
-\refstepcounter{section}      % now \thesection = A
-\setcounter{subsection}{0}    % start subsections at .1
+\refstepcounter{section}
+\setcounter{subsection}{0}
+\phantomsection~\addcontentsline{toc}{section}{Appendix}
+\markboth{Appendix}{Appendix}
 \begin{center}\huge\bfseries Appendix\end{center}
-\refstepcounter{subsection}
 
+\refstepcounter{subsection}
 \subsection*{\thesection.\arabic{subsection}: Requirements List}\label{app:req-list}
 \noindent \textsc{functional requirements} \\
 \begin{footnotesize}
 \noindent \textsc{FR-01 process orchestration engine} --- The system shall execute workflow models by dispatching tasks to human or software actors according to model control flow and business rules. \\
 \noindent \textsc{FR-02 parameterized subprocesses} --- The system shall support parameterized subprocesses and rules so behavioral variants can be expressed without altering the underlying process structure. \\
-\noindent \textsc{FR-03 human–machine task orchestration} --- The system shall coordinate both human and automated tasks within the same orchestrated process model. \\
+\noindent \textsc{FR-03 human-machine task orchestration} --- The system shall coordinate both human and automated tasks within the same orchestrated process model. \\
 \noindent \textsc{FR-04 exception detection and routing} --- The system shall detect deviations from the nominal process and route cases to defined exception subprocesses. \\
 \noindent \textsc{FR-05 escalation to human authority} --- The system shall escalate unresolved or unmodeled exceptions to designated human roles with clear ownership. \\
 \noindent \textsc{FR-06 inter-agent communication protocol} --- The system shall specify message formats and interaction rules for agent collaboration (e.g., direct messaging or shared memory; event-bus/blackboard where asynchronous exchange is required).\\
@@ -49,7 +56,6 @@
 \end{footnotesize}
 
 \subsection*{A.2: SysML v2 Requirements Code}
-\addcontentsline{toc}{section}{Appendix A:\ Full SysML Models}
 
 \subsection*{A.3: Requirements Diagram}
 \inputminted{text}{ressources/models/requirements.sysml}

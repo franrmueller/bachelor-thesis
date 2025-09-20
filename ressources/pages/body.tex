@@ -254,9 +254,12 @@ While the list optimizes precision, it is not yet visually informative nor opera
 
 \subsection{Model-Based Representation}\label{subsec:req-model}
 
+% on the making.
 
 \section{Architecture Modeling}\label{sec:mod-mas}
 This section presents a general, industry-agnostic reference architecture for a generative multi-agent workflow system. The design balances agent autonomy with governance, observability, and integration. The architecture is intentionally simple: a central orchestrator coordinates a small set of specialized agents and vetted tools; complex patterns (e.g., multi-tier supervisor trees or free-for-all peer meshes) are avoided to preserve transparency and debuggability~\parencite{langchain_multi_agents, cognition_dont_build}.
+
+% I have to add here a defence on why i decided to put all this information here and not in the literature review (recent- not so hardcore academic sources). And also defend that I used this "gray" literature because they represent cutting-edge progress on this developing techonology.
 
 \subsection{Architectural Overview}\label{sec:arch-overview}
 
@@ -269,20 +272,20 @@ This section presents a general, industry-agnostic reference architecture for a 
   \item \textsc{operations \& governance layer} --- logging, tracing, dashboards, replay, policy store (\textsc{FR-15..17; C-01, C-02, C-03, C-07}).
 \end{enumerate}
 
-\noindent \textit{Design decision D1 (simplicity)} ---  A \emph{central supervisor with agents-as-tools} pattern was adopted: the orchestrator invokes specialists as function/tool calls and merges results, rather than letting agents freely call one another~\parencite{langchain_multi_agents}. This yields predictable control flow and clearer accountability~\parencite{cognition_dont_build} (satisfies \textsc{C-06}, supports \textsc{FR-04, FR-08, FR-14, FR-17}).
+\noindent \textit{Design decision D1 (simplicity)} ---  A central supervisor with agents-as-tools pattern was adopted: the orchestrator invokes specialists as function/tool calls and merges results, rather than letting agents freely call one another~\parencite{langchain_multi_agents}. This yields predictable control flow and clearer accountability~\parencite{cognition_dont_build} (satisfies \textsc{C-06}, supports \textsc{FR-04, FR-08, FR-14, FR-17}).
 
-\noindent \textit{Design decision D2 (context discipline)} We treat prompt/context as a constrained resource. The Orchestrator curates per-step, minimal context; older details are summarized or offloaded to external memory; retrieval is used for relevance~\parencite{breunig_context_fail,breunig_fix_context} (supports \textsc{FR-12, FR-14, FR-15; C-07}).
+\noindent \textit{Design decision D2 (context discipline)} --- Prompt/context was treated as a constrained resource. The Orchestrator curates per-step, minimal context; older details are summarized or offloaded to external memory; retrieval is used for relevance~\parencite{breunig_context_fail,breunig_fix_context} (supports \textsc{FR-12, FR-14, FR-15; C-07}).
 
-\noindent \textit{Standards alignment (interoperability)} To keep the architecture industry-agnostic while avoiding bespoke glue code, we bind the Tool/Integration layer to \emph{open} interfaces. The \textit{Model Context Protocol (MCP)} standardizes agent--.tool/data access via schema-driven servers/clients, replacing one-off adapters with a uniform contract for files, databases, SaaS, ands on-prem apps~\parencite{anthropic_mcp}. For inter-agent collaboration across teams or vendors, \textit{Agent-to-Agent (A2A)} provides secure discovery, messaging, and task choreography over familiar web transports (HTTP/SSE/JSON-RPC), enabling multi-agent workflows beyond a single runtime~\parencite{google_a2a}. This separation (MCP for agent$\leftrightarrow$tool, A2A for agent$\leftrightarrow$agent) preserves portability while containing complexity (\textsc{FR-18..21, FR-20; C-05}).
+\noindent \textit{Standards alignment (interoperability)} To keep the architecture industry-agnostic while avoiding bespoke glue code, the Tool/Integration is binded layer to \emph{open} interfaces. The \emph{Model Context Protocol (MCP)} standardizes agent--.tool/data access via schema-driven servers/clients, replacing one-off adapters with a uniform contract for files, databases, SaaS, ands on-prem apps~\parencite{anthropic_mcp}. For inter-agent collaboration across teams or vendors, \emph{Agent-to-Agent (A2A)} provides secure discovery, messaging, and task choreography over familiar web transports (HTTP/SSE/JSON-RPC), enabling multi-agent workflows beyond a single runtime~\parencite{google_a2a}. This separation (MCP for agent-tool, A2A for agent-to-agent) preserves portability while containing complexity (\textsc{FR-18..21, FR-20; C-05}).
 
 
 \begin{figure}[h!]
   \centering
   \fbox{\parbox{0.92\linewidth}{
-  \small \textbf{Figure placeholder (to be modeled in SysML v2)}.
-  Show: User $\rightarrow$ Orchestrator $\rightarrow$ \{Researcher, Analyst, Reviewer, Writer\} $\rightarrow$ Tool Adapters (\textbf{MCP} servers, APIs, RAG); optional \textbf{A2A} links to external agents.
-  \caption{High-level architecture (layers and main interactions).}
-  \label{fig:arch-overview}
+    \small \textbf{Figure placeholder (to be modeled in SysML v2)}.
+    Show: User \\to\ Orchestrator \\to\ {Researcher, Analyst, Reviewer, Writer\ } \\to\ Tool Adapters (\textbf{MCP} servers, APIs, RAG); optional \textbf{A2A} links to external agents.
+  }}
+  \caption{High-level architecture (layers and main interactions).}~\label{fig:arch-overview}
 \end{figure}
 
 \subsection{Agent Roles \& Orchestration}\label{sec:roles-orchestration}
@@ -300,9 +303,9 @@ This section presents a general, industry-agnostic reference architecture for a 
 
 \noindent \textit{Coordination model} --- Orchestrator-mediated hand-offs with explicit task payloads and expected outputs (\emph{handoff contracts}) ensure shared understanding and avoid agent conflict (FR-06, FR-08). Only key outcomes are published to a global scratchpad; low-level traces remain local unless needed (\textsc{FR-15; C-07})~\parencite{cognition_dont_build,langchain_multi_agents}.
 
-\noindent \textit{When to parallelize} --- Breadth-first tasks (e.g., multiple independent lookups) may run in parallel; generation tasks (long-form writing/code) remain serial or are merged under Orchestrator/Reviewer control to prevent incoherence \cite{langchain_multi_agents,cognition_dont_build} (\textsc{FR-08, FR-04}).
+\noindent \textit{When to parallelize} --- Breadth-first tasks (e.g., multiple independent lookups) may run in parallel; generation tasks (long-form writing/code) remain serial or are merged under Orchestrator/Reviewer control to prevent incoherence~\cite{langchain_multi_agents,cognition_dont_build} (\textsc{FR-08, FR-04}).
 
-\textsc{exception handling} --- Deviation detection $\rightarrow$ route to \emph{Exception Subprocess} (fallback tools, re-prompt, human escalation) $\rightarrow$ resume or terminate (\textsc{FR-04, FR-05, FR-07}).
+\textsc{exception handling} --- Deviation detection \\to\ route to \emph{Exception Subprocess} (fallback tools, re-prompt, human escalation) \\to\ resume or terminate (\textsc{FR-04, FR-05, FR-07}).
 
 \subsection{Governance, Observability, and Integration}\label{sec:gov-obs-integ}
 \textsc{governance (policy-first)} --- A decoupled \emph{policy engine} validates proposed actions before execution (allow/deny/escalate), with rules that reference risk thresholds, data sensitivity, or regulatory constraints (\textsc{FR-09..11; C-01..03}). High-impact actions pause at \emph{approval gates} (human-in-the-loop) with resumeable state~\parencite{langgraph_hil} (\textsc{FR-10}).
@@ -313,7 +316,7 @@ This section presents a general, industry-agnostic reference architecture for a 
 \begin{itemize}
   \item \textsc{tool adapters} with contracts/schemas, timeouts/retries/idempotency (\textsc{FR-19, FR-21; C-08, C-09}).
   \item \textsc{open connectors (MCP)} Standardize agent access to tools/data via MCP servers/clients (capabilities, JSON schemas, auth), avoiding bespoke adapters and easing on-prem + cloud integration~\parencite{anthropic_mcp} (\textsc{FR-18..21; C-05, C-08, C-09}).
-  \item \textsc{agent interoperability (A2A)} Use A2A for secure agent discovery, messaging, long-running tasks, and cross-org coordination over web standards~\parencite{google_a2a} (\textsc{FR-20}). External partners’ agents become callable \emph{as if} tools—without breaking the orchestrator pattern.
+  \item \textsc{agent interoperability (A2A)} Use A2A for secure agent discovery, messaging, long-running tasks, and cross-org coordination over web standards~\parencite{google_a2a} (\textsc{FR-20}). External partners' agents become callable \emph{as if} tools—without breaking the orchestrator pattern.
 \end{itemize}
 
 \textsc{context management} --- Right-sized prompts; retrieve-then-read; periodic summarization; external scratchpad for verbose/intermediate artifacts~\parencite{breunig_context_fail,breunig_fix_context} (supports \textsc{FR-12, FR-14, FR-15; C-07}).\noindent \textit{Failure modes to avoid.} Very long prompts and indiscriminate context sharing degrade reliability (``context is not free''); prefer retrieval, summarization, and offloaded scratchpads to keep step-specific context tight~\parencite{breunig_context_fail,breunig_fix_context}.
@@ -332,7 +335,7 @@ A sanction-screened payment approval flow: Researcher fetches KYC hits, Analyst 
     \textsc{Pattern} & \textsc{Why/When} & \textsc{Trade-offs} \\
     \midrule
     central orchestrator + agents-as-tools~\cite{langchain_multi_agents} & default for clarity, traceability, testability. & Single coordination point; easiest to govern/observe. \\
-    Decentralized mesh & Only for highly exploratory, research-heavy tasks. & Coordination complexity, harder to debug \cite{cognition_dont_build}. \\
+    Decentralized mesh & Only for highly exploratory, research-heavy tasks. & Coordination complexity, harder to debug~\parencite{cognition_dont_build}. \\
     Hierarchical supervisors & For very large, multi-team workflows. & Adds layers and latency; out of scope for simplicity. \\
     \bottomrule
   \end{tabular}
@@ -348,8 +351,8 @@ A sanction-screened payment approval flow: Researcher fetches KYC hits, Analyst 
     \toprule
     \textsc{Interface} & \textsc{Primary responsibility} & \textsc{Why here} \\
     \midrule
-    MCP~\cite{anthropic_mcp} & Agent $\leftrightarrow$ Tool/Data contracts (capabilities, schemas, auth) & Uniform adapters across SaaS/on-prem; reduces glue code; enforces I/O validation (\textsc{FR-18..21; C-08, C-09}). \\
-    A2A~\cite{google_a2a} & Agent $\leftrightarrow$ Agent messaging, discovery, long tasks & Vendor-neutral multi-agent collab across teams/orgs; complements MCP (\textsc{FR-20}). \\
+    MCP~\cite{anthropic_mcp} & Agent \\leftrightarrow\ Tool/Data contracts (capabilities, schemas, auth) & Uniform adapters across SaaS/on-prem; reduces glue code; enforces I/O validation (\textsc{FR-18..21; C-08, C-09}). \\
+    A2A~\cite{google_a2a} & Agent \\leftrightarrow\ Agent messaging, discovery, long tasks & Vendor-neutral multi-agent collab across teams/orgs; complements MCP (\textsc{FR-20}). \\
     \bottomrule
   \end{tabular}
   \caption{Open protocols used by the integration layer and their scope boundaries.}
@@ -361,4 +364,3 @@ Open standards (MCP, A2A) preserve portability across legacy and cloud environme
 
 \section{Conclusion}\label{sec:conclussion}
 %Future work should extend this conceptual design into practical evaluation and implementation. In particular, empirical validation of the architecture in industry settings, tool-supported instantiation in SysML, and comparative studies against traditional workflow automation would provide valuable evidence of its applicability and impact. Further, integrating additional agentic AI capabilities such as autonomous negotiation or explainability could enhance both usability and compliance assurance.
-\clearpage

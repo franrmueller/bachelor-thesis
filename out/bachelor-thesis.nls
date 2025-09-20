@@ -1,6 +1,7 @@
 
 \begin{thenomenclature} 
 \nomgroup{A}
+  \item [{A2A}]\begingroup Agent to Agent\nomeqref {0}\nompageref{iv}
   \item [{DSR}]\begingroup Design Science Research\nomeqref {0}\nompageref{iv}
   \item [{GaaS}]\begingroup Governance as a Service\nomeqref {0}\nompageref{iv}
   \item [{GenAI}]\begingroup Generative Artificial Intelligence\nomeqref {0}\nompageref{iv}
@@ -9,6 +10,7 @@
   \item [{LLM}]\begingroup Large Language Model\nomeqref {0}\nompageref{iv}
   \item [{MAS}]\begingroup Multi-Agent System\nomeqref {0}\nompageref{iv}
   \item [{MBSE}]\begingroup Model-Based Systems Engineering\nomeqref {0}\nompageref{iv}
+  \item [{MCP}]\begingroup Model Context Protocol\nomeqref {0}\nompageref{iv}
   \item [{OpEx}]\begingroup Operational Excellence\nomeqref {0}\nompageref{iv}
   \item [{QCA}]\begingroup Qualitative Content Analysis\nomeqref {0}\nompageref{iv}
   \item [{RE}]\begingroup Requirements Engineering\nomeqref {0}\nompageref{iv}

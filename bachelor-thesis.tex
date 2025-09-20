@@ -12,7 +12,8 @@
 \usepackage{lmodern}
 \usepackage[english]{babel}                           
 \usepackage[left=3cm,right=3cm,top=2.54cm,bottom=2.54cm,includehead, includefoot]{geometry}
-\usepackage[style=authoryear, backend=biber, maxbibnames=2, maxcitenames=2]{biblatex}
+\usepackage[hidelinks]{hyperref}
+\usepackage[style=authoryear, backend=biber, maxbibnames=2, maxcitenames=2, doi=false, url=false]{biblatex}
 \usepackage{csquotes}                                 
 \usepackage{graphicx}   \graphicspath{{figures/sysml/}} 
 \usepackage{tabularx}                                 
@@ -21,18 +22,16 @@
 \usepackage{listings}                      
 \usepackage{xcolor}                                    
 \usepackage{amsmath}                                    
-\usepackage{caption}                                    
+\usepackage{caption} \captionsetup[table]{skip=6pt, font=small, labelfont=bf}                                   
 \usepackage{fancyhdr}                                   
 \usepackage[nottoc]{tocbibind}                          
 \usepackage[intoc]{nomencl} \makenomenclature{}
 \usepackage[scaled]{inconsolata}
 \usepackage{etoolbox} \apptocmd{\bibsetup}{\sloppy}{}{}
-\usepackage[hidelinks]{hyperref}
 \usepackage{chngcntr}
 \usepackage{booktabs}
-\usepackage{caption} \captionsetup[table]{skip=6pt, font=small, labelfont=bf}
 \usepackage[table]{xcolor}
-\usepackage{minted} \setminted{fontsize=\footnotesize,breasklines,lineos}
+\usepackage{minted} \setminted{fontsize=\footnotesize,breaklines,linenos}
 \usepackage{svg} \svgpath{{fig/}}
 
 \linespread{1.25}
@@ -48,6 +47,15 @@
 \fancyhead[R]{\thepage} \fancyhead[L]{\nouppercase{\rightmark}}
 
 \addbibresource{ressources/references.bib}
+\AtBeginBibliography{%
+  \DeclareFieldFormat{title}{%
+    \ifhyperref\
+      {\iffieldundef{doi}
+         {\iffieldundef{url}{#1}{\href{\thefield{url}}{#1}}}
+         {\href{https://doi.org/\thefield{doi}}{#1}}}
+      {#1}}%
+}
+\ExecuteBibliographyOptions{dashed=false}
 \DeclareFieldFormat[inbook]{booktitle}{#1}
 \DeclareFieldFormat[incollection]{booktitle}{#1}
 \DeclareFieldFormat[inproceedings]{booktitle}{#1}
