@@ -1,0 +1,79 @@
+@startuml
+' --- Focused requirement mapping with «satisfy» edges ---
+hide stereotype
+hide methods
+hide fields
+skinparam shadowing false
+skinparam linetype ortho
+left to right direction
+
+' Components (same names as the architecture figure)
+rectangle "Orchestrator" as O
+rectangle "Researcher\nAgent" as R
+rectangle "Analyst\nAgent"    as A
+rectangle "Reviewer\nAgent"   as V
+rectangle "Writer\nAgent"     as W
+rectangle "MCP Adapter"  as MCP
+rectangle "A2A Gateway"  as A2A
+rectangle "Policy Engine" as P
+rectangle "Approval Gate" as G
+rectangle "Audit Log"     as L
+
+' --- Requirement boxes (key subset only) ---
+rectangle "<<requirement>>\nFR01: Process Orchestration Engine" as FR01
+rectangle "<<requirement>>\nFR12: Evidence-Based Decision Support" as FR12
+rectangle "<<requirement>>\nFR07: Tool Failure Handling" as FR07
+rectangle "<<requirement>>\nFR11: Compliance Mapping & Drift Checks" as FR11
+rectangle "<<requirement>>\nFR13: Rule-Enforced Decision Points" as FR13
+rectangle "<<requirement>>\nFR14: Decision Trace & Rationale" as FR14
+
+rectangle "<<requirement>>\nFR18: Integration Connectors" as FR18
+rectangle "<<requirement>>\nFR19: Agent Tool Adapters" as FR19
+rectangle "<<requirement>>\nFR21: Data Transformation Layer" as FR21
+rectangle "<<requirement>>\nFR06: Inter-Agent Protocol" as FR06
+rectangle "<<requirement>>\nFR20: Inter-Org Interoperability" as FR20
+
+rectangle "<<requirement>>\nFR09: Policy Engine" as FR09
+rectangle "<<requirement>>\nC01: Segregation of Duties" as C01
+rectangle "<<requirement>>\nC03: Bounded Decision Autonomy" as C03
+rectangle "<<requirement>>\nFR10: Risk-Based Approvals" as FR10
+
+rectangle "<<requirement>>\nFR15: Event Logging Pipeline" as FR15
+rectangle "<<requirement>>\nFR17: Replay for Post-hoc Analysis" as FR17
+rectangle "<<requirement>>\nC02: Audit Logging & Retention" as C02
+
+' --- «satisfy» mappings (balanced, not exhaustive) ---
+O ..> FR01 : «satisfy»
+
+R ..> FR12 : «satisfy»
+A ..> FR07 : «satisfy»
+V ..> FR11 : «satisfy»
+V ..> FR13 : «satisfy»
+V ..> FR14 : «satisfy»
+W ..> FR14 : «satisfy»
+
+P ..> FR09 : «satisfy»
+P ..> C01  : «satisfy»
+P ..> C03  : «satisfy»
+G ..> FR10 : «satisfy»
+
+MCP ..> FR18 : «satisfy»
+MCP ..> FR19 : «satisfy»
+MCP ..> FR21 : «satisfy»
+A2A ..> FR06 : «satisfy»
+A2A ..> FR20 : «satisfy»
+
+L ..> FR15 : «satisfy»
+L ..> FR17 : «satisfy»
+L ..> C02  : «satisfy»
+
+' --- layout helpers (invisible) ---
+O -[hidden]-> R
+R -[hidden]-> A
+A -[hidden]-> V
+V -[hidden]-> W
+FR18 -[hidden]-> FR19
+FR19 -[hidden]-> FR21
+FR06 -[hidden]-> FR20
+FR15 -[hidden]-> FR17
+@enduml

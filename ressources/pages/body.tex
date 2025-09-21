@@ -253,8 +253,15 @@ The complete list of requirements can be found in Appendix~\ref{app:req-list}. A
 While the list optimizes precision, it is not yet visually informative nor operationally easy to manage. In the next section, the requirements are recast as SysML \texttt{«requirement»} elements and diagrams to improve visibility, traceability, and change control—linking them explicitly to their sources and preparing \texttt{satisfy}/\texttt{verify} relations for the architectural and evaluation work that follows.
 
 \subsection{Model-Based Representation}\label{subsec:req-model}
+The requirement model formalizes the subject system (\textsc{MAS}), the two requirement types (functional requirements and constraints), and the consolidated group \textsc{MAS\_Spec} which requires FR01..21 and C01..09. We use the figure below as a compact, reader-facing view; the full lists are provided in the appendix.
 
-% on the making.
+\begin{figure}[h!]
+  \centering
+  \includesvg[width=.95\linewidth]{ressources/MAS/diagrams/fig-model-based-representation.svg}
+  %\includegraphics[width=.95\linewidth]{ressources/MAS/diagrams/fig-model-based-representation.svg}
+  \caption{Model-based representation of the requirement set (subject, requirement types, consolidated group).}~\label{fig:req-model}
+\end{figure}
+
 
 \section{Architecture Modeling}\label{sec:mod-mas}
 This section presents a general, industry-agnostic design that balances agent autonomy with governance, observability, and integration. The architecture is intentionally simple: a central orchestrator coordinates a small set of specialized agents and vetted tools; complex patterns (e.g., multi-tier supervisor trees or free-for-all peer meshes) are avoided to preserve transparency and debuggability~\parencite{langchain_multi_agents, cognition_dont_build}.
@@ -347,7 +354,7 @@ Because MCP \parencite{anthropic_mcp} and A2A \parencite{google_a2a} are living 
 
 \noindent \textsc{security touchpoints} \quad Protocol-level controls complement the policy engine: (i) \emph{A2A} supplies authenticated agent identity, authorization, and scoped message exchange for cross-runtime collaboration; (ii) \emph{MCP} enforces schema-validated I/O, capability-scoped tool permissions, and externalized secrets (no secrets in prompts); (iii) least-privilege credentials and per-adapter allowlists bind high-impact actions. These guardrails integrate with approval gates and audit trails (\textsc{FR-09..11, FR-15..17; C-01..C-03, C-05})~\parencite{google_a2a,anthropic_mcp}.
 
-\noindent \textsc{threats & limitations} \quad Known risks include prompt/tool injection and data exfiltration via adapters; agent impersonation or message tampering in cross-runtime links; schema drift and capability misalignment between agent intent and MCP servers; and evaluation brittleness for multi-agent coordination. We mitigate via input sanitization, capability allowlists, signed agent identities, per-adapter least-privilege, and replayable traces; residual risk remains and is monitored operationally.
+\noindent \textsc{threats and limitations} \quad Known risks include prompt/tool injection and data exfiltration via adapters; agent impersonation or message tampering in cross-runtime links; schema drift and capability misalignment between agent intent and MCP servers; and evaluation brittleness for multi-agent coordination. We mitigate via input sanitization, capability allowlists, signed agent identities, per-adapter least-privilege, and replayable traces; residual risk remains and is monitored operationally.
 
 \noindent \textsc{observability} \quad Agents and the orchestrator emit structured events (prompts, tool calls/results, decisions, state changes) (\textsc{FR-15}). Operators get dashboards and alerts for anomalies; the recorded trace enables audits and deterministic replay (\textsc{FR-16, FR-17}), while concise decision rationales are persisted for accountability (\textsc{FR-14}). This trace (prompts, tool I/O, decisions) is the basis for audits and regression evaluation, and can be replayed deterministically (\textsc{FR-16, FR-17})~\parencite{langchain_multi_agents}.
 
