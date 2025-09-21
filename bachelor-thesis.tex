@@ -49,11 +49,11 @@
 \addbibresource{ressources/references.bib}
 \AtBeginBibliography{%
   \DeclareFieldFormat{title}{%
-    \ifhyperref\
+    \ifhyperref{}
       {\iffieldundef{doi}
          {\iffieldundef{url}{#1}{\href{\thefield{url}}{#1}}}
          {\href{https://doi.org/\thefield{doi}}{#1}}}
-      {#1}}%
+      {#1}}
 }
 \ExecuteBibliographyOptions{dashed=false}
 \DeclareFieldFormat[inbook]{booktitle}{#1}
