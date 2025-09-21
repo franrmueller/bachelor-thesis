@@ -55,58 +55,68 @@
 \noindent \textsc{C-09 invocation safeguards} --- The system shall enforce adapter-level safeguards (e.g., timeouts, retries, and idempotency keys) to limit side effects of failed or repeated tool calls.
 \end{footnotesize}
 
-% \subsection*{A.2 Requirements model (figure)}
-% \begin{figure}[h!]
-%   \centering
-%   \includesvg[width=.95\linewidth]{ressources/diagrams/fig-model-based-representation.svg}
-%   %\includegraphics[width=.95\linewidth]{ressources/diagrams/fig-model-based-representation.svg}
-%   \caption{Requirements model used in Section~\ref{fig:req-model}.}
-% \end{figure}
+\subsection*{A.2 Requirements Model}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MASRequirements.pdf}\label{fig:req}
+\end{figure}
 
-% \subsection*{B.1 Architecture diagram (figure)}
-% \begin{figure}[h!]
-%   \centering
-%   \includesvg[width=.95\linewidth]{ressources/diagrams/fig-architecture.svg}
-%   %\includegraphics[width=.95\linewidth]{ressources/diagrams/fig-architecture.svg}
-%   \caption{Architecture diagram used in Section~\ref{fig:arch}.}
-% \end{figure}
+\subsection*{A.3 Requirements SysML v2 Code}
+\lstinputlisting[
+  style=sysml,
+  caption={Requirements model (MASRequirements.sysml)},
+  label={lst:mas-reqs},
+  numbers=left,
+  inputencoding=utf8
+]{./ressources/MAS/MASRequirements.sysml}
 
-% \subsection*{B.2 Traceability diagram (figure)}
-% \begin{figure}[h!]
-%   \centering
-%   \includesvg[width=.95\linewidth]{ressources/diagrams/fig-traceability.svg}
-%   %\includegraphics[width=.95\linewidth]{ressources/diagrams/fig-traceability.svg}
-%   \caption{Traceability diagram used in Section~\ref{fig:trace}.}
-% \end{figure}
+\subsection*{B.1 Architecture Model}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MASArchitecture.pdf}\label{fig:arch}
+\end{figure}
 
+\subsection*{B.2 Architecture SysML v2 Code}
+\lstinputlisting[
+  style=sysml,
+  caption={Architecture model (MASArchitecture.sysml)},
+  label={lst:mas-arch},
+  inputencoding=utf8
+]{./ressources/MAS/MASArchitecture.sysml}
 
-\subsection*{}
-\inputminted{}{}
+\subsection*{B.2 Architecture Figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MASArchitecture_Figure.pdf}\label{fig:arch-fig}
+\end{figure}
 
-\subsection*{}
-\inputminted{}{}
+\subsection*{B.3 Architecture Figure SysML v2 Code}
+\lstinputlisting[
+  style=sysml,
+  caption={Architecture figure (MASArchitecture\_Figure.sysml)},
+  label={lst:mas-arch-figure},
+  inputencoding=utf8
+]{./ressources/MAS/MASArchitecture_Figure.sysml}
 
-\subsection*{}
-\inputminted{text}{}
+\subsection*{C.1 Traceability Diagram}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MASArchitecture_Trace.pdf}\label{fig:trace}
+\end{figure}
 
+\subsection*{C.2 Traceability SysML v2 Code}
+\lstinputlisting[
+  style=sysml,
+  caption={Traceability mapping (MASArchitecture\_Trace.sysml)},
+  label={lst:mas-arch-trace},
+  inputencoding=utf8
+]{./ressources/MAS/MASArchitecture_Trace.sysml}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\subsection*{C. 3 Traceability}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/fig-traceability.pdf}\label{fig:trace-fig}
+\end{figure}
 
 % --- NDA ---
 % \clearpage

@@ -2,7 +2,7 @@ MAIN ?= bachelor-thesis
 TEX  := $(MAIN).tex
 OUT  ?= out
 
-LATEXMK := latexmk -pdf -interaction=nonstopmode -synctex=1 -shell-escape -outdir=$(OUT)
+LATEXMK := latexmk -pdf -interaction=nonstopmode -synctex=1 -outdir=$(OUT)
 
 .PHONY: pdf clean watch nomencl
 

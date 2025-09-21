@@ -255,13 +255,11 @@ While the list optimizes precision, it is not yet visually informative nor opera
 \subsection{Model-Based Representation}\label{subsec:req-model}
 The requirement model formalizes the subject system (\textsc{MAS}), the two requirement types (functional requirements and constraints), and the consolidated group \textsc{MAS\_Spec} which requires FR01..21 and C01..09. We use the figure below as a compact, reader-facing view; the full lists are provided in the appendix.
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
-  \includesvg[width=.95\linewidth]{ressources/MAS/diagrams/fig-model-based-representation.svg}
-  %\includegraphics[width=.95\linewidth]{ressources/MAS/diagrams/fig-model-based-representation.svg}
-  \caption{Model-based representation of the requirement set (subject, requirement types, consolidated group).}~\label{fig:req-model}
+  \includegraphics[width=.95\linewidth]{ressources/MAS/diagrams/fig-model-based-representation.pdf}
+  \caption{Model-based representation of the requirement set (subject, requirement types, consolidated group).}\label{fig:req-model}
 \end{figure}
-
 
 \section{Architecture Modeling}\label{sec:mod-mas}
 This section presents a general, industry-agnostic design that balances agent autonomy with governance, observability, and integration. The architecture is intentionally simple: a central orchestrator coordinates a small set of specialized agents and vetted tools; complex patterns (e.g., multi-tier supervisor trees or free-for-all peer meshes) are avoided to preserve transparency and debuggability~\parencite{langchain_multi_agents, cognition_dont_build}.
@@ -331,11 +329,8 @@ To keep the design industry-agnostic, the integration layer is bound to \emph{op
 
 \begin{figure}[H]
   \centering
-  \fbox{\parbox{0.92\linewidth}{
-    \small \textbf{Figure placeholder (to be modeled in SysML v2)}.
-    Show: User $\rightarrow$ Orchestrator $\rightarrow$ {Researcher, Analyst, Reviewer, Writer} $\rightarrow$ Tool Adapters (\textbf{MCP} servers, APIs, RAG); optional \textbf{A2A} links to external agents.
-  }}
-  \caption{High-level architecture (layers and main interactions).}~\label{fig:arch-overview}
+  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/fig-architecture.pdf}
+  \caption{High-level architecture with layered responsibilities.}\label{fig:top-level-arch}
 \end{figure}
 
 \textsc{roles and responsibilities}

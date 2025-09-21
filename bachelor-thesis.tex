@@ -31,9 +31,29 @@
 \usepackage{chngcntr}
 \usepackage{booktabs}
 \usepackage[table]{xcolor}
-\usepackage{minted} \setminted{fontsize=\footnotesize,breaklines,linenos}
-\usepackage{svg} \svgpath{{fig/}}
 \usepackage{microtype}
+\usepackage{fancyvrb}
+\usepackage{upquote}
+\usepackage{pdfpages}
+
+\lstdefinestyle{sysml}{
+  language=SysMLv2,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\bfseries\color{blue!60!black},
+  commentstyle=\itshape\color{gray!70},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=8pt,
+  showstringspaces=false,
+  keepspaces=true,
+  columns=fullflexible,
+  frame=single,
+  framerule=0.3pt,
+  rulecolor=\color{gray!60},
+  tabsize=2,
+  breaklines=true,
+}
 
 \linespread{1.25}
 \setlength{\headheight}{14.5pt}
@@ -90,7 +110,7 @@
   breaklines=true,
 }
 
-\newcommand{\inputsml}[3][]{%
+\newcommand{\inputsml}[3][]{
   \lstinputlisting[style=sysml,caption={#2},label={#3},#1]{#3}
 }
 
