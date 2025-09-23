@@ -10,11 +10,15 @@
 \clearpage
 \appendix
 
-\addcontentsline{toc}{section}{Appendix} 
-\markboth{Appendix}{Appendix}
-\addtocontents{toc}{\protect\setcounter{tocdepth}{1}} 
+\phantomsection
+\addcontentsline{toc}{section}{Appendix}
 
-\section{Appendix}\label{sec:appendix} 
+\refstepcounter{section}\label{sec:appendix}
+\setcounter{subsection}{0}
+\markboth{Appendix}{Appendix}
+\section*{Appendix}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}} 
 
 \subsection*{Requirements List}\label{app:req-list}
 \subsubsection*{Organized by Requirement Type}
@@ -150,7 +154,7 @@
   \label{fig:mas-reqs-6}
 \end{figure}
 
-%\clearpage
+\clearpage
 \lstinputlisting[
   style=sysml,
   label={lst:mas-reqs-src},
@@ -163,16 +167,7 @@
 \subsubsection*{Architecture Model with Focus on Components }
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MAS_architecture_complete_appendix.png}
-  \caption{}
-  \label{fig:app-mas-arch-mod}
-\end{figure}
-
-\clearpage
-\subsubsection*{Architecture Model with External Environment}
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MAS_arch_and_environment1.png}
+  \includegraphics[width=0.8\linewidth]{ressources/MAS/diagrams/MAS_architecture_complete_appendix.png}
   \caption{This figure shows the architecture model with a focus on the components of the system.}
   \label{fig:app-mas-arch-mod}
 \end{figure}
@@ -181,8 +176,17 @@
 \subsubsection*{Architecture Model with External Environment}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MAS_arch_and_environment2.png}
-  \caption{This figure incomporates to the previous one the external environment of the system.}
+  \includegraphics[width=0.9\linewidth]{ressources/MAS/diagrams/MAS_arch_and_environment1.png}
+  \caption{This figure incomporates to the previous one the external environment of the system (1/2).}
+  \label{fig:app-mas-arch-mod}
+\end{figure}
+
+\clearpage
+\subsubsection*{Architecture Model with External Environment}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{ressources/MAS/diagrams/MAS_arch_and_environment2.png}
+  \caption{This figure incomporates to the previous one the external environment of the system (2/2).}
   \label{fig:app-mas-arch-mod}
 \end{figure}
 
@@ -224,20 +228,20 @@
 % --- AI Declaration ---
 
 \clearpage
-\section{AI-Usage Declaration}
+
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.6\linewidth]{ressources/AI-usage/KI-NE1.png}
+  \includegraphics[width=\linewidth]{ressources/AI-usage/KI-NE1.png}
 \end{figure}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.6\linewidth]{ressources/AI-usage/KI-NE2.png}
+  \includegraphics[width=\linewidth]{ressources/AI-usage/KI-NE2.png}
 \end{figure}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.6\linewidth]{ressources/AI-usage/KI-NE3.png}
+  \includegraphics[width=\linewidth]{ressources/AI-usage/KI-NE3.png}
 \end{figure}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.6\linewidth]{ressources/AI-usage/KI-NE4.png}
+  \includegraphics[width=\linewidth]{ressources/AI-usage/KI-NE4.png}
 \end{figure}
