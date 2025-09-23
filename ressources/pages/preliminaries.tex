@@ -50,7 +50,7 @@ Thesis Title: \\
 \section*{Acknowledgments}
 \addcontentsline{toc}{section}{Acknowledgments}
 I would like to thank the \textit{\myCompany} for providing the opportunity and resources to write this thesis. 
-I also extend my gratitude to my academic supervisor, \textit{\mySupervisor{}} for his guidance throughout the process; my professional advisor, \textit{Emily Celen} for helping me with the scope and realistic expectations for this work; and my direct supervisor and friend \textit{Ralph Thomaßen} for his wise advice and relentless support throughout my academic journey.
+I also extend my gratitude to my academic supervisor, \textit{\mySupervisor{}} for his guidance throughout the process; my professional advisor, \textit{Emily Celen} for helping me with the scope and realistic expectations for this work; and specially to my direct supervisor and friend \textit{Ralph Thomaßen} for his wise advice, relentless support, and infinite patience all throughout my academic journey.
 \newpage
 
 % --- Abstract ---
@@ -58,7 +58,11 @@ I also extend my gratitude to my academic supervisor, \textit{\mySupervisor{}} f
 \section*{Abstract}
 \end{centering}
 \addcontentsline{toc}{section}{Abstract}
-[Placeholder, will write it once the thesis is finished.] % The literature suggests three design-relevant insights: (1) OpEx increasingly hinges on adaptability, decision quality, and compliance—not only efficiency; (2) automation is moving from deterministic scripts (RPA) to adaptive, tool-using agents; and (3) MAS provide a natural organizing structure for such agents in complex enterprises but necessitate robust governance, monitoring, and integration. These insights inform the requirements (e.g., traceability, policy constraints, observability) and the architecture choices (agent roles, interaction patterns, orchestration) developed later in this thesis.
+Organizations continue to face difficulties in achieving operational excellence due to fragmented workflows, rigid automation, and insufficient adaptability. This thesis addressed these challenges by developing a conceptual architecture for workflow automation that integrates agentic artificial intelligence (AI). The central research question concerned how a multi-agent system (MAS) can be designed to embed generative AI capabilities into enterprise workflows in a way that enhances agility, compliance, and decision quality.
+
+The study applied a Design Science Research (DSR) methodology. Literature on operational excellence, workflow automation, and agentic AI was systematically analyzed using qualitative content analysis. From this, consolidated requirement clusters were derived and reformulated into verifiable “shall” statements. These requirements were represented in a SysML~v2 model, establishing a traceable design baseline. The validated requirement model was then instantiated into a conceptual MAS architecture comprising an orchestration core, role-specialized agents, a governance service, integration adapters, and observability components. Behavioral coordination patterns and verification intents were described to demonstrate how the architecture supports exception handling, auditability, and compliance.
+
+The resulting contribution is twofold: first, a structured requirement model that synthesizes concerns across operational excellence, workflow automation, and agentic AI;~and second, a conceptual architecture that operationalizes these requirements in a transparent and auditable form. The architecture was illustrated with a financial services use case, showing applicability in regulated, legacy-intensive environments. While the work remained at the conceptual level without empirical validation, it established a model-based blueprint for future implementation and evaluation. In doing so, the thesis provides a foundation for developing reliable, compliant, and adaptive agentic AI systems in enterprise workflow automation.
 \newpage
 
 % --- Abbreviations ---
@@ -87,14 +91,16 @@ I also extend my gratitude to my academic supervisor, \textit{\mySupervisor{}} f
 
 \clearpage
 \tableofcontents \clearpage
+
+\phantomsection
+\addcontentsline{toc}{section}{Figures}
+\listoffigures
+\clearpage
+
 \renewcommand{\nomname}{Abbreviations}
 \setlength{\nomlabelwidth}{.25\hsize}
 \renewcommand{\nomlabel}[1]{#1 \dotfill}
 \setlength{\nomitemsep}{-\parsep}
 {\small \printnomenclature}
-%\clearpage
-%\phantomsection{}
-%\addcontentsline{toc}{section}{Figures and Tables}
-%\lstlistoflistings{}
 \clearpage
 \pagenumbering{arabic}
