@@ -33,3 +33,18 @@ All academic content, analysis, and conclusions are my own. The AI usage is docu
 
 ## License
 This repository is intended for academic purposes in the context of my bachelor’s thesis.  
+
+<!-- The requirements are structured by cluster (see appendix A.1) .
+The requirement model formalizes the subject system (\textsc{MAS}), the two requirement types (functional requirements and constraints), and the consolidated group \textsc{MAS\_Spec} which requires FR01..21 and C01..09. We use the figure below as a compact, reader-facing view; the full lists are provided in the appendix.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.95\linewidth]{ressources/MAS/diagrams/fig-requirements-type.pdf}
+  \caption{Model-based representation of the requirement set organized by requirement type (\emph{functional requirements, constraints}).}\label{fig:req-model}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.95\linewidth]{ressources/MAS/diagrams/fig-requirements-cluster.pdf}
+  \caption{Model-based representation of the requirement set organized by cluster.}\label{fig:req-model}
+\end{figure} -->
