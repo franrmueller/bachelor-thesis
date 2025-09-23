@@ -9,15 +9,15 @@
 % --- Appendix ---
 \clearpage
 \appendix
-\refstepcounter{section}
-\setcounter{subsection}{0}
-\phantomsection~\addcontentsline{toc}{section}{Appendix}
-\markboth{Appendix}{Appendix}
-\begin{center}\huge\bfseries Appendix\end{center}
 
-\refstepcounter{subsection}
+\addcontentsline{toc}{section}{Appendix} 
+\markboth{Appendix}{Appendix}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}} 
+
+\section{Appendix}\label{sec:appendix} 
+
 \subsection*{Requirements List}\label{app:req-list}
-\subsubcetion{Organized by Requirement Type} \\ \\
+\subsubsection*{Organized by Requirement Type}
 \begin{footnotesize}
   \textsc{functional requirements}
     \begin{itemize}
@@ -110,106 +110,134 @@
     \end{itemize}
 \end{footnotesize}
 
-\subsection*{A.2 Requirements SysML v2 Model}\label{app:req-mod} % I have to include a note here in the beggining to indicate the reader that they can find the eintire diagram in .svg format in the dedicated bachelor's thesis github repository (embed hyperlink to the note).
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MASRequirements/MASRequirements1}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MASRequirements/MASRequirements2}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MASRequirements/MASRequirements3}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MASRequirements/MASRequirements4}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MASRequirements/MASRequirements5}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MASRequirements/MASRequirements6}
-\end{figure}
 \clearpage
+\subsection*{Requirements SysML v2 Model}\label{app:req-mod}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{ressources/MAS/figures/MASRequirements/MASRequirements1.jpeg}
+  \caption{SysML v2 requirements package overview (1/6).}
+  \label{fig:mas-reqs-1}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{ressources/MAS/figures/MASRequirements/MASRequirements2.jpeg}
+  \caption{SysML v2 requirements package overview (2/6).}
+  \label{fig:mas-reqs-2}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{ressources/MAS/figures/MASRequirements/MASRequirements3.jpeg}
+  \caption{SysML v2 requirements package overview (3/6).}
+  \label{fig:mas-reqs-3}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{ressources/MAS/figures/MASRequirements/MASRequirements4.jpeg}
+  \caption{SysML v2 requirements package overview (4/6).}
+  \label{fig:mas-reqs-4}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{ressources/MAS/figures/MASRequirements/MASRequirements5.jpeg}
+  \caption{SysML v2 requirements package overview (5/6).}
+  \label{fig:mas-reqs-5}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{ressources/MAS/figures/MASRequirements/MASRequirements6.jpeg}
+  \caption{SysML v2 requirements package overview (6/6).}
+  \label{fig:mas-reqs-6}
+\end{figure}
+
+%\clearpage
 \lstinputlisting[
   style=sysml,
-  label={lst:mas-reqs},
+  label={lst:mas-reqs-src},
   numbers=left,
   inputencoding=utf8
 ]{./ressources/MAS/MASRequirements.sysml}
 
-% \subsection*{B.1 Architecture SysML v2 Model}
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MASArchitecture.pdf}\label{fig:arch}
-% \end{figure}
+\clearpage
+\subsection*{Architecture Model}\label{app:arch-mod}
+\subsubsection*{Architecture Model with Focus on Components }
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MAS_architecture_complete_appendix.png}
+  \caption{}
+  \label{fig:app-mas-arch-mod}
+\end{figure}
 
-% \lstinputlisting[
-%   style=sysml,
-%   label={lst:mas-arch},
-%   inputencoding=utf8
-% ]{./ressources/MAS/MASArchitecture.sysml}
+\clearpage
+\subsubsection*{Architecture Model with External Environment}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MAS_arch_and_environment1.png}
+  \caption{This figure shows the architecture model with a focus on the components of the system.}
+  \label{fig:app-mas-arch-mod}
+\end{figure}
 
-% \subsection*{B.2 Architecture Figure}
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MASArchitecture_Figure.pdf}\label{fig:arch-fig}
-% \end{figure}
+\clearpage
+\subsubsection*{Architecture Model with External Environment}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MAS_arch_and_environment2.png}
+  \caption{This figure incomporates to the previous one the external environment of the system.}
+  \label{fig:app-mas-arch-mod}
+\end{figure}
 
-% \subsection*{B.3 Architecture Figure SysML v2 Code}
-% \lstinputlisting[
-%   style=sysml,
-%   caption={Architecture figure (MASArchitecture\_Figure.sysml)},
-%   label={lst:mas-arch-figure},
-%   inputencoding=utf8
-% ]{./ressources/MAS/MASArchitecture_Figure.sysml}
+\clearpage
+\subsection{Requirements Traceability}\label{app:trace}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{ressources/MAS/diagrams/MASTraceability1.png}
+  \caption{Traceability overview. System elements satisfied consolidated requirements, and test cases verified a representative subset (1/3).}
+  \label{fig:app-mas-traceability}
+\end{figure}
 
-% \subsection*{C.1 Traceability Diagram}
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width=\linewidth]{ressources/MAS/diagrams/MASArchitecture_Trace.pdf}\label{fig:trace}
-% \end{figure}
+\clearpage
+\subsection{Requirements Traceability}\label{app:trace}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{ressources/MAS/diagrams/MASTraceability2.png}
+  \caption{Traceability overview. System elements satisfied consolidated requirements, and test cases verified a representative subset (2/3).}
+  \label{fig:app-mas-traceability}
+\end{figure}
 
-% \subsection*{C.2 Traceability SysML v2 Code}
-% \lstinputlisting[
-%   style=sysml,
-%   caption={Traceability mapping (MASArchitecture\_Trace.sysml)},
-%   label={lst:mas-arch-trace},
-%   inputencoding=utf8
-% ]{./ressources/MAS/MASArchitecture_Trace.sysml}
+\clearpage
+\subsection{Requirements Traceability}\label{app:trace}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{ressources/MAS/diagrams/MASTraceability3.png}
+  \caption{Traceability overview. System elements satisfied consolidated requirements, and test cases verified a representative subset (3/3).}
+  \label{fig:app-mas-traceability}
+\end{figure}
 
-% \subsection*{C. 3 Traceability}
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width=\linewidth]{ressources/MAS/diagrams/fig-traceability.pdf}\label{fig:trace-fig}
-% \end{figure}
-
-% --- NDA ---
-% \clearpage
-% \thispagestyle{empty}
-% \begin{center}
-% 	\vspace*{1cm}
-% 	\Huge\textbf{Non-Disclosure Agreement}\\
-% 	\vspace*{2cm}
-% 	\normalsize
-% 	\begin{quotation}
-% 		\parbox{0.8\textwidth}{The present bachelor's thesis contains internal confidential information of the company \myCompany, \myCompanyAddress. The dissemination of the content of the work in whole or in part is strictly prohibited. No copies or transcripts, including digital forms, cane made. Exceptions require the written approval of the company \myCompany.}
-% 	\end{quotation}
-% 	\vspace*{1cm}
-% 	\begin{quotation}
-% 		\parbox{0.8\textwidth}{
-% 		\begin{tabularx}{0.78\textwidth}{l@{\extracolsep\fill}l}
-%             \small \myLocation, \today \\
-% 	        \rule{6cm}{0.1mm}&\rule{4cm}{0.1mm}\\
-% 			Place, Date&Signature
-% 		\end{tabularx}}
-% 	\end{quotation}
-% \end{center}
-% \newpage
+\clearpage
+\lstinputlisting[
+  style=sysml,
+  label={lst:mas-trace-src},
+  numbers=left,
+  inputencoding=utf8
+]{./ressources/MAS/MASTraceability.sysml}
 
 % --- AI Declaration ---
+
+\clearpage
+\section{AI-Usage Declaration}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{ressources/AI-usage/KI-NE1.png}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{ressources/AI-usage/KI-NE2.png}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{ressources/AI-usage/KI-NE3.png}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{ressources/AI-usage/KI-NE4.png}
+\end{figure}
